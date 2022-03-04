@@ -1,0 +1,105 @@
+*{
+  outline: none;
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+  font-family:"Maven Pro",sans-serif;
+}
+/* form sign up */
+body{
+  width:100%;
+  background: linear-gradient(90deg,#7ea1ca,#ebad8a);
+}
+.form{
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin:0px auto;
+  margin-top:20px;
+  margin-bottom: 20px;
+  flex-direction: column;
+  max-width: 300px;
+  max-height: 600px;
+  background-color: #ffffff;
+  padding:30px 30px 20px 30px;
+}
+.form img{
+  max-width: 128px;
+}
+.form h3{
+  margin-top:20px;
+  margin-bottom:20px;
+  font-size: 25px;
+  font-weight: normal;
+}
+.form .form__input{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form .form__input .form__group{
+  margin-bottom: 19px;
+  width: 100%;
+  position: relative;
+}
+.form__group label{
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 20px;
+  max-width: 100%;
+  margin:0 0 5px 15px;
+}
+.form__group i{
+  position:absolute;
+  font-size: 20px;
+  color:white;
+  top:55px;
+  left:10px;
+}
+.form .form__input input{
+  width: 100%;
+  height: 60px;
+  background-color: #dfdedc;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding-left:30px;
+  font-size: 16px;
+}
+
+.form .form__input input:hover,.form .form__input input:focus{
+  background-color: thistle;
+}
+
+.form #form__button{
+  background-color: #d0a791;
+  width: 200px;
+  height: 30px;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  padding: 0px 58px 0px 60px;
+  align-self: center;
+  border:1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.form #form__button:hover, .form #form__button:focus{
+  background-color:tomato;
+}
+
+.form__footer{
+  margin-top:50px;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form__footer a{
+  display: block;
+  margin-left:5px;
+  color:orange;
+  text-decoration: underline;
+}
+
+/* form login */

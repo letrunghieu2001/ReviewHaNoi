@@ -41,19 +41,17 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/users', [UserController::class, 'index']);
 });
 
-Route::group(['middleware'=>'admin'], function(){    
-    Route::get('/users/create',[UserController::class, 'create']);   
-    Route::post('/users', [UserController::class, 'store']);
-    Route::get('/users/{user}/edit', [UserController::class, 'edit']);
-    Route::get('/users/{user}',[UserController::class, 'show']);
-    Route::put('/users/{user}', [UserController::class, 'update']);
-    Route::delete('/users/{user}', [UserController::class, 'destroy']);
-});
-
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/users/self_edit', [UserController::class, 'self_edit']);
     Route::put('/users/update_avt/{user}', [UserController::class, 'update_avt']);
     Route::get('/users/self_show',[UserController::class, 'self_show']);
     Route::put('/users/self_edit/{user}', [UserController::class, 'self_update']);
+});
+
+Route::group(['middleware'=>'admin'], function(){    
+    Route::get('/users/{user}/edit', [UserController::class, 'edit_user']);
+    Route::get('/users/{user}',[UserController::class, 'show_user']);
+    Route::put('/users/{user}', [UserController::class, 'update_user']);
+    Route::delete('/users/{user}', [UserController::class, 'destroy_user']);
 });
 //------------------------------------------------------------------------

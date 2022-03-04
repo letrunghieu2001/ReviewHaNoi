@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.login.app')
 
 @section('title')
 ReviewHaNoi
@@ -9,8 +9,8 @@ ReviewHaNoi
     <div class="card">
         <h1 class="text-IBM"> Thông tin cá nhân</h1>
     </div>
-    <!-- <div class="card card-block sameheight-item">
-        <img class="mw-200px mb-3" src="{{ asset("/uploads/avatars/$user->avatar") }}"> -->
+    <div class="card card-block sameheight-item">
+        <img class="mw-200px mb-3" id="img" style="width:300px;height:300px;" src="{{ asset("/uploads/avatars/$user->avatar") }}">
         <table class="table">
             <tr>
                 <td class="w-25">ID:</td>
@@ -19,6 +19,10 @@ ReviewHaNoi
             <tr>
                 <td>Họ tên:</td>
                 <td>{{ $user->name }}</td>
+            </tr>
+            <tr>
+                <td>Giới tính:</td>
+                <td>{{ $user->gender }}</td>
             </tr>
             <tr>
                 <td>Ngày sinh:</td>
