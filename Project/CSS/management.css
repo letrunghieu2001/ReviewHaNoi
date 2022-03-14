@@ -1,0 +1,204 @@
+@import url(../CSS/main.css);
+@import url(../CSS/footer.css);
+@import url(../CSS/menu.css);
+
+
+img{
+  max-width: 256px;
+}
+#user__control {
+  margin-top: 100px;
+  font-family: sans-serif;
+}
+.title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title h2{
+  margin-top: 20px;
+  font-size: 30px;
+}
+.user__control{
+  max-width: 100%;
+  margin: 20px 40px 40px 40px;
+  display: grid;
+  grid-template-columns: auto;
+  gap:10px;
+  justify-content: space-around;
+}
+.user__control .user{
+  display: flex;
+  width:calc(100%-15px)/2;
+}
+.user__control .user__image{
+  width: 100px;
+  height: 50px;
+  border:1px solid black;
+  margin-right: 10px;
+}
+.user label{
+  width: 100px;
+  margin-right:10px;
+  font-size: 14px;
+  overflow:hidden;
+}
+.three__dots{
+  display: block;
+  width: 30px;
+  height: 20px;
+  border:1px solid black;
+  border-radius: 3px;
+  cursor:pointer;
+  margin-left:5px;
+  position: relative;
+
+}
+.three__dots img{
+  width: 10px;
+  height: 10px;
+  margin-left: 7px;
+  margin-bottom: 2px;
+}
+.subMenu{
+  display: none;
+}
+/* .three__dots:hover .subMenu, */
+.three__dots .subMenu
+{
+  width: 180px;
+  height: 150px;
+  position: absolute;
+  top: 30px;
+  display: block;
+  transition: 0.25s ease-in-out;
+}
+.three__dots.active .subMenu{
+  display: block;
+}
+.three__dots .subMenu:before{
+  content: '';
+  position: absolute;
+  width:0;
+  height:0;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-bottom: 5px solid black;
+  left:5px;
+  top: -5px;
+  z-index: 999999;
+  opacity: 0.5;
+  
+}
+.subMenu li{
+  display: block;
+  width: 100%;
+  border: 1px solid grey;
+  padding:5px 
+}
+.subMenu li a{
+  font-size: 14px;
+  line-height: 14px;
+}
+
+@media only screen and (min-width:600px) {
+  #user__control {
+    margin-top: 200px;
+    font-family: sans-serif;
+  }
+
+  img{
+    max-width: 256px;
+  }
+  #user__control {
+    margin-top:20px;
+    font-family: sans-serif;
+  }
+  .title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .title h2{
+    margin-top: 20px;
+    font-size: 40px;
+  }
+  .user__control{
+    max-width: 100%;
+    margin: 50px 100px 100px 100px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
+    gap:50px;
+    justify-content: space-around;
+  }
+  .user__control .user{
+    display: flex;
+    width:calc(100%-15px)/2;
+  }
+  .user__control .user__image{
+    width: 184px;
+    height: 124px;
+    border:1px solid black;
+    margin-right: 10px;
+  }
+  .three__dots{
+    display: block;
+    width: 30px;
+    height: 20px;
+    border:1px solid black;
+    border-radius: 3px;
+    cursor:pointer;
+    margin-left:5px;
+    position: relative;
+
+  }
+  .subMenu{
+    display: none;
+  }
+  .three__dots img{
+    width: 10px;
+    height: 10px;
+    margin-left: 7px;
+    margin-bottom: 2px;
+  }
+
+  .three__dots .subMenu
+  {
+    width: 180px;
+    height: 150px;
+    position: absolute;
+    top: 30px;
+    display: none;
+    transition: 0.25s ease-in-out;
+  }
+  .three__dots.active .subMenu{
+    display: block;
+  }
+  .three__dots .subMenu:before{
+    content: '';
+    position: absolute;
+    width:0;
+    height:0;
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-bottom: 5px solid black;
+    left:5px;
+    top: -5px;
+    z-index: 999999;
+    opacity: 0.5;
+    display: block;
+  }
+  .subMenu li{
+    display: block;
+    width: 100%;
+    border: 1px solid grey;
+    padding:5px 
+  }
+  .subMenu li a{
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
