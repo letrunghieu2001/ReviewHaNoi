@@ -1,0 +1,35 @@
+:root{
+  --BackgroundColor: linear-gradient(90deg,#7ea1ca,#ebad8a);
+  --FontPrimary: 'SVN-Elle';
+  --FontSecondary: 'SlimTony';
+  --TextColor: white;
+}
+@font-face {
+  font-family: SVN-Elle;
+  src: url('../Font/SVN-Elle\ NovaC\ Extra\ Light.ttf');
+  font-weight: 800;
+}
+@font-face {
+  font-family: SlimTony;
+  src: url('../Font/UVF\ SlimTony.ttf');
+}
+body{
+  width: 100%;
+
+}
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+li{
+  list-style: none;
+}
+.container{
+  max-width: 100%;
+}

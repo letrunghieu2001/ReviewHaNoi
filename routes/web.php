@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/search', [HomeController::class, 'search']);
+Route::get('/info', [HomeController::class, 'info']);
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/adminstration', function () {
     return view('welcome');
@@ -38,20 +42,39 @@ Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'register']);
 //-----------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth'], function(){
-    Route::get('/users', [UserController::class, 'index']);
+    Route::get('/user', [UserController::class, 'index']);
 });
-
+//Người dùng tự chỉnh sửa thông tin cá nhân
 Route::group(['middleware'=>'auth'], function(){
-    Route::get('/users/self_edit', [UserController::class, 'self_edit']);
-    Route::put('/users/update_avt/{user}', [UserController::class, 'update_avt']);
-    Route::get('/users/self_show',[UserController::class, 'self_show']);
-    Route::put('/users/self_edit/{user}', [UserController::class, 'self_update']);
+    Route::get('/user/self_edit', [UserController::class, 'self_edit']);
+    Route::put('/user/update_avt/{user}', [UserController::class, 'update_avt']);
+    Route::get('/user/self_show',[UserController::class, 'self_show']);
+    Route::put('/user/self_edit/{user}', [UserController::class, 'self_update']);
+});
+//Chi tiết bài Posts
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/{post}',[PostController::class, 'show']);
+
+Route::group(['middleware'=>'admin'], function(){  
+Route::get('/posts/create',[PostController::class, 'create']);
+Route::post('/posts', [PostController::class, 'store']);
+Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+Route::put('/posts/{post}', [PostController::class, 'update']);
+Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 });
 
+Route::group(['middleware'=>'auth'], function(){ 
+    Route::post('/comments/{post}', [CommentController::class, 'store']);
+    Route::get('/comments/{comment}/self_edit', [CommentController::class, 'self_edit']);
+    Route::put('/comments/{comment}', [CommentController::class, 'update']);
+    Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);
+    });
+//Admin quản lý người dùng
 Route::group(['middleware'=>'admin'], function(){    
     Route::get('/users/{user}/edit', [UserController::class, 'edit_user']);
     Route::get('/users/{user}',[UserController::class, 'show_user']);
     Route::put('/users/{user}', [UserController::class, 'update_user']);
     Route::delete('/users/{user}', [UserController::class, 'destroy_user']);
 });
+
 //------------------------------------------------------------------------

@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function self_show () {
         $user = Auth::user();
-        return view ('users.self_show', [
+        return view ('user.self_show', [
             'user' => $user
         ]);
     }
@@ -19,14 +19,14 @@ class UserController extends Controller
 public function self_edit()
     {   
         $user = Auth::user();
-        return view('users.self_edit', [
+        return view('user.self_edit', [
             'user' => $user
         ]);
     }
     public function self_update(Request $request, User $user)
     {   
         $user->update($request->input());
-        return redirect('/users/self_show');
+        return redirect('/user/self_show');
     }
 
     public function update_avt(Request $request, User $user)
@@ -40,6 +40,6 @@ public function self_edit()
                 'avatar' => $name
             ]);
         }
-        return redirect('/users/self_edit');
+        return redirect('/user/self_edit');
     }
 }

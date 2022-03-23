@@ -15,7 +15,7 @@
       <div class="form__group">
         <h3>Email</h3>
         <div class="input__box">
-        <i class="fa-solid fa-circle-user"></i>
+        <img src="{{ asset('assets/img/user.png') }}" alt="user">
           <input type="email" name="email" id="email"  placeholder="Nhập email của bạn" value="{{ old('email') }}">
         </div>
       </div>
@@ -26,7 +26,7 @@
       <div class="form__group">
         <h3>Password</h3>
         <div class="input__box">
-        <i class="fa-solid fa-key"></i>
+        <img src="{{ asset('assets/img/padlock.png') }}" alt="lock">
           <input type="password" name="password" id="password" placeholder="Nhập mật khẩu của bạn">
         </div>
       </div>

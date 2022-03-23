@@ -14,7 +14,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return Auth::check() ? view('welcome') : view('auth.login');
+        return Auth::check() ? redirect('/') : view('auth.login');
     }
 
     public function login(LoginRequest $request)
@@ -44,6 +44,6 @@ class LoginController extends Controller
         Auth::logout();
         //Nếu đăng xuât thành công thì sẽ điều hướng về trang login
         FacadesSession::flush();
-        return redirect('/login');
+        return redirect('/');
     }
 }
