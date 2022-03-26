@@ -6,7 +6,7 @@ Full Post
 
 @section('content')
 <!-- Create post -->
-@if ((Auth::check()) || (Auth::user()->role_id == 1)  )
+@if ((Auth::check()) && (Auth::user()-> role_id == 1)  )
                     <a href='{{ url("/posts/create") }}' class="tt-icon-btn">
                         <p>Create Post</p>
                     </a>
