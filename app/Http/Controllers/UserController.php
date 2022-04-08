@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function self_show () {
         $user = Auth::user();
-        return view ('user.self_show', [
+        return view ('users.self_show', [
             'user' => $user
         ]);
     }
@@ -19,7 +19,7 @@ class UserController extends Controller
 public function self_edit()
     {   
         $user = Auth::user();
-        return view('user.self_edit', [
+        return view('users.self_edit', [
             'user' => $user
         ]);
     }

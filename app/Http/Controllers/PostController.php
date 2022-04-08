@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PlaceRequest;
 use App\Http\Requests\PostRequest;
+use App\Models\Place;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,6 +50,10 @@ class PostController extends Controller
 
         $post = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.user_id')
+        ->join('districts', 'districts.id', '=', 'places.district_id')
+        ->join('place_category_details', 'place_category_details.place_id', '=', 'places.id')
+        ->join('posts', 'posts.place_id', '=', 'places.id')
+        ->join('categories','categories.id','=','place_category_details.category_id')
         ->where('posts.id', '=', "$post")
         ->select('posts.*', 'users.name', 'users.avatar')
         ->get();
@@ -68,12 +74,16 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(PostRequest $request, Post $post)
+    public function store(PostRequest $postRequest, Post $post, PlaceRequest $placeRequest)
     {
         $data = Post::create([
             'user_id' => Auth::user()->id,
-            'content' => $request->content,
-            'title' => $request->title
+            'content' => $postRequest->content,
+            'title' => $postRequest->title
+        ]);
+        $data1 = Place::create([
+            'name' => $placeRequest->name ,
+            
         ]);
         return redirect("/posts/{$post->id}");
     }
