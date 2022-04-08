@@ -1,0 +1,133 @@
+@import url(./main.css);
+@import url(./menu.css);
+@import url(./footer.css);
+:root{
+  --colorPrimary: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+}
+
+
+.border__color{
+  width: 100%;
+  background: var(--colorPrimary);
+  padding:3px;
+  
+}
+.user__setup{
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-start;
+}
+.user__setup .border__color{
+  margin-top:10px;
+}
+.user__setup .basic__info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #fff;
+}
+.logo{
+  width: 258px;
+  height: 258px;
+  background: var(--colorPrimary);
+  border-radius: 50%;
+  padding:1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.basic__info .logo img{
+  width: 256px;
+  height: 256px;
+  border-radius: 50%;
+}
+.form__group{
+  display: flex;
+  align-items: center;
+  width:300px;
+  height: 56px;
+  border-radius: 5px;
+  position:relative;
+
+  background: white;
+}
+.details__info .form__group{
+  height: 80px;
+}
+.details__info #account__details{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.details__info #account__details button{
+  align-self: center;
+}
+
+.details__info .form__group label{
+  font-size: 20px;
+}
+.details__info .form__group label span{
+  color:red;
+}
+.details__info .form__group input{
+  padding: 10px 20px;
+  border-radius: 5px;
+  
+}
+
+.form__group h3{
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: normal;
+  margin-left:10px;
+}
+.form__group img{
+  width:20px;
+  height: 20px;
+  margin-left:10px;
+}
+.container .details__info{
+  background: #fff;
+}
+.details__info .title{
+  text-align: center;
+  font-size:40px;
+
+  font-weight: bold;
+}
+.details__info .form__split{
+  width: 100%;
+  display: flex;
+}
+
+.details__info .form__group{
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.details__info .form__group input{
+  width:300px;
+  height: 56px;
+  
+}
+#btn--update{
+  width: 400px;
+  height: 40px;
+  background-image: linear-gradient(to right, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  font-size:24px;
+  line-height: 24px;
+  color:white;
+  text-align: center;
+  cursor: pointer;
+  outline:none;
+  border-radius:5px;
+  border:1px solid transparent;
+  margin-top:30px;
+}
+#btn--update:hover{
+
+  color:red;
+}

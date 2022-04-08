@@ -1,0 +1,120 @@
+@import url(./main.css);
+/* form sign up */
+body{
+  background: linear-gradient(90deg,#7ea1ca,#ebad8a);
+}
+.form{
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin:0px auto;
+  margin-top:100px;
+  margin-bottom: 20px;
+  flex-direction: column;
+  max-width: 300px;
+  max-height: 800px;
+  background-color: #ffffff;
+  padding:30px 30px 20px 30px;
+}
+.form img{
+  max-width: 128px;
+}
+.form h3{
+  margin-top:20px;
+  margin-bottom:20px;
+  font-size: 25px;
+  font-weight: normal;
+}
+.form .form__input{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form .form__input .form__group{
+  margin-bottom: 19px;
+  width: 100%;
+  position: relative;
+}
+.form__group label{
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 20px;
+  max-width: 100%;
+  margin:0 0 5px 15px;
+}
+.form__group i{
+  position:absolute;
+  font-size: 20px;
+  color:white;
+  top:55px;
+  left:10px;
+}
+.form .form__input input{
+  width: 100%;
+  height: 60px;
+  background-color: #dfdedc;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding-left:20px;
+  font-size: 16px;
+}
+.form__group.success input{
+  border-color:#2ecc71;
+}
+.form__group.success >.form__message{
+  color:#2ecc71;
+
+}
+.form__group.error input{
+  border-color:red;
+}
+.form__group.error >.form__message{
+  color:red;
+
+}
+.form .form__input input:hover,.form .form__input input:focus{
+  background-color: thistle;
+}
+.form__message{
+  font-size: 12px;
+}
+.form__message.correct{
+  display: block;
+  width:12px;
+  height: 12px;
+  background: url(../Image/correct.png) no-repeat;
+}
+.form #form__button{
+  background-color: #d0a791;
+  width: 200px;
+  height: 30px;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  padding: 0px 58px 0px 60px;
+  align-self: center;
+  border:1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.form #form__button:hover, .form #form__button:focus{
+  background-color:tomato;
+}
+
+
+
+@media (min-width:600px){
+  .form{
+    max-width: 400px;
+    max-height: 800px;
+  }
+  .form img{
+    max-width: 256px;
+  }
+  .form #form__button{
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+/* form login */

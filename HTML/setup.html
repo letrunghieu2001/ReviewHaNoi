@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/setup.css">
+    <!-- Box Icon -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+       <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="top">
+    <!-- // start menu -->
+     <!-- Nav -->
+     <nav class="main-nav">
+        <div class="toggle-btn">
+          <div></div>
+        </div>
+      </nav>
+
+
+    <div class="nav">
+        <ul class="row1">
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Liên Hệ</a></li>
+            <li class="widtht"><a href="#">Chính sách bảo mật</a></li>
+            <li><a href="#">Hỗ trợ</a></li>
+            <li><img src="../Image/menu/vn.png" alt="Viet_Nam"></li>
+        </ul>
+        <ul class="row2">
+            <div class="menu">
+              <li><img id="logo" src="../Image/logo.png" alt="logo"></li>
+              <li><a href="#">
+                  <img src="../Image/menu/home.png" alt="">
+                  <span>    Trang chủ</span>
+                  </a>
+              </li>
+              <li id="gift"><a href="#">
+                  <img src="../Image/menu/gift.png" alt="">
+                  <span>Ưu đãi đặc biệt</span>
+                  </a>
+                  <ul class="menu2" >
+                    <li><a href="#">Giảm Giá 50%</a></li>
+                    <li><a href="#">Ưu Đãi Đối Tác</a></li>
+                    <li><a href="#">Freeship</a></li>
+                    <li><a href="#">Deal 0đ</a></li>
+                  </ul>
+              </li>
+              <li id="category"><a href="#">
+                  <img src="../Image/menu/catelogy.png" alt="">
+                  <span> Danh mục </span>
+                  </a>
+                  <ul class="menu2" >
+                    <li><a href="#">Gần Tôi</a></li>
+                    <li><a href="#">Đánh Giá Cao</a></li>
+                    <li><a href="#">Nhà Hàng</a></li>
+                    <li><a href="#">Quán Ăn</a></li>
+                    <li><a href="#">Quán Ăn Vặt</a></li>
+                    <li><a href="#">Quán Cà Phê</a></li>
+                    <li><a href="#">Di tích Lịch Sử</a></li>
+                    <li><a href="#">Địa điểm Check-in</a></li>
+                    <li><a href="#">Homestay - Khách sạn</a></li>
+                  </ul>
+              </li>
+              <li class="search__container">
+                <form id="search__btn" action="#" method="get">
+                  <button type="submit"><i class="fas fa-search"></i></button>
+                  <input type="text" name="" id="search" placeholder="Tìm kiếm gì đó...">
+                </form>
+              </li>
+            </div>
+            <li class="admin">
+                <a href="">Đăng nhập</a>
+                <ul class="menu2" >
+                  <li><a href="#">Thông tin cá nhân</a></li>
+                  <li><a href="#">Thông tin người dùng</a></li>
+                  <li><a href="#">Đăng bài</a></li>
+  
+                  <li><a href="#">Góp ý</a></li>
+                  <li><a href="#">Đăng xuất</a></li>
+                </ul>
+            </li>
+            <li class="darkLight-searchBox">
+              <div class="dark-light">
+                <i class='bx bx-moon moon'></i>
+                <i class='bx bx-sun sun'></i>
+            </li>  
+        </ul>
+    </div>
+    <!-- // end menu -->
+
+
+  <!-- Form -->
+  <div class="user__setup container">
+    <!-- left panel -->
+    <form >
+      <div class="border__color">
+        <div class="basic__info">
+
+          
+            <div class="logo">
+              <img src="../Image/man.png" alt="avatar">
+            </div>
+        
+          
+          <div class="border__color">
+            <div class="form__group">
+            <img src="../Image/id.png" alt="id">
+            <label for="firstName">Đỗ Lê Minh</label>
+            </div>
+          </div>
+         
+          <div class="border__color">
+            <div class="form__group">
+              <img src="../Image/calendar.png" alt="calendar">
+              <label for="dob">09/12/2001</label>
+            </div>
+          </div>
+         
+          <div class="border__color">
+            <div class="form__group">
+              <img src="../Image/telephone.png" alt="telephone">
+              <label for="telephone">0358091202</label>
+            </div>
+          </div>
+         
+          <div class="border__color">
+            <div class="form__group">
+              <img src="../Image/email.png" alt="email">
+              <h3>minhntt2001hn@gmail.com</h3>
+            </div>
+          </div>
+         
+      </div>
+    </div>
+  </form>
+    <!-- right panel  -->
+    <div class="border__color">
+      <div class="details__info">
+        <div class="title">
+          <p>Thông tin tài khoản</p>
+        </div>
+        <form id="account__details" action="#">
+
+          <div class="form__split">
+            <div class="form__group">
+              <label for="firstName">FirstName:<span>*</span></label>
+              <input type="text" name="firstName" id="firstName">
+            </div>
+            <div class="form__group">
+              <label for="lastName">LastName:<span>*</span></label>
+              <input type="text" name="lastName" id="lastName">
+            </div>
+          </div>
+          
+          <div class="form__group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" name="dob" id="dob">
+          </div>
+
+          <div class="form__split">
+            <div class="form__group">
+              <label for="address">City:</label>
+              <input type="text" name="city" id="city">
+            </div>
+            <div class="form__group">
+              <label for="address">District:</label>
+              <input type="text" name="district" id="district">
+            </div>
+          </div>
+          
+          <div class="form__group">
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address">
+          </div>
+
+          <div class="form__group">
+            <label for="password">Password:<span>*</span></label>
+            <input type="password" name="password" id="password">
+          </div>
+
+          <div class="form__group">
+            <label for="password">Password Confirmation:<span>*</span></label>
+            <input type="password" name="password" id="password">
+          </div>
+
+          <button id="btn--update" type="submit">Cập nhật</button>
+        </form>
+        
+      </div>
+    </div>
+     
+
+  </div>
+  
+  <footer class="container">
+      <div class="footer__content">
+          <div class="footer__logo">
+            <img src="../Image/logo.png" alt="logo">
+            <h1>Bring Ha Noi to you!</h1>
+          </div>
+          <div class="footer__contact">
+            <h3>Contact</h3>
+            <h3>0123456789</h3>
+            <h3>reviewhanoi@gmail.com</h3>
+          </div>
+          <div class="footer__socials">
+            <h3>Follow us</h3>
+            <div class="socials">
+              <a href="#"><img src="../Image/facebook.png" alt="facebook"></a>
+              <a href="#"><img src="../Image/instagram.png" alt="instagram"></a>
+              <a href="#"><img src="../Image/tik-tok.png" alt="tiktok"></a>
+            </div>
+          </div>
+      </div>
+      <div class="footer__info">
+        <h3>Copyright &copy; 2020-2021. All right reserved by <span>ReviewHanoi</span></h3>
+        <a href="#"><i class="fa-solid fa-circle-arrow-up"></i></i></a>
+      </div>
+  </footer>
+</body>
+<script src="../Javascript/menu.js"></script>
+</html>

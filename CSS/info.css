@@ -1,0 +1,43 @@
+@import url(./main.css);
+@import url(./menu.css);
+@import url(./footer.css);
+
+
+.info{
+  max-width: 100%;
+  margin: 100px 20px 10px 30px;
+  
+}
+.info__logo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.info .info__logo img{
+  max-width: 256px;
+}
+
+.info__content{
+  margin-top:20px;
+}
+.info__content .title{
+  font-family: var(--FontSecondary),sans-serif;
+  color:red
+}
+.info__content p {
+  color:var(--TextColor);
+  line-height: 22px;
+  word-spacing: 2px;
+  font-size: 16px;
+  font-family:var(--FontPrimary),sans-serif;
+}
+
+@media (min-width:600px) {
+  .split{
+    display: flex;
+    justify-content: space-between;
+  }
+  .split .info__content{
+    width: calc(100%/3);
+  }
+}

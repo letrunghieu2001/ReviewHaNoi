@@ -1,0 +1,117 @@
+@import url(../CSS/main.css);
+@import url(../CSS/footer.css);
+@import url(../CSS/menu.css);
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { width: 2px; }
+::-webkit-scrollbar-thumb { background: linear-gradient(150deg, rgb(251, 191, 77) 35%, rgb(241, 78, 141) 100%); }
+::-webkit-scrollbar-thumb:hover { background: rgb(241, 75, 143); }
+
+
+/* //search */
+.body {position: relative;z-index: 2;width: 100%;height: 100%; }
+.body .logo_title{
+    margin: auto;
+    width: 60%;
+    position: absolute;
+    top: 250px;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -61%);
+}
+.body .logo_title img{
+    width: 37%;
+}
+.body .logo_title h4{font-family: var(--FontSecondary);color:white;font-size: 2rem;}
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+.danhmuc{
+    width: 21%;
+    border: none;
+    padding: 12px;
+    height: 100%;
+    outline: none;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+    opacity: 100%;
+    border-right: 1px solid gray;
+    border-radius: 5px 0px 0px 5px;
+    background-color: rgb(215, 201, 201);
+}
+  .danhmuc::placeholder{text-align: center;color:black}
+  .searchTerm {
+    width: 85%;
+    border: none;
+    padding: 12px;
+    height: 100%;
+    outline: none;
+    color: #f25e84;
+    background-color: rgb(215, 201, 201);
+  }
+  
+  .searchTerm:focus{
+    color: #f25e84;
+  }
+  
+  .searchButton {
+    width: 64px;
+    height: 40px;
+    border: 1px solid #ffffff;
+    background: rgb(251,191,77);
+    background: linear-gradient(150deg, rgba(251,191,77,1) 35%, rgba(241,78,141,1) 100%);
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+
+  .wrap{
+    width: 56%;
+    position: absolute;
+    
+    top: 350px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+footer{
+  margin-top:-5px;
+}
+
+
+
+/* 
+
+.bg{width: 100%;position: absolute;z-index: 1;top: 0;right: 0;transform: scale(1);background-color: rgb(56, 56, 56);height: 100%;} */
+.bg{
+  width: 100%;
+  margin:0;
+}
+.bg img{max-width: 100%;height: 100%;} 
+
+
+@media (max-width:600px) {
+  .body .logo_title{
+    top:100px;
+  }
+  .body .logo_title h4{
+    font-size: 16px;
+  }
+  .wrap{
+    width: 56%;
+    position: absolute;
+    
+    top: 120px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+  .danhmuc::placeholder{
+    font-size: 16px;
+  }
+}
+
