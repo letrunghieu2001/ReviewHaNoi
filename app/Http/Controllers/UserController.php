@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
@@ -42,4 +43,14 @@ public function self_edit()
         }
         return redirect('/user/self_edit');
     }
+
+    public function show () {
+        $users = DB::table('users')
+        ->get();
+        return view ('users.show', [
+            'users' => $users
+        ]);
+    }
+
+
 }

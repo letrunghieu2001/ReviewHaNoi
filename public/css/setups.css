@@ -1,0 +1,70 @@
+@import url(../CSS/footer.css);
+@import url(../CSS/main.css);
+@import url(../CSS/menu.css);
+
+#form-confirmation{
+  display: block;
+  width:800px;
+  display: flex;
+  flex-direction: column;
+  margin:0px auto;
+  margin-top:100px;
+  justify-content: space-between;
+  align-items: center;
+  background-color:rgb(216, 235, 235);
+  padding:50px;
+}
+.title{
+  align-self: center;
+}
+.title h3{
+  font-size: 40px;
+  font-family: var(--FontSecondary),sans-serif;
+  color:red;
+}
+.form__split{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.form__split .form__group{
+  width: 48%;
+}
+.form__group{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+#gender{
+  flex-direction: row;
+}
+.form__group label{
+  font-size: 20px;
+}
+.form__group input{
+  height: 50px;
+  border:1px solid rgba(0,0,0,0.2);
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.05);
+}
+.form__group input::placeholder{
+  padding-left:10px;
+}
+span{
+  color:red;
+}
+
+button{
+  width:50%;
+  height: 30px;
+  display: block;
+  color:white;
+  background-color:coral;
+  border-radius:5px;
+  border:none;
+}
+button:hover{
+  background-color:rgba(255,127,180);
+  
+}

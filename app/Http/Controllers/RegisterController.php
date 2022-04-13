@@ -19,6 +19,7 @@ class RegisterController extends Controller
     {
 //Thêm mới người dùng thông qua các trường
 $user = User::create([
+    'name' => $request->input('name'),
     'email' => $request->input('email'),
     'password' => bcrypt($request->input('password')),
     'role_id' => '2'

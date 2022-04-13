@@ -1,11 +1,11 @@
 @import url(../CSS/main.css);
-
+@import url(../CSS/menu.css);
 
 footer{
   margin-top: 50px;
   max-width: 100%;
   max-height: 700px;
-  background:var(--BackgroundColor);
+  
 }
 .footer__content{
   max-width: 100%;
@@ -13,6 +13,7 @@ footer{
   display:flex;
   flex-direction: column;
   align-items: center;
+  background: var(--FooterColor);
 
 }
 footer .footer__content .footer__logo{
@@ -27,7 +28,7 @@ footer .footer__content .footer__logo img{
 .footer__logo h1{
   margin-top:10px;
   max-width: inherit;
-  color:var(--TextColor);
+  color:red;
   font-size: 16px;
   font-weight: normal;
   line-height: 2rem;
@@ -50,7 +51,7 @@ footer .footer__content .footer__logo img{
 }
 
 .footer__info{
-  background: var(--TextColor);
+ 
   width:100%;
   padding-top:56px;
   position: relative;
@@ -64,7 +65,9 @@ footer .footer__content .footer__logo img{
   font-weight: lighter;
   text-align: center;
 }
-
+.footer__info h3{
+  color:var(--TextColor);
+}
 .footer__info h3 span{
   font-weight: 1000;
 }

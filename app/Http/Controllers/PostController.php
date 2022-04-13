@@ -50,10 +50,6 @@ class PostController extends Controller
 
         $post = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.user_id')
-        ->join('districts', 'districts.id', '=', 'places.district_id')
-        ->join('place_category_details', 'place_category_details.place_id', '=', 'places.id')
-        ->join('posts', 'posts.place_id', '=', 'places.id')
-        ->join('categories','categories.id','=','place_category_details.category_id')
         ->where('posts.id', '=', "$post")
         ->select('posts.*', 'users.name', 'users.avatar')
         ->get();

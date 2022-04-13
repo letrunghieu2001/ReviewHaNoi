@@ -6,11 +6,11 @@
 img{
   max-width: 256px;
 }
-#user__control {
-  margin-top: 100px;
-  font-family: sans-serif;
+li.darkLight-searchBox{
+  visibility: hidden;
 }
 .title{
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;

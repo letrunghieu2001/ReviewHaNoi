@@ -1,17 +1,18 @@
 :root{
-  --BackgroundColor: linear-gradient(90deg,#7ea1ca,#ebad8a);
+  --BackgroundColor: white;
   --FontPrimary: 'SVN-Elle';
   --FontSecondary: 'SlimTony';
-  --TextColor: white;
+  --TextColor: black;
+  --FooterColor:linear-gradient(90deg,#7ea1ca,#ebad8a);
 }
 @font-face {
   font-family: SVN-Elle;
-  src: url('../Font/SVN-Elle\ NovaC\ Extra\ Light.ttf');
+  src: url('../fonts/SVN-Elle\ NovaC\ Extra\ Light.ttf');
   font-weight: 800;
 }
 @font-face {
   font-family: SlimTony;
-  src: url('../Font/UVF\ SlimTony.ttf');
+  src: url('../fonts/UVF\ SlimTony.ttf');
 }
 body{
   width: 100%;
@@ -25,7 +26,6 @@ body{
 }
 a{
   text-decoration: none;
-  color:black;
 }
 li{
   list-style: none;

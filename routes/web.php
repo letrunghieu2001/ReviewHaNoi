@@ -51,6 +51,12 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/user/self_show',[UserController::class, 'self_show']);
     Route::put('/user/self_edit/{user}', [UserController::class, 'self_update']);
 });
+Route::group(['middleware'=>'admin'], function(){
+    Route::get('/user/{user}/edit', [UserController::class, 'edit']);
+    Route::get('/user/show',[UserController::class, 'show']);
+    Route::put('/user/edit/{user}', [UserController::class, 'update']);
+});
+
 //Chi tiết bài Posts
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post}',[PostController::class, 'show']);
