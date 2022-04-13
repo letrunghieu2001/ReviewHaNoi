@@ -39,6 +39,7 @@
       </form>
   </div>
 
+
 </div>
 <div class="carousel">
   <div class="slide-container">
@@ -50,7 +51,7 @@
       <div class="slide">
           <img src="../Image/slides/coffe.jpg" alt="coffe">
           <span></span>
-          <div class="text">Cafe</div>
+          <div class="text">Cofe</div>
       </div>
       <div class="slide">
           <img src="../Image/slides/restaurant.jpg" alt="nha-hang">

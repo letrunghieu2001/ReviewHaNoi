@@ -47,10 +47,10 @@
                   <span>Ưu đãi đặc biệt</span>
                   </a>
                   <ul class="menu2" >
-                    <li><a href="#">Giảm Giá 50%</a></li>
-                    <li><a href="#">Ưu Đãi Đối Tác</a></li>
-                    <li><a href="#">Freeship</a></li>
-                    <li><a href="#">Deal 0đ</a></li>
+                    <li><a href="javascript:void(0)" onclick="if (confirm('Mã giảm giá của bạn là: VuiThang4Giam50%')) document.getElementById('').submit()">Giảm Giá 50%</a></li>
+                    <li><a href="javascript:void(0)" onclick="if (confirm('Mã giảm giá của bạn là: ReviewHaNoiSieuUuDai')) document.getElementById('').submit()">Ưu Đãi Đối Tác</a></li>
+                    <li><a href="javascript:void(0)" onclick="if (confirm('Mã giảm giá của bạn là: FreeShipThang4')) document.getElementById('').submit()">Freeship</a></li>
+                    <li><a href="javascript:void(0)" onclick="if (confirm('Mã giảm giá của bạn là: KhongLamMaDoiCoAn')) document.getElementById('').submit()">Deal 0đ</a></li>
                   </ul>
               </li>
               <li id="category"><a href="{{ url('/posts') }}">

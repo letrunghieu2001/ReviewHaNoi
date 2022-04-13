@@ -55,6 +55,7 @@ Route::group(['middleware'=>'admin'], function(){
     Route::get('/user/{user}/edit', [UserController::class, 'edit']);
     Route::get('/user/show',[UserController::class, 'show']);
     Route::put('/user/edit/{user}', [UserController::class, 'update']);
+    Route::delete('/user/{user}', [UserController::class, 'destroy']);
 });
 
 //Chi tiết bài Posts

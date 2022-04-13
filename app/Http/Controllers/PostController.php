@@ -23,7 +23,7 @@ class PostController extends Controller
             ->join('categories','categories.id','=','place_category_details.category_id')
             ->select('posts.id','places.name', 'places.address', 'places.time','categories.name AS category_name','posts.id as post_id' )
             ->get();
-
+            
         $countPlace = DB::table('places')
         ->count();
 

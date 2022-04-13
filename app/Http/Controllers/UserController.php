@@ -52,5 +52,10 @@ public function self_edit()
         ]);
     }
 
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect('/user/show');
+    }
 
 }

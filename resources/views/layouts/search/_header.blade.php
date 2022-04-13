@@ -45,10 +45,10 @@
                   <span>Ưu đãi đặc biệt</span>
                   </a>
                   <ul class="menu2" >
-                    <li><a href="#">Giảm Giá 50%</a></li>
-                    <li><a href="#">Ưu Đãi Đối Tác</a></li>
-                    <li><a href="#">Freeship</a></li>
-                    <li><a href="#">Deal 0đ</a></li>
+                    <li><a href="javascript:void(0)" onclick="if (confirm('Mã giảm giá của bạn là: VuiThang4Giam50%')) document.getElementById('').submit()">Giảm Giá 50%</a></li>
+                    <li><a href="javascript:void(0)" onclick="if (confirm('Mã giảm giá của bạn là: ReviewHaNoiSieuUuDai')) document.getElementById('').submit()">Ưu Đãi Đối Tác</a></li>
+                    <li><a href="javascript:void(0)" onclick="if (confirm('Mã giảm giá của bạn là: FreeShipThang4')) document.getElementById('').submit()">Freeship</a></li>
+                    <li><a href="javascript:void(0)" onclick="if (confirm('Mã giảm giá của bạn là: KhongLamMaDoiCoAn')) document.getElementById('').submit()">Deal 0đ</a></li>
                   </ul>
               </li>
               <li id="category"><a href="{{ url('/posts') }}">
@@ -71,7 +71,7 @@
             </div>
             @if (Auth::check())
             <li class="admin">
-            <a href="{{ url('/adminstration') }}">
+            <a href="{{ url("/user/self_show") }}">
               @if (Auth::user()->role_id == 1)  {{ Auth::user()->name }}  @endif
               @if (Auth::user()->role_id == 2) {{ Auth::user()->name }} @endif
             </a>
@@ -84,7 +84,7 @@
                 <ul class="menu2" >
                   <li><a href="{{ url("/user/self_show") }}">Thông tin cá nhân</a></li>
                   @if (Auth::user()->role_id == 1)
-                  <li><a href="#">Thông tin người dùng</a></li>
+                  <li><a href="{{ url("/user/show") }}">Thông tin người dùng</a></li>
                   <li><a href="#">Đăng bài</a></li>
                   @endif
                   <li><a href="{{url('/logout')}}">Đăng xuất</a></li>
