@@ -208,13 +208,22 @@ body.dark{
 .row2 .menu2 li:hover a{
   color: rgb(242, 89, 136);
 }
+.admin{
+  height:50px;
+}
 .admin .menu2{
-  top:36px;
+  z-index: 3;
+  top:50px;
 }
 .admin .menu2 li{
   text-align: left !important;
 }
-
+.admin img{
+  width:25px;
+  height:25px;
+  border-radius: 50%;
+  background-color: antiquewhite;
+}
 @media only screen and (max-width: 1200px) {
     
     .nav{position: fixed;}
@@ -250,6 +259,9 @@ body.dark{
     .category .menu2{
       right: -193px;
     }
+    .darkLight-searchBox{
+      display: none;
+    }
   }
   @media only screen and (max-width: 700px) {
     .nav{position: fixed;}
@@ -281,5 +293,8 @@ body.dark{
 
     #gift .menu2{
       right:-120px;
+    }
+    .darkLight-searchBox{
+      display: none;
     }
 }
