@@ -52,9 +52,8 @@ Route::group(['middleware'=>'auth'], function(){
     Route::put('/user/self_edit/{user}', [UserController::class, 'self_update']);
 });
 Route::group(['middleware'=>'admin'], function(){
-    Route::get('/user/{user}/edit', [UserController::class, 'edit']);
     Route::get('/user/show',[UserController::class, 'show']);
-    Route::put('/user/edit/{user}', [UserController::class, 'update']);
+    Route::put('/user/{user}', [UserController::class, 'update']);
     Route::delete('/user/{user}', [UserController::class, 'destroy']);
 });
 
