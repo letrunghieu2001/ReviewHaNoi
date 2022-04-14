@@ -58,4 +58,25 @@ public function self_edit()
         return redirect('/user/show');
     }
 
+    public function update(User $user)
+    {
+        $data = Auth::user();
+        if ($data->role_id == 2)
+        {
+        $user->update([
+            'role_id' => '1',
+        ]);
+    }
+        if ($data->role_id == 1)
+        {
+        $user->update([
+            'role_id' => '2',
+        ]);
+    }
+
+
+        return redirect("/user/show");
+    }
+
+
 }

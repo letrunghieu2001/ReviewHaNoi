@@ -18,8 +18,7 @@ ReviewHaNoi
         <div class="user__image">
           <img src="{{ asset("/uploads/avatars/$user->avatar") }}" alt="#">
         </div>
-        <label for="">{{ $user->name }}</label>
-        <label for="">{{ $user->email }}</label>
+        <div>{{ $user->name }}</div>
         <div class="three__dots">
           <img src="{{ asset('assets/img/meatball.png') }}" alt="">
           <ul class="subMenu">
@@ -27,7 +26,13 @@ ReviewHaNoi
             <li><a href="#">Xoá quyền quản trị viên</a></li>
             @endif
           @if ( $user->role_id == 2)
-            <li><a href="#">Chỉ định làm quản trị viên</a></li>
+            <li><a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn chỉ định làm admin không?')) document.getElementById('update-to-admin').submit()">
+            <span>Chỉ định làm quản trị viên</span>
+            <form action='{{ url("/user/{$user->id}") }}' method="POST" id="update-to-admin">
+                                            @method('PUT')
+                                            @csrf
+                                        </form>
+        </a></li>
             @endif
             <li>
             <a class="dropdown-item mt-3 mb-3" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('user-delete-{{ $user->id }}').submit()">
