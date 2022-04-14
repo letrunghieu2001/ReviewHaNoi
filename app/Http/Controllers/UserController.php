@@ -60,22 +60,21 @@ public function self_edit()
 
     public function update(User $user)
     {
-        $data = Auth::user();
-        if ($data->role_id == 2)
+        if ($user->role_id == '2')
         {
         $user->update([
             'role_id' => '1',
-        ]);
+        ]); 
+        return redirect("/user/show");
     }
-        if ($data->role_id == 1)
+        if ($user->role_id == '1')
         {
         $user->update([
             'role_id' => '2',
         ]);
-    }
-
-
         return redirect("/user/show");
+    }
+       
     }
 
 

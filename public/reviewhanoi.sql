@@ -4,8 +4,8 @@ VALUES
 ('2','user');
 INSERT INTO users (`id`,`name`,`dob`,`address`,`email`,`gender`,`password`,`avatar`,`role_id`) 
 VALUES
-('1','','','','admin@gmail.com','','$2y$10$mWW5xVe4AsRiPnQyiT8PyOmFpSIw4MvIHjflv.Po6RHVzyj4z.Hc2','','1'),
-('2','','','','user@gmail.com','','$2y$10$.zCw1RO2Kbz7TD1K8KTNsuJj3ct6uvkFu3I8BLufUF5CJBgUKn69.','','2');
+('1','Lê Trung Hiếu','2001-03-04','Hà Nội','admin@gmail.com','Nam','$2y$10$mWW5xVe4AsRiPnQyiT8PyOmFpSIw4MvIHjflv.Po6RHVzyj4z.Hc2','','1'),
+('2','Nguyễn Đức Tùng Lâm','2001-03-05','Yên Bái','user@gmail.com','Nữ','$2y$10$.zCw1RO2Kbz7TD1K8KTNsuJj3ct6uvkFu3I8BLufUF5CJBgUKn69.','','2');
 INSERT INTO categories (`id`,`name`)
 VALUES
 ('1','Nhà Hàng'),

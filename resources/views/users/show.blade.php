@@ -23,7 +23,13 @@ ReviewHaNoi
           <img src="{{ asset('assets/img/meatball.png') }}" alt="">
           <ul class="subMenu">
           @if ( $user->role_id == 1)
-            <li><a href="#">Xoá quyền quản trị viên</a></li>
+          <li><a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa quyền làm admin không?')) document.getElementById('delete-admin').submit()">
+            <span>Xóa quyền quản trị viên</span>
+            <form action='{{ url("/user/{$user->id}") }}' method="POST" id="delete-admin">
+                                            @method('PUT')
+                                            @csrf
+                                        </form>
+        </a></li>
             @endif
           @if ( $user->role_id == 2)
             <li><a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn chỉ định làm admin không?')) document.getElementById('update-to-admin').submit()">
@@ -36,7 +42,6 @@ ReviewHaNoi
             @endif
             <li>
             <a class="dropdown-item mt-3 mb-3" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('user-delete-{{ $user->id }}').submit()">
-                                        <img src="{{ asset('assets/img/forum/delete (1).png') }}" class="icon_post tt-icon-btn">
                                         <span>Xóa người dùng</span>
                                         <form action='{{ url("/user/{$user->id}") }}' method="POST" id="user-delete-{{ $user->id }}">
                                             @method('DELETE')

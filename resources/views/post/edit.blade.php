@@ -1,4 +1,4 @@
-@extends('layouts.home.app')
+@extends('layouts.post.app')
 
 @section('title')
     Edit Post
@@ -6,9 +6,8 @@
 
 @section('content')
     @if(Auth::check())
-        @if($post->user_id == Auth::user()->id )
             <!-- Edit post -->
-            <form  method="POST" action="{{url("/posts/$post->id")}}">
+            <form  method="POST" action="{{url("/posts/$post->id_post")}}">
                 @csrf
                 @method('PUT')
                 <main id="tt-pageContent" class="bg-main">
@@ -65,6 +64,5 @@
                     </div>
                 </main>
             </form>
-        @endif
     @endif
 @endsection

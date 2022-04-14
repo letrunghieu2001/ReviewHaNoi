@@ -21,7 +21,7 @@ class PostController extends Controller
             ->join('place_category_details', 'place_category_details.place_id', '=', 'places.id')
             ->join('posts', 'posts.place_id', '=', 'places.id')
             ->join('categories','categories.id','=','place_category_details.category_id')
-            ->select('posts.id','places.name', 'places.address', 'places.time','categories.name AS category_name','posts.id as post_id' )
+            ->select('places.name', 'places.address', 'places.time','categories.name AS category_name','posts.id as post_id' )
             ->get();
             
         $countPlace = DB::table('places')
@@ -29,7 +29,7 @@ class PostController extends Controller
 
         return view('post.index', [
             'places' => $places,
-            'countPlace' => $countPlace
+            'countPlace' => $countPlace,
         ]);
     }
 
@@ -46,21 +46,31 @@ class PostController extends Controller
         ->where('comments.post_id', '=', "$post")
         ->count();
 
+        $places = DB::table('places')
+        ->join('place_category_details','place_category_details.place_id','=','places.id')
+        ->join('posts','posts.place_id','=','places.id')
+        ->select('places.*','place_category_details.category_id AS cate_id','posts.id AS post_id' )
+        ->get();
 
 
         $post = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.user_id')
+        ->join('post_category_details','post_category_details.post_id','=','posts.id')
         ->where('posts.id', '=', "$post")
-        ->select('posts.*', 'users.name', 'users.avatar')
+        ->select('posts.*', 'users.*','post_category_details.category_id AS cat_id','posts.id AS id_post')
         ->get();
 
         $post = $post[0];
+
+
         
         
         return view('post.show',[
+            'places' => $places,
             'comments' => $comments,
             'post' => $post,
             'countComment' => $countComment,
+            
         ]);
     }
 
@@ -101,8 +111,8 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        $id_user = Auth::user()->id;
-        if($post->user_id == $id_user)
+        $id_user = Auth::user()->role_id;
+        if($id_user == 1)
         {
             return view('post.edit', [
                 'post' => $post
