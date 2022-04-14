@@ -87,3 +87,15 @@ footer{
   .wrap { top: 10%; width: 92%; }
   
 }
+
+
+.bg{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/home/menu/bg.png") top center;
+  background-size: cover;
+  position: relative;
+  margin-bottom: -50px;
+  z-index: -1000;
+}
+

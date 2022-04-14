@@ -6,7 +6,7 @@ Full Post
 
 @section('content')
 
-                    <div class="box">
+<div class="box">
     <div class="wrapper">
         <ul class="catelogy">
             <li><a href="#">Địa điểm check-in</a></li>
@@ -70,4 +70,5 @@ Full Post
     </ul>
     <div class="nenden"></div>
 </div>
+<div class="bg"></div>
 @endsection 

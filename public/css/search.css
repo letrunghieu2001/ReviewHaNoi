@@ -17,7 +17,7 @@ html, body { width: 100%; height: 100%; }
 .box ul li a {text-decoration: none; color: black;}
 .wrapper .catelogy li { border-right: 1px solid gray; height: 100%; padding-right: 10px;}
 .wrapper .catelogy li:last-child { border: none;}
-.articles {width: 80%;position: absolute;top: 22.3%;border: 1px solid black;height: 80%;overflow: auto;display: flex;left: 10%;flex-wrap: wrap;justify-content: center;align-items: center;border-radius: 10px;}
+.articles {padding-top:20px;width: 80%;position: absolute;top: 22.3%;border: 1px solid black;height: 80%;overflow: auto;display: flex;left: 10%;flex-wrap: wrap;justify-content: center;align-items: center;border-radius: 10px;}
 .articles a {text-decoration: none; color: black;}
 .articles .art img {width: 256px;height: 70%; transition: 1s ease-in-out;}
 .art {margin: 0px 15px;margin-bottom: 20px;height: 200px;cursor: pointer;border: 1px solid black;border-radius: 9px;overflow: hidden;}
@@ -118,3 +118,14 @@ padding: 5px 20px;
 .subtk li.active a{
     color:red;
 }
+
+.pagination {
+    display: inline-block;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
