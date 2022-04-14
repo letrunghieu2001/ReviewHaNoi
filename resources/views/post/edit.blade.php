@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<div class="noidung">
     @if(Auth::check())
             <!-- Edit post -->
             <form  method="POST" action="{{url("/posts/$post->id_post")}}">
@@ -28,6 +29,7 @@
                                         <h4> {{ Auth::user()->name }} </h4>
                                     </div>
                                 </div>
+                                    
                                 <!-- Title -->
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
@@ -56,7 +58,7 @@
                                 <div class="row form-group">
                                     <div class="col-auto ml-md-auto">
                                         <button class="btn btn-primary btn-width-lg" type="submit">Edit</button>
-                                        <a href="{{ url("/posts/$post->id") }}" class="btn btn-secondary mr-3">Cancel</a>
+                                        <a href="{{ url("/posts/$post->id_post") }}" class="btn btn-secondary mr-3">Cancel</a>
                                     </div>
                                 </div>
                             </div>
@@ -65,4 +67,5 @@
                 </main>
             </form>
     @endif
+</div>
 @endsection

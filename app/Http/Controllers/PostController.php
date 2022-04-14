@@ -84,21 +84,32 @@ class PostController extends Controller
     {
         $data = Post::create([
             'user_id' => Auth::user()->id,
+            'place_id' => $postRequest->place_id,
             'content' => $postRequest->content,
             'title' => $postRequest->title
         ]);
         $data1 = Place::create([
+            'district_id' => $placeRequest->district_id,
             'name' => $placeRequest->name ,
-            
+            'address' => $placeRequest->address,
+            'phone_number' => $placeRequest->phone_number,
+            'link' => $placeRequest->link,
+            'category_id' => $placeRequest->category_id,
+            'time' => $placeRequest->time
         ]);
         return redirect("/posts/{$post->id}");
     }
 
-    public function update(PostRequest $request, Post $post)
+    public function update(PostRequest $postRequest, Post $post, PlaceRequest $placeRequest)
     {
         $post->update([
-            'content' => $request->content,
-            'title' => $request->title
+            'content' => $postRequest->content,
+            'title' => $postRequest->title,
+            'name' => $placeRequest->name ,
+            'address' => $placeRequest->address,
+            'phone_number' => $placeRequest->phone_number,
+            'link' => $placeRequest->link,
+            'time' => $placeRequest->time
         ]);
         return redirect("/posts/{$post->id}");
     }
@@ -109,13 +120,14 @@ class PostController extends Controller
         return redirect('/posts');
     }
 
-    public function edit(Post $post)
+    public function edit(Post $post, Place $place)
     {
         $id_user = Auth::user()->role_id;
         if($id_user == 1)
         {
             return view('post.edit', [
-                'post' => $post
+                'post' => $post,
+                'place' => $place
             ]);
         }
         else 

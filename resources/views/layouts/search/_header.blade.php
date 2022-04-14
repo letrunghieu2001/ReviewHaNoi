@@ -71,7 +71,7 @@
             </div>
             @if (Auth::check())
             <li class="admin">
-            <a href="{{ url("/user/self_show") }}">
+            <a href="">
               @if (Auth::user()->role_id == 1)  {{ Auth::user()->name }}  @endif
               @if (Auth::user()->role_id == 2) {{ Auth::user()->name }} @endif
             </a>
@@ -85,7 +85,7 @@
                   <li><a href="{{ url("/user/self_show") }}">Thông tin cá nhân</a></li>
                   @if (Auth::user()->role_id == 1)
                   <li><a href="{{ url("/user/show") }}">Quản lý người dùng</a></li>
-                  <li><a href="#">Đăng bài</a></li>
+                  <li><a href="{{ url('/posts/create') }}">Đăng bài</a></li>
                   @endif
                   <li><a href="{{url('/logout')}}">Đăng xuất</a></li>
                 </ul>

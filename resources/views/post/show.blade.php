@@ -15,7 +15,7 @@
       @if (Auth::check())
       @if ($post->role_id == 1)
       <div>
-      <a  href="{{ url("/posts/$post->id_post/edit") }}"  class="art">
+      <a href="{{ url("/posts/$post->id_post/edit") }}"  class="art">
           <span>Sửa bài viết</span>
   </a>
       </div>
@@ -34,9 +34,9 @@
 
       <!-- create comment -->
         @if (Auth::check())
-<form class="cmt" action="{{ url("/comments/{$post->id_post}") }}" method="POST">
+      <form class="cmt" action="{{ url("/comments/$post->id_post") }}" method="POST">
       @csrf
-          <textarea class="cmt1" name="comments" id="comments" placeholder="Bình Luận..." ></textarea>
+          <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
           <input type="submit" value="Gửi Bình Luận">
       </form>
         @endif
@@ -54,7 +54,7 @@
                             <h6 class="pt-2">{{ $comment->name}}</h6>
 
                             @if (Auth::check())
-                            @if(($comment->id_user == Auth::user()->id))
+                            @if(($comment->user_id == Auth::user()->id))
                             <div class="ml-auto btn-group dropleft" id="a_post">
                                 <a type="button" id="dropdownMenuComment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-ellipsis-v tt-icon-btn text-dark"></i>
@@ -95,9 +95,7 @@
 
         </div>
 
-        <div class="tt-wrapper-inner">
-            <h4 class="tt-title-separator"><span>End the comments of this post</span></h4>
-        </div>
+
         @else
         <p>Không có comment</p>
         @endif
