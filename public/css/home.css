@@ -28,7 +28,8 @@
     display: flex;
   }
 .danhmuc{
-    width: 21%;
+    max-height: 40px;
+    max-width: 21%;
     border: none;
     padding: 12px;
     height: 100%;
@@ -41,6 +42,14 @@
     border-radius: 5px 0px 0px 5px;
     background-color: rgb(215, 201, 201);
 }
+#type.danhmuc{
+  border-right:transparent;
+}
+#browsers.danhmuc{
+  border-left:transparent;
+  border-radius: 0px;;
+}
+
   .danhmuc::placeholder{text-align: center;color:black}
   .searchTerm {
     width: 85%;

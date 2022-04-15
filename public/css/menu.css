@@ -2,7 +2,7 @@
 @import url(./main.css);
 
 .top { width: 100%; margin: auto; overflow: hidden; }
-.nav { width: 100%; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;position: fixed;top:0; z-index: 9; background-color: var(--BackgroundColor)};
+.nav { width: 100%; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;position: fixed;top:0;transition:top 0.3s; z-index: 9; background-color: var(--BackgroundColor)};
 .nav ul li { list-style: none; }
 .nav ul li a { text-decoration: none; color: var(--TextColor); }
 .nav .row1 { width: 100%; display: flex; align-items: center; justify-content: flex-end; height: 30px; }

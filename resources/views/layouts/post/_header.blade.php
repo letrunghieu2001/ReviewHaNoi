@@ -24,7 +24,7 @@
       </nav>
 
 
-    <div class="nav">
+    <div class="nav" id="nav">
         <ul class="row1">
             <li><a href="{{ url('info') }}">Giới thiệu</a></li>
             <li><a href="#">Liên Hệ</a></li>

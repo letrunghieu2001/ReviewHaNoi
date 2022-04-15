@@ -46,10 +46,10 @@ hamburgerBtn.addEventListener("click", function () {
   hamburgerBtn.classList.toggle("open");
   mainHeader.classList.toggle("open");
 });
-$(document).ready(function(){
-  $('.carousel').slick({
-  slidesToShow: 3,
-  dots:true,
-  centerMode: true,
-  });
-});
+// $(document).ready(function(){
+//   $('.carousel').slick({
+//   slidesToShow: 3,
+//   dots:true,
+//   centerMode: true,
+//   });
+// });
