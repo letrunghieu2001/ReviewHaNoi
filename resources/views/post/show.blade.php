@@ -14,12 +14,14 @@
       <div>
       @if (Auth::check())
       @if ($post->role_id == 1)
-      <div>
-      <a href="{{ url("/posts/$post->id_post/edit") }}"  class="art">
+      <div class="flex">
+          <div class="button">
+          
+      <a href="{{ url("/posts/$post->id_post/edit") }}"  >
           <span>Sửa bài viết</span>
   </a>
       </div>
-      <div>
+      <div class="button">
   <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa bài viêt không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" class="tt-icon-btn">
   <span>Xóa bài viết</span>
                         <form action="{{ url("/posts/$post->id_post") }}" method="POST" id="post-delete-{{$post->id }}">
@@ -27,7 +29,9 @@
                             @csrf
                         </form>
                     </a>
+      </div>  
       </div>
+    
   @endif
   @endif
       </div>

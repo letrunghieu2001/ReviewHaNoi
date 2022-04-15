@@ -5,6 +5,7 @@
 
 img{
   max-width: 256px;
+  max-height: 256px;
 }
 li.darkLight-searchBox{
   visibility: hidden;

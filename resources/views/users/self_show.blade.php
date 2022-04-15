@@ -13,14 +13,10 @@ ReviewHaNoi
       <div class="border__color">
         <div class="basic__info">
 
-          
-            <div class="logo">
+          <div class="logo">
+            <img src="{{ asset("/uploads/avatars/$user->avatar") }}" alt="avatar"> 
+           </div>
 
-        <img src="{{ asset("/uploads/avatars/$user->avatar") }}" alt="avatar">
-      </div>
-
-        
-          
           <div class="border__color">
             <div class="form__group">
             <img src="{{ asset('assets/img/id.png') }}" alt="id">
@@ -51,8 +47,6 @@ ReviewHaNoi
         <div class="title">
           <p>Thông tin tài khoản</p>
         </div>
-
-
             <div class="form__group">
               <label for="firstName">Họ tên<span>*</span></label>
               <input type="text" name="firstName" readonly id="firstName"  value="{{ $user->name }}">
@@ -88,9 +82,7 @@ ReviewHaNoi
         
       </div>
     </div>
-     
 
-  </div>
 @endsection
 
 
