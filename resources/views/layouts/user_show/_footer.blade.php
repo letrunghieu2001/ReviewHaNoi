@@ -27,7 +27,7 @@
 </footer>
 
 <script src="{{ asset('js/setup.js') }}"></script>
-<script src="{{ asset('js/setups.js') }}"></script>
+
 <script src="{{ asset('js/update.js') }}"></script>
 <script src="{{ asset('js/management.js') }}"></script>
 

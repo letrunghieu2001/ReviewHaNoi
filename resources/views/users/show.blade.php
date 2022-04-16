@@ -1,4 +1,4 @@
-@extends('layouts.user.app')
+@extends('layouts.user_show.app')
 
 @section('title')
 ReviewHaNoi

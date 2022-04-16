@@ -1,6 +1,6 @@
 
 
-@extends('layouts.user.app')
+@extends('layouts.user_edit.app')
 
 @section('title')
 ReviewHaNoi
@@ -20,7 +20,7 @@ ReviewHaNoi
         <form action="{{url("/user/update_avt/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <img class="mw-200px mb-3" id="img" style="width:300px;height:300px;"  src="{{ asset("/uploads/avatars/$user->avatar") }}">
+                    <img class="mw-200px mb-3" id="img" style="width:100px;height:100px;"  src="{{ asset("/uploads/avatars/$user->avatar") }}">
                     <div class="row">
                         <div class="col-md-6">
                             <input type="file" name="avatar">
@@ -45,7 +45,7 @@ ReviewHaNoi
         <div class="form__split">
           <div class="form__group">
             <label for="dob">Ngày sinh</label>
-            <input type="date" name="dob" id="dob">
+            <input type="date" name="dob" id="dob" value="{{ $user->dob }}">
             <span class="form__message"></span>
           </div>
           <div class="form__group">
@@ -65,12 +65,10 @@ ReviewHaNoi
             <label for="address">Địa chỉ</label>
             <input type="text" name="address" id="address" class="form-control" placeholder="address" aria-describedby="helpId" value="{{ $user->address }}">
           </div>
-          @error('address')
-                    <div class="form-text text-danger">{{ $message }}</div>
-                @enderror
+
                 <button type="submit" class="btn btn-primary">Lưu thông tin</button>
 
-        
+                </form>
       </div>
         </div>
   </div>
