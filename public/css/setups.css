@@ -2,25 +2,51 @@
 @import url(../CSS/main.css);
 @import url(../CSS/menu.css);
 
-#form-confirmation{
-  display: block;
-  width:800px;
-  display: flex;
-  flex-direction: column;
+#form{
+  width:300px;
+
   margin:0px auto;
   margin-top:100px;
-  justify-content: space-between;
-  align-items: center;
+
   background-color:rgb(216, 235, 235);
   padding:50px;
+  
+}
+#form--info{
+  display: flex;
+  margin:0px auto;
+  flex:1;
+  flex-direction: column;
+  align-items: center;
+}
+#avatar{
+
+  width:128px;
+  height: 128px;
+  margin-right:10px;
+  border-radius: 50%;
+
+}
+#avatar input[type="file"]{
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+}
+.form--details{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .title{
-  align-self: center;
+  max-width: 100%;
+  margin:0px auto;
 }
 .title h3{
-  font-size: 40px;
+  font-size: 14px;
   font-family: var(--FontSecondary),sans-serif;
   color:red;
+  text-align: center;
 }
 .form__split{
   width: 100%;
@@ -40,21 +66,32 @@
   flex-direction: row;
 }
 .form__group label{
-  font-size: 20px;
+  font-size: 14px;
 }
-.form__group input{
+.form__group input,
+#gender{
   height: 50px;
   border:1px solid rgba(0,0,0,0.2);
   border-radius: 5px;
+  padding-left:10px;
   background-color: rgba(0,0,0,0.05);
 }
 .form__group input::placeholder{
+  font-size: 10px;
   padding-left:10px;
 }
-span{
+label i{
   color:red;
 }
-
+.form__message{
+  font-size: 12px;
+}
+.form__message.correct{
+  display: block;
+  width:12px;
+  height: 12px;
+  background: url(../Image/correct.png) no-repeat;
+}
 button{
   width:50%;
   height: 30px;
@@ -68,3 +105,102 @@ button:hover{
   background-color:rgba(255,127,180);
   
 }
+
+@media (min-width:1140px) {
+  #form{
+    width:800px;
+  
+    margin:0px auto;
+    margin-top:100px;
+  
+    background-color:rgb(216, 235, 235);
+    padding:50px;
+    
+  }
+  #form--info{
+    display: flex;
+    margin:0px auto;
+    flex:1;
+    
+    align-items: center;
+  }
+  #avatar{
+
+    width:200px;
+    height: 200px;
+    margin-right:10px;
+    border-radius: 50%;
+    border:1px solid grey;
+  }
+  #avatar input[type="file"]{
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+  }
+  .form--details{
+    flex:3;
+
+    padding-left:40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .title{
+    max-width: 500px;
+    margin:0px auto;
+  }
+  .title h3{
+    font-size: 40px;
+    font-family: var(--FontSecondary),sans-serif;
+    color:red;
+  }
+  .form__split{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .form__split .form__group{
+    width: 48%;
+  }
+  .form__group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  #gender{
+    flex-direction: row;
+  }
+  .form__group label{
+    font-size: 20px;
+  }
+  .form__group input,
+  #gender{
+    height: 50px;
+    border:1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding-left:10px;
+    background-color: rgba(0,0,0,0.05);
+  }
+  .form__group input::placeholder{
+    padding-left:10px;
+  }
+  label span{
+    color:red;
+  }
+  
+  button{
+    width:50%;
+    height: 30px;
+    display: block;
+    color:white;
+    background-color:coral;
+    border-radius:5px;
+    border:none;
+  }
+  button:hover{
+    background-color:rgba(255,127,180);
+    
+  }
+}
+

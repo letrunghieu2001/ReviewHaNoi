@@ -26,6 +26,7 @@
     </div>
 </footer>
 <script src="{{ asset('js/post.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 
 
 </body>

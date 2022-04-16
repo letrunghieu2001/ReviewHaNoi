@@ -26,40 +26,36 @@ class HomeController extends Controller
             $type = $_GET['type'];
             if (($browser == "") && ($type == "") && ($search == "") )
             {
-                $places = DB::table('places')
-            ->join('districts', 'districts.id', '=', 'places.district_id')
-            ->join('place_category_details', 'place_category_details.place_id', '=', 'places.id')
-            ->join('posts', 'posts.place_id', '=', 'places.id')
-            ->join('categories','categories.id','=','place_category_details.category_id')
-            ->select('posts.id','places.name', 'places.address', 'places.time','categories.name AS category_name','posts.id as post_id' )
+                $posts = DB::table('posts')
+            ->join('districts', 'districts.id', '=', 'posts.district_id')
+            ->join('categories', 'categories.id', '=', 'posts.category_id')
+            ->select('posts.*','districts.*','categories.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
             ->get();
                 return view('post.index', [      
-                    'places' => $places,
+                    'posts' => $posts,
                 ]);
             }
-            $places = DB::table('places')
-            ->join('districts', 'districts.id', '=', 'places.district_id')
-            ->join('place_category_details', 'place_category_details.place_id', '=', 'places.id')
-            ->join('posts', 'posts.place_id', '=', 'places.id')
-            ->join('categories','categories.id','=','place_category_details.category_id')
-            ->select('posts.id','places.name', 'places.address', 'places.time','categories.name AS category_name','posts.id as post_id' )
-            ->where('places.name', 'LIKE', "%".$search."%")
+            $posts = DB::table('posts')
+            ->join('districts', 'districts.id', '=', 'posts.district_id')
+            ->join('categories', 'categories.id', '=', 'posts.category_id')
+            ->select('posts.*','districts.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
+            ->where('posts.name', 'LIKE', "%".$search."%")
             ->where('districts.name', 'LIKE', "%".$browser."%")
-            ->where('places.category_id', 'LIKE', "%".$type."%")
+            ->where('posts.category_id', 'LIKE', "%".$type."%")
             ->distinct()
             ->paginate(10);
             return view('home.search', [
-                'places' => $places,
+                'posts' => $posts,
             ]);
     }
 
     
-    $places = DB::table('places')
+    $posts = DB::table('posts')
     
     ->get();
 
     return view('home.search', [
-        'places' => $places,
+        'posts' => $posts,
     ]);
 }
 

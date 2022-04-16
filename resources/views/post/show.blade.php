@@ -17,14 +17,14 @@
       <div class="flex">
           <div class="button">
           
-      <a href="{{ url("/posts/$post->id_post/edit") }}"  >
+      <a href="{{ url("/posts/$post->post_id/edit") }}"  >
           <span>Sửa bài viết</span>
   </a>
       </div>
       <div class="button">
   <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa bài viêt không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" class="tt-icon-btn">
   <span>Xóa bài viết</span>
-                        <form action="{{ url("/posts/$post->id_post") }}" method="POST" id="post-delete-{{$post->id }}">
+                        <form action="{{ url("/posts/$post->post_id") }}" method="POST" id="post-delete-{{$post->id }}">
                             @method('DELETE')
                             @csrf
                         </form>
@@ -38,7 +38,7 @@
 
       <!-- create comment -->
         @if (Auth::check())
-      <form class="cmt" action="{{ url("/comments/$post->id_post") }}" method="POST">
+      <form class="cmt" action="{{ url("/comments/$post->post_id") }}" method="POST">
       @csrf
           <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
           <input type="submit" value="Gửi Bình Luận">
@@ -100,6 +100,7 @@
         </div>
 
 
+
         @else
         <p>Không có comment</p>
         @endif
@@ -114,17 +115,15 @@
 </div>
 <div class="carousel">
   <div class="slide-container">
-    
-    @foreach($places as $place)
-      @if(($place->cate_id) == ($post->cat_id))
+    @foreach($items as $item)
+      @if(( $item->category_id == $post->cat_id))
   <div class="slide">
-  <a  href="{{ url("/posts/$place->post_id") }}"  class="art">
+  <a  href="{{ url("/posts/$post->post_id") }}"  class="art">
           <img src="{{ asset('assets/img/slides/food.jpg') }}" alt="quan-an">
           <span></span>
-          <div class="text">{!! $place->name !!}</div>
+          <div class="text">{!! $item->name !!}</div>
   </a>
       </div>
-  
 @endif
 @endforeach
 </div>

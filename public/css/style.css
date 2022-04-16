@@ -1,0 +1,57 @@
+* { margin: 0px; padding: 0px; }
+html, body { width: 100%; height: 100%; }
+@font-face { font-family: fontvn; src: url("/font/UVF_SlimTony.ttf"); }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { width: 2px; }
+::-webkit-scrollbar-thumb { background: linear-gradient(150deg, rgb(251, 191, 77) 35%, rgb(241, 78, 141) 100%); }
+::-webkit-scrollbar-thumb:hover { background: rgb(241, 75, 143); }
+
+.title{width: 25%; margin: auto;  font-family: tahoma;margin-bottom: 30px; text-align: center; font-size: 3rem; font-weight: bold;}
+.box{width: 70%; left: 20%;position: relative;}
+.content{display: flex; justify-content: space-between;font-family: tahoma;font-size: 1rem;}
+input{font-size: large;margin: 5px;width: 300px;}
+p{margin-bottom: 17px;}
+textarea{margin-left: 5px;width: 300px;height: 100px;}
+/* //phan them anh */
+[type="file"] {height: 0;  width: 0;overflow: hidden;}
+[type="file"] + label {font-family: sans-serif;background: #f44336;padding: 10px 30px;border: 2px solid #f44336;border-radius: 3px;color: #fff;cursor: pointer;transition: all 0.2s;position: absolute;bottom: 0;right: 180px;}
+[type="file"] + label:hover {background-color: #fff;color: #f44336;}
+#imagesUp{ width: 350px; height: 350px;overflow: auto; display: flex; flex-wrap: wrap; justify-content: space-around; border: 1px dashed gray;}
+#imagesUp img{width: 30%; height: 30%; object-fit: cover;margin: 5px 5px;}
+.submit{width: 130px; height: 35px;border-radius: 6px;background: rgb(37, 37, 60);color: white;right: 40%;position: absolute;margin: 10px;}
+@media only screen and (min-width: 1824px){
+    * { margin: 0px; padding: 0px; }
+}
+@media only screen and (max-width: 1080px) {
+    * { margin: 0px; padding: 0px; }
+    .title{width: 40%;}
+    .box{width: 80%;left: 10%;}
+    [type="file"] + label {right: 140px;}
+}
+@media only screen and (max-width: 935px) {
+    * { margin: 0px; padding: 0px; }
+    .box{width: 80%;left: 10%;}
+    input{width: 220px;}
+    textarea{width: 220px;}
+    #imagesUp{width: 300px; height: 300px;}
+}
+@media only screen and (max-width: 840px){
+    * { margin: 0px; padding: 0px; }
+    .title{font-size: 2rem;}
+    [type="file"] + label {right: 100px;}
+}
+@media only screen and (max-width: 770px){
+    * { margin: 0px; padding: 0px; }
+    .content{font-size: 1rem; }
+    #imagesUp{width: 250px; height: 270px;}
+    [type="file"] + label {right: 70px;}
+}
+@media only screen and (max-width: 690px){
+    * { margin: 0px; padding: 0px; }
+    .content{flex-wrap: wrap;}
+    [type="file"] + label {right: 30px;}
+}
+@media only screen and (max-width: 690px){
+    * { margin: 0px; padding: 0px; }
+    [type="file"] + label {padding: 5px 15px;}
+}

@@ -6,7 +6,7 @@
 
 @section('content')
     @if(Auth::check())
-        <!-- create new post -->
+    <!-- create new post -->
         <form method="POST" action="{{ url("/posts") }}">
             @csrf
             <main id="tt-pageContent" class="bg-main">
@@ -28,6 +28,7 @@
                                     <h4> {{ Auth::user()->name}} </h4>
                                 </div>
                             </div>
+
                             <!-- Title -->
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
@@ -40,6 +41,7 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <!-- Content -->
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>

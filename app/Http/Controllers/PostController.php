@@ -16,20 +16,18 @@ class PostController extends Controller
     {
         
             //full posts
-            $places = DB::table('places')
-            ->join('districts', 'districts.id', '=', 'places.district_id')
-            ->join('place_category_details', 'place_category_details.place_id', '=', 'places.id')
-            ->join('posts', 'posts.place_id', '=', 'places.id')
-            ->join('categories','categories.id','=','place_category_details.category_id')
-            ->select('places.name', 'places.address', 'places.time','categories.name AS category_name','posts.id as post_id' )
+            $posts = DB::table('posts')
+            ->join('districts', 'districts.id', '=', 'posts.district_id')
+            ->join('categories', 'categories.id', '=', 'posts.category_id')
+            ->select('posts.*','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
             ->get();
             
-        $countPlace = DB::table('places')
+        $countPost = DB::table('posts')
         ->count();
 
         return view('post.index', [
-            'places' => $places,
-            'countPlace' => $countPlace,
+            'posts' => $posts,
+            'countPost' => $countPost,
         ]);
     }
 
@@ -46,30 +44,23 @@ class PostController extends Controller
         ->where('comments.post_id', '=', "$post")
         ->count();
 
-        $places = DB::table('places')
-        ->join('place_category_details','place_category_details.place_id','=','places.id')
-        ->join('posts','posts.place_id','=','places.id')
-        ->select('places.*','place_category_details.category_id AS cate_id','posts.id AS post_id' )
+        $items = DB::table('posts')
         ->get();
-
 
         $post = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.user_id')
-        ->join('post_category_details','post_category_details.post_id','=','posts.id')
+        ->join('districts', 'districts.id', '=', 'posts.district_id')
+        ->join('categories', 'categories.id', '=', 'posts.category_id')
         ->where('posts.id', '=', "$post")
-        ->select('posts.*', 'users.*','post_category_details.category_id AS cat_id','posts.id AS id_post')
+        ->select('posts.*', 'users.*','districts.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
         ->get();
 
         $post = $post[0];
-
-
-        
-        
         return view('post.show',[
-            'places' => $places,
             'comments' => $comments,
             'post' => $post,
             'countComment' => $countComment,
+            'items' => $items
             
         ]);
     }
@@ -80,36 +71,24 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(PostRequest $postRequest, Post $post, PlaceRequest $placeRequest)
+    public function store(PostRequest $request)
     {
         $data = Post::create([
             'user_id' => Auth::user()->id,
-            'place_id' => $postRequest->place_id,
-            'content' => $postRequest->content,
-            'title' => $postRequest->title
+            'category_id' => 1,
+            'district_id' => 1,
+            'content' => $request->content,
+            'title' => $request->title
         ]);
-        $data1 = Place::create([
-            'district_id' => $placeRequest->district_id,
-            'name' => $placeRequest->name ,
-            'address' => $placeRequest->address,
-            'phone_number' => $placeRequest->phone_number,
-            'link' => $placeRequest->link,
-            'category_id' => $placeRequest->category_id,
-            'time' => $placeRequest->time
-        ]);
-        return redirect("/posts/{$post->id}");
+        
+        return redirect("/posts");
     }
 
-    public function update(PostRequest $postRequest, Post $post, PlaceRequest $placeRequest)
+    public function update(PostRequest $request, Post $post )
     {
         $post->update([
-            'content' => $postRequest->content,
-            'title' => $postRequest->title,
-            'name' => $placeRequest->name ,
-            'address' => $placeRequest->address,
-            'phone_number' => $placeRequest->phone_number,
-            'link' => $placeRequest->link,
-            'time' => $placeRequest->time
+            'content' => $request->content,
+            'title' => $request->title
         ]);
         return redirect("/posts/{$post->id}");
     }
@@ -120,14 +99,13 @@ class PostController extends Controller
         return redirect('/posts');
     }
 
-    public function edit(Post $post, Place $place)
+    public function edit(Post $post)
     {
-        $id_user = Auth::user()->role_id;
-        if($id_user == 1)
+
+        if( Auth::user()->role_id == 1)
         {
             return view('post.edit', [
                 'post' => $post,
-                'place' => $place
             ]);
         }
         else 

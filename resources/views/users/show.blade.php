@@ -32,7 +32,7 @@ ReviewHaNoi
         </a></li>
             @endif
           @if ( $user->role_id == 2)
-            <li><a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn chỉ định làm admin không?')) document.getElementById('update-to-admin').submit()">
+            <li><a href="javascript:void()" onclick="if (confirm('Bạn có chắc muốn chỉ định làm admin không?')) document.getElementById('update-to-admin').submit()">
             <span>Chỉ định làm quản trị viên</span>
             <form action='{{ url("/user/{$user->id}") }}' method="POST" id="update-to-admin">
                                             @method('PUT')

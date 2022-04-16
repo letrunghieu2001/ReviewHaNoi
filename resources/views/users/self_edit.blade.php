@@ -11,11 +11,12 @@ ReviewHaNoi
 <!-- Form -->
 
 
-<div class="details__info">
+<div id="form">
         <div class="title">
-          <p>Cập nhật thông tin cá nhân</p>
+          <h3>Cập nhật thông tin cá nhân</h3>
         </div>
-
+        <div id="form--info">
+      <div id="avatar">
         <form action="{{url("/user/update_avt/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -29,6 +30,8 @@ ReviewHaNoi
                         </div>
                     </div>
                 </form>
+      </div>
+      <div class="form--details">
                 <form action="{{url("/user/self_edit/$user->id")}}" method="POST">
                     @method('PUT')
                     @csrf
@@ -37,23 +40,26 @@ ReviewHaNoi
               <label for="name">Họ tên</label>
               <input type="text" name="name" id="name"  value="{{ $user->name }}">
             </div>
-            @error('name')
-                    <div class="form-text text-danger">{{ $message }}</div>
-                @enderror
-                <div class="form-group">
-                        <label>Giới tính</label>
-                        <input type="radio" name="gender" id="male" value="Nam" <?php echo $user->gender == 'Nam' ? 'checked' :'' ?> />
-                        <label for="male">Nam</label>
-                        <input type="radio" name="gender" id="female" value="Nữ" <?php echo $user->gender == 'Nữ' ? 'checked' :'' ?> />
-                        <label for="female">Nữ</label>
-                    </div>
+
+               
+        <div class="form__split">
           <div class="form__group">
             <label for="dob">Ngày sinh</label>
-                        <input type="date" name="dob" id="dob" class="form-control" placeholder="Date of birth" aria-describedby="helpId" value="{{ $user->dob }}">
+            <input type="date" name="dob" id="dob">
+            <span class="form__message"></span>
           </div>
-          @error('dob')
-                    <div class="form-text text-danger">{{ $message }}</div>
-                @enderror
+          <div class="form__group">
+            <label for="gender">Giới tính</label>
+            <select name="gender" id="gender">
+              <option value="male">Nam</option>
+              <option value="female">Nữ</option>
+              <option value="else">Khác</option>
+            </select>
+            </option>
+            
+          </div>
+        </div>
+
 
           <div class="form__group">
             <label for="address">Địa chỉ</label>
@@ -66,7 +72,7 @@ ReviewHaNoi
 
         
       </div>
-
+        </div>
   </div>
 
   <script>

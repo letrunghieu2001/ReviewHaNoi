@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-- CSS -->
    <link rel="stylesheet" href="{{ asset('css/post.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
    <!-- <link rel="stylesheet" href="../CSS/home.css"> -->
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/123967a163.js" crossorigin="anonymous"></script>
@@ -24,7 +25,7 @@
       </nav>
 
 
-    <div class="nav" id="nav">
+    <div class="nav">
         <ul class="row1">
             <li><a href="{{ url('info') }}">Giới thiệu</a></li>
             <li><a href="#">Liên Hệ</a></li>

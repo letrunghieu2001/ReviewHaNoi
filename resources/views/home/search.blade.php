@@ -19,13 +19,13 @@ Search
     </div>
     
     <div class="articles">
-        @foreach ($places as $place)
-        <a  href="{{ url("/posts/$place->post_id") }}"  class="art">
+        @foreach ($posts as $post)
+        <a  href="{{ url("/posts/$post->post_id") }}"  class="art">
             <img src="../Image/Images/baipost.png" alt="">
             <div class="content">
-                <h4 class="title">{{ $place->name}}</h4>
-                <div>{{ $place->address }}</div>
-                <div>{{ $place->category_name }}</div>
+                <h4 class="title">{{ $post->post_name}}</h4>
+                <div>{{ $post->address }}</div>
+                <div>{{ $post->category_name }}</div>
             </div>
          
         </a>

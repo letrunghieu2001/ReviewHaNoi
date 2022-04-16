@@ -59,15 +59,16 @@ Route::group(['middleware'=>'admin'], function(){
 
 //Chi tiết bài Posts
 Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/{post}',[PostController::class, 'show']);
+Route::get('/posts/create',[PostController::class, 'create'])->middleware('admin');
+
 
 Route::group(['middleware'=>'admin'], function(){  
-Route::get('/posts/create',[PostController::class, 'create']);
 Route::post('/posts', [PostController::class, 'store']);
 Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
 Route::put('/posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 });
+Route::get('/posts/{post}',[PostController::class, 'show']);
 
 Route::group(['middleware'=>'auth'], function(){ 
     Route::post('/comments/{post}', [CommentController::class, 'store']);
