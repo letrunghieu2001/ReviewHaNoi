@@ -19,13 +19,19 @@
   flex-direction: column;
   align-items: center;
 }
-#avatar{
-  margin:0px auto;
-  width:200px;
-  height: 200px;
-  border-radius: 50%;
-  border:1px solid grey;
-  position: relative;
+#img, #avatar{
+
+  margin:0px auto !important;
+  width:200px !important;
+  height: 200px !important;
+  border-radius: 50% !important;
+  border:1px solid grey !important;
+  position: relative !important;
+}
+#img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 #avatar input[type="file"]{
