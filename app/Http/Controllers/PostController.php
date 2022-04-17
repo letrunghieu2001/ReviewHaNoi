@@ -11,6 +11,7 @@ use App\Models\Post_image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
@@ -23,12 +24,9 @@ class PostController extends Controller
             ->join('categories', 'categories.id', '=', 'posts.category_id')
             ->join('posts_image', 'posts_image.post_id', '=', 'posts.id')
             ->select('posts.*','posts_image.image','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
+            ->latest()
             ->get();
 
-
-
-            
-            
         $countPost = DB::table('posts')
         ->count();
 
@@ -69,6 +67,7 @@ class PostController extends Controller
 
 
         $post = $post[0];
+        
         return view('post.show',[
             'comments' => $comments,
             'post' => $post,
@@ -79,16 +78,26 @@ class PostController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Post_image $postImage)
     {   
         return view('post.create', [
+            'postImage' => $postImage
         ]);
     }
 
     public function store(PostRequest $postRequest, PostImageRequest $postImageRequest)
     {
         $data = Post::create([
-        $postRequest->input()
+        'user_id' => Auth::user()->id,
+        'district_id' => $postRequest->district_id,
+        'name' => $postRequest->name,
+        'address' => $postRequest->address,
+        'phone_number' => $postRequest->phone_number,
+        'link' => $postRequest->link,
+        'category_id' => $postRequest->category_id,
+        'time' => $postRequest->time,
+        'content' => $postRequest->content,
+        'title' => $postRequest->title
         ]);
 
         $data_image = Post_image::create([
@@ -98,11 +107,19 @@ class PostController extends Controller
         return redirect("/posts");
     }
 
-    public function update(PostRequest $request, Post $post )
+    public function update(PostRequest $postRequest, Post $post )
     {
         $post->update([
-            'content' => $request->content,
-            'title' => $request->title
+            'user_id' => Auth::user()->id,
+        'district_id' => $postRequest->district_id,
+        'name' => $postRequest->name,
+        'address' => $postRequest->address,
+        'phone_number' => $postRequest->phone_number,
+        'link' => $postRequest->link,
+        'category_id' => $postRequest->category_id,
+        'time' => $postRequest->time,
+        'content' => $postRequest->content,
+        'title' => $postRequest->title
         ]);
         return redirect("/posts/{$post->id}");
     }
@@ -127,5 +144,19 @@ class PostController extends Controller
             abort (401);
         }
     }
+    public function upload_image(Request $request, Post_image $postImage)
+    {
+
+        if($request->hasFile('postImage'))
+        {
+            $file = $request->file('postImage');
+            $name = time().".".$file->getClientOriginalExtension();
+            Image::make($file)->resize(300,300)->save( public_path("/uploads/images/".$name));
+            $postImage->update([
+                'image' => $name
+            ]);
+        }
+        return redirect('/posts/create');
     
+}
 }

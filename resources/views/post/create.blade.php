@@ -7,10 +7,12 @@
 @section('content')
     @if(Auth::check())
     <!-- create new post -->
-        <form method="POST" action="{{ url("/posts") }}">
-            @csrf
+        
+            
                 <div class="title">Tạo bài đăng</div>
                 <div class="box">
+                    <form method="POST" action="{{ url("/posts") }}">
+                    @csrf
         <div class="content">
             <div class="label">
                 <p>Tên</p>
@@ -18,15 +20,15 @@
                 <p>Quận</p>
                 <p>Phân loại</p>
                 <p>Điện thoại</p>
-                <p>Link</p>
+                <p>Link </p>
                 <p>Thời gian</p>
                 <p>Đề mục</p>
                 <p>Nội dung</p>
             </div>
             <div class="input">
-                <input id="name" type="text"><br>
-                <input id="address" type="text"><br>
-                <select name="district" id="district">
+                <input id="name" type="text" name="name"><br>
+                <input id="address" type="text" name="address"><br>
+                <select name="district_id" id="district">
                       <option value="1"> Quận Ba Đình</option>
                       <option value="3"> Quận Cầu Giấy</option>
                       <option value="4"> Quận Đống Đa</option>
@@ -41,7 +43,7 @@
                       <option value="6"> Quận Hai Bà Trưng</option>
                 </select>
                 <br>
-                <select name="category" id="category">
+                <select name="category_id" id="category">
                       <option value="1" > Nhà hàng</option>
                       <option value="2" > Quán ăn</option>
                       <option value="3" > Ăn vặt</option>
@@ -51,27 +53,58 @@
                       <option value="7" > Homestay - Khách sạn</option>
                     
                 </select>
-                <input type="tel" name="phone" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"><br>
-                <input id="link" type="text"><br>
-                <input type="text" name="bdaytime"><br>
-                <input id="text" type="text"><br>
-                <textarea id="contents"></textarea>
+                <input type="text" name="phone_number" ><br>
+                <input id="link" type="text" name="link"><br>
+                <input type="text" name="time"><br>
+                <textarea id="title" name="title"></textarea>
+                <textarea id="content" name="content"></textarea>
             </div>
             
+       
+
+            
             <div id="imagesUp"></div>
-            <form method="POST" action="{{ url("/posts") }} >
+
                 <div>
-                    <input type="file" accept="image/*" id="choose-file" name="choose-file"  multiple="multiple"/>
-                    <button id="" type="submit">Thêm ảnh</button>
-                    <button id="image-saving" type="submit">Lưu ảnh</button>
+       
+                    <input type="file" accept="image/*" name="image" id="choose-file"  multiple="multiple" >
+                    <label for="choose-file">Thêm ảnh</label>
                 </div>
-            </form>
+
         </div>
-        
+        <button class="submit" type="submit" > Tạo bài đăng </button>
     </div>
-    <input class="submit" type="submit" value="Submit">
-        </form>
+     </form>
                         
     @endif
+    <script>
+        const hamburgerBtn = document.querySelector(".toggle-btn");
+const mainHeader = document.querySelector(".row2");
+
+hamburgerBtn.addEventListener("click", function () {
+  hamburgerBtn.classList.toggle("open");
+  mainHeader.classList.toggle("open");
+});
+
+
+const chooseFile = document.getElementById("choose-file");
+const lists = document.getElementById("imagesUp");
+chooseFile.addEventListener("change", function () {
+    getImgData();
+  });
+  function getImgData() {
+    const files = chooseFile.files[0];
+    
+    var reader  = new FileReader();
+    reader.onload = function(e)  {
+        var image = document.createElement("img");
+        image.src = e.target.result;
+        lists.appendChild(image);
+        image.classList.add('imgUp');
+     }
+     
+     reader.readAsDataURL(files);
+  }
+    </script>
 @endsection
 

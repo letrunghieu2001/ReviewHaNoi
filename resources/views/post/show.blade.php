@@ -47,6 +47,8 @@
           <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
           <input type="submit" value="Gửi Bình Luận">
       </form>
+      @else
+      <a href="{{ url("login") }}">Vui lòng  Đăng nhập để bình luận </a>
         @endif
       
       @if ($countComment > 0)

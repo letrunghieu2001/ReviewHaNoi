@@ -61,16 +61,16 @@ Route::group(['middleware'=>'admin'], function(){
 //Chi tiết bài Posts
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/create',[PostController::class, 'create'])->middleware('admin');
-
+Route::get('/posts/{post}',[PostController::class, 'show']);
 
 Route::group(['middleware'=>'admin'], function(){  
 Route::post('/posts', [PostController::class, 'store']);
+Route::get('/posts/upload_image', [PostController::class, 'upload_image']);
 Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
-Route::put('/user/update_image/{user}', [UserController::class, 'update_image']);
 Route::put('/posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 });
-Route::get('/posts/{post}',[PostController::class, 'show']);
+
 
 Route::group(['middleware'=>'auth'], function(){ 
     Route::post('/comments/{post}', [CommentController::class, 'store']);
@@ -78,12 +78,5 @@ Route::group(['middleware'=>'auth'], function(){
     Route::put('/comments/{comment}', [CommentController::class, 'update']);
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);
     });
-//Admin quản lý người dùng
-Route::group(['middleware'=>'admin'], function(){    
-    Route::get('/users/{user}/edit', [UserController::class, 'edit_user']);
-    Route::get('/users/{user}',[UserController::class, 'show_user']);
-    Route::put('/users/{user}', [UserController::class, 'update_user']);
-    Route::delete('/users/{user}', [UserController::class, 'destroy_user']);
-});
 
 //------------------------------------------------------------------------

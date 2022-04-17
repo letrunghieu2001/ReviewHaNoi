@@ -53,7 +53,7 @@ class HomeController extends Controller
 
     
     $posts = DB::table('posts')
-    
+    ->latest()
     ->get();
 
     return view('home.search', [
