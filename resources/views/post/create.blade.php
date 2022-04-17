@@ -66,9 +66,8 @@
             <div id="imagesUp"></div>
 
                 <div>
-       
                     <input type="file" accept="image/*" name="image" id="choose-file"  multiple="multiple" >
-                    <label for="choose-file">Thêm ảnh</label>
+                    <label for="choose-file">Thêm ảnh bài post</label>
                 </div>
 
         </div>
@@ -92,6 +91,7 @@ const lists = document.getElementById("imagesUp");
 chooseFile.addEventListener("change", function () {
     getImgData();
   });
+
   function getImgData() {
     const files = chooseFile.files[0];
     
@@ -105,6 +105,22 @@ chooseFile.addEventListener("change", function () {
      
      reader.readAsDataURL(files);
   }
+
+  const input = document.querySelector('input[type="file"]')
+
+function handleFiles (files) {
+  console.log(files)
+  const reader = new FileReader()
+  reader.onload = function () {
+    const img = document.querySelector('#img')
+    img.src = reader.result
+  }
+  reader.readAsDataURL(files[0])
+}
+
+input.addEventListener('change', function (e) {
+  handleFiles(input.files)
+})
     </script>
 @endsection
 

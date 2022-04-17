@@ -7,22 +7,27 @@ ReviewHaNoi
 @endsection
 
 @section('content')
-
 <!-- Form -->
 
 
-<form id="form">
+<div id="form">
         <div class="title">
           <h3>Cập nhật thông tin cá nhân</h3>
         </div>
         <div id="form--info">
       <div id="avatar">
-        <form action="{{url("/user/update_avt/$user->id")}}" method="POST" enctype="multipart/form-data">
+      <form action="{{url("/user/update_avt/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <img class="mw-200px mb-3" id="img" style="width:100px;height:100px;"  src="{{ asset("/uploads/avatars/$user->avatar") }}">
-                    <input type="file" name="avatar">
-                    <button id="avt" type="submit" class="btn btn-primary">Lưu Avatar</button>
+                    <img class="mw-200px mb-3" id="img"  src="{{ asset("/uploads/avatars/$user->avatar") }}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="file" name="avatar">
+                        </div>
+                        <div class="col-md-6">
+                            <button id="avt" type="submit" class="btn btn-primary">Lưu Avatar</button>
+                        </div>
+                    </div>
                 </form>
       </div>
       <div class="form--details">
@@ -64,24 +69,26 @@ ReviewHaNoi
                 </form>
       </div>
         </div>
-</form>
-
+</div>
 
   <script>
     const input = document.querySelector('input[type="file"]')
 
-    function handleFiles (files) {
-      console.log(files)
-      const reader = new FileReader()
-      reader.onload = function () {
-        const img = document.querySelector('#img')
-        img.src = reader.result
-      }
-      reader.readAsDataURL(files[0])
-    }
+function handleFiles (files) {
+  console.log(files)
+  const reader = new FileReader()
+  reader.onload = function () {
+    const img = document.querySelector('#img')
+    img.src = reader.result
+  }
+  reader.readAsDataURL(files[0])
+}
 
-    input.addEventListener('change', function (e) {
-      handleFiles(input.files)
-    })
+input.addEventListener('change', function (e) {
+  handleFiles(input.files)
+})
 </script>
+
 @endsection
+
+

@@ -8,6 +8,7 @@ use App\Http\Requests\PostRequest;
 use App\Models\Place;
 use App\Models\Post;
 use App\Models\Post_image;
+use App\Models\Post_thumb;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -22,9 +23,8 @@ class PostController extends Controller
             $posts = DB::table('posts')
             ->join('districts', 'districts.id', '=', 'posts.district_id')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
-            ->join('posts_image', 'posts_image.post_id', '=', 'posts.id')
-            ->select('posts.*','posts_image.image','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
-            ->latest()
+            ->join('posts_thumb', 'posts_thumb.post_id', '=', 'posts.id')
+            ->select('posts.*','posts_thumb.thumb','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
             ->get();
 
         $countPost = DB::table('posts')
@@ -100,12 +100,24 @@ class PostController extends Controller
         'title' => $postRequest->title
         ]);
 
-        if($request->hasFile('postImage'))
+        if($request->hasFile('post_thumb'))
         {
-            $file = $request->file('postImage');
+            $file = $request->file('post_thumb');
+            $name = time().".".$file->getClientOriginalExtension();
+            Image::make($file)->resize(300,300)->save( public_path("/uploads/images/".$name));
+            Post_thumb::create([
+                'post_id' => $postRequest->id,
+                'thumb' => $name
+            ]);
+        }
+
+        if($request->hasFile('post_image'))
+        {
+            $file = $request->file('post_image');
             $name = time().".".$file->getClientOriginalExtension();
             Image::make($file)->resize(300,300)->save( public_path("/uploads/images/".$name));
             Post_image::create([
+                'post_id' => $postRequest->id,
                 'image' => $name
             ]);
         }

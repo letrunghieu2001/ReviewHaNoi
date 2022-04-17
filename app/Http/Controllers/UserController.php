@@ -24,6 +24,7 @@ public function self_edit()
             'user' => $user
         ]);
     }
+
     public function self_update(Request $request, User $user)
     {   
         $user->update($request->input());
@@ -32,6 +33,7 @@ public function self_edit()
 
     public function update_avt(Request $request, User $user)
     {   
+        
         if($request->hasFile('avatar'))
         {
             $file = $request->file('avatar');
@@ -43,6 +45,8 @@ public function self_edit()
         }
         return redirect('/user/self_edit');
     }
+
+
 
     public function show () {
         $users = DB::table('users')
@@ -71,6 +75,7 @@ public function self_edit()
 
     public function update(User $user)
     {
+        
         if ($user->role_id == '2')
         {
         $user->update([
@@ -85,8 +90,6 @@ public function self_edit()
         ]);
         return redirect("/user/show");
     }
-       
+    
     }
-
-
 }

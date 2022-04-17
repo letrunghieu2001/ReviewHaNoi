@@ -18,6 +18,16 @@
         <input type="name" name="name" id="name" placeholder="Nhập tên của bạn" required>
         <span class="form--message"></span>
       </div>
+
+    <div class="form__group">
+    <label for="gender">Giới tính</label>
+            <select name="gender" id="gender">
+              <option value="Nam" >Nam</option>
+              <option value="Nữ" >Nữ</option>
+              <option value="Khác" >Khác</option>
+            </select>
+</label>
+      </div>
       
             <div class="form__group">
         <label for="email" class="form__label">Email:</label>

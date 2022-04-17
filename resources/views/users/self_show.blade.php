@@ -31,7 +31,7 @@ ReviewHaNoi
 
           <div class="border__color">
             <div class="form__group">
-            <img src="{{ asset('assets/img/id.png') }}" alt="id">
+            <img src="{{ asset('assets/img/gender.png') }}" alt="id">
             <h3 for="gender">{{ $user->gender }}</h3>
             </div>
           </div>
@@ -52,7 +52,7 @@ ReviewHaNoi
          
           <div class="border__color">
             <div class="form__group">
-              <img src="{{ asset('assets/img/email.png') }}" alt="address">
+              <img src="{{ asset('assets/img/address.png') }}" alt="address">
               <h3 for="address">{{ $user->address }}</h3>
             </div>
           </div>

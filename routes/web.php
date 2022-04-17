@@ -46,7 +46,7 @@ Route::group(['middleware'=>'auth'], function(){
 });
 //Người dùng tự chỉnh sửa thông tin cá nhân
 Route::group(['middleware'=>'auth'], function(){
-    Route::get('/user/self_edit', [UserController::class, 'self_edit']);
+    Route::get('/user/self_edit', [UserController::class, 'self_edit']);    
     Route::put('/user/update_avt/{user}', [UserController::class, 'update_avt']);
     Route::get('/user/self_show',[UserController::class, 'self_show']);
     Route::put('/user/self_edit/{user}', [UserController::class, 'self_update']);

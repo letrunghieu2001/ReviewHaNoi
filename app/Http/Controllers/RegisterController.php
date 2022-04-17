@@ -17,12 +17,22 @@ class RegisterController extends Controller
 
     public function register (RegisterRequest $request)
     {
+        if($request->gender == 'Nam')
+        {
+            $avatar = 'defaultMale.png';
+        }
+        if($request->gender == 'Nữ')
+        {
+            $avatar = 'defaultFemale.png';
+        }
 //Thêm mới người dùng thông qua các trường
 $user = User::create([
     'name' => $request->input('name'),
     'email' => $request->input('email'),
     'password' => bcrypt($request->input('password')),
-    'role_id' => '2'
+    'role_id' => '2',
+    'avatar' => $avatar,
+    'gender' => $request->input('gender')
 ]);
 //nếu như thêm mới thành công thì xem trang home
 if ($user !== null) {
