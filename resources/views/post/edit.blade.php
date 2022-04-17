@@ -5,14 +5,23 @@
 @endsection
 
 @section('content')
-<div class="noidung">
+
     @if(Auth::check())
             <!-- Edit post -->
+      <div class="title">Chỉnh sửa bài đăng </div>
+      <div class="box">   
+           <form action="{{url("/posts/update_image/$post->id")}}" method="POST" enctype="multipart/form-data">
+    @csrf
+                    @method('PUT')    
+    <button id="image-saving" type="submit">Lưu ảnh</button>
+<div>
+    <input type="file" accept="image/*" name="image" id="choose-file"   >
+    <label for="choose-file">Thêm ảnh bài post</label>
+</div>
+</form>
             <form  method="POST" action="{{url("/posts/$post->id")}}">
                 @csrf
                 @method('PUT')
-                <div class="title">Chỉnh sửa bài đăng</div>
-                <div class="box">
         <div class="content">
             <div class="label">
                 <p>Tên</p>
@@ -24,6 +33,7 @@
                 <p>Thời gian</p>
                 <p>Đề mục</p>
                 <p>Nội dung</p>
+                <p>Ảnh thumbnail</p>
             </div>
             <div class="input">
                 <input id="name" type="text" name="name" value="{{$post->name}}"></input><br>
@@ -59,22 +69,51 @@
                 <textarea id="title" name="title" >{{$post->title}}</textarea>
                 <textarea id="content" name="content"> {{$post->content}}</textarea>
             </div>
-            <button  type="submit">Tạo bài đăng</button>
-        </form>
+
 
             
-            <div id="imagesUp"></div>
-            <form>
-                <div>
-                    <input type="file" accept="image/*" id="choose-file" name="choose-file"  multiple="multiple"/>
-                    <label for="choose-file">Thêm ảnh</label>
-                    <button id="image-saving" type="submit">Lưu ảnh</button>
-                </div>
-            </form>
+        <div id="imagesUp">
+
+        <img  src="{{ asset("uploads/post/$post->image") }}">
+
         </div>
-        
-    </div>
-            </form>
-    @endif
+
 </div>
+<button class="submit" type="submit" > Chỉnh sửa bài đăng </button>
+</div>
+</form>    
+
+    @endif
+    <script>
+        const hamburgerBtn = document.querySelector(".toggle-btn");
+const mainHeader = document.querySelector(".row2");
+
+hamburgerBtn.addEventListener("click", function () {
+  hamburgerBtn.classList.toggle("open");
+  mainHeader.classList.toggle("open");
+});
+
+
+const chooseFile = document.getElementById("choose-file");
+const lists = document.getElementById("imagesUp");
+chooseFile.addEventListener("change", function () {
+    getImgData();
+  });
+
+  function getImgData() {
+    const files = chooseFile.files[0];
+    
+    var reader  = new FileReader();
+    reader.onload = function(e)  {
+        var image = document.createElement("img");
+        image.src = e.target.result;
+        lists.appendChild(image);
+        image.classList.add('imgUp');
+     }
+     
+     reader.readAsDataURL(files);
+  }
+
+  
+    </script>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.post.app')
+@extends('layouts.post_crud.app')
 
 @section('title')
     Create new post
@@ -6,29 +6,60 @@
 
 @section('content')
     @if(Auth::check())
-    <!-- create new post -->
-        
-            
-                <div class="title">Tạo bài đăng</div>
-                <div class="box">
-                    <form method="POST" action="{{ url("/posts") }}">
+    <!-- Form -->
+
+
+<div id="form">
+        <div class="title">
+          <h3>Tạo bài đăng</h3>
+        </div>
+        <div id="form--info">
+      <div id="avatar">
+      <form action="{{url("/posts/upload_thumbnail")}}" method="POST" enctype="multipart/form-data">
                     @csrf
-        <div class="content">
-            <div class="label">
-                <p>Tên</p>
-                <p>Địa chỉ</p>
-                <p>Quận</p>
-                <p>Phân loại</p>
-                <p>Điện thoại</p>
-                <p>Link </p>
-                <p>Thời gian</p>
-                <p>Đề mục</p>
-                <p>Nội dung</p>
+                    @method('PUT')
+                    <img id="img"  src="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="file" style="width:100px;height:100px" name="thumb">
+                        </div>
+                        <div class="col-md-6">
+                            <button id="avt" type="submit" class="btn btn-primary">Lưu Ảnh Thumbnail</button>
+                        </div>
+                    </div>
+                </form>
+      
+      </div>
+      <div class="form--details">
+                <form action="{{ url("/posts") }}" method="POST">
+                @method('PUT')
+                @csrf
+            <div class="form__group">
+              <label for="name">Tên địa điểm:</label>
+              <input type="text" name="name" id="name">
             </div>
-            <div class="input">
-                <input id="name" type="text" name="name"><br>
-                <input id="address" type="text" name="address"><br>
-                <select name="district_id" id="district">
+
+            <div class="form__group">
+            <label for="category">Quận:</label>
+            <select name="category_id" id="category">
+            <option value="1" > Nhà hàng</option>
+                      <option value="2" > Quán ăn</option>
+                      <option value="3" > Ăn vặt</option>
+                      <option value="4" > Quán cà phê</option>
+                      <option value="5" > Di tích lịch sử</option>
+                      <option value="6" > Địa điểm check-in</option>
+                      <option value="7" > Homestay - Khách sạn</option>
+            </select>
+            
+                      <div class="form__group">
+          <label for="address">Địa chỉ:</label>
+              <input type="text" name="address" id="address">
+          </div>
+
+        </div>
+            <div class="form__group">
+            <label for="district">Phân loại:</label>
+            <select name="district_id" id="district">
                       <option value="1"> Quận Ba Đình</option>
                       <option value="3"> Quận Cầu Giấy</option>
                       <option value="4"> Quận Đống Đa</option>
@@ -41,72 +72,53 @@
                       <option value="12"> Quận Thanh Xuân</option>
                       <option value="5"> Quận Hà Đông</option>
                       <option value="6"> Quận Hai Bà Trưng</option>
-                </select>
-                <br>
-                <select name="category_id" id="category">
-                      <option value="1" > Nhà hàng</option>
-                      <option value="2" > Quán ăn</option>
-                      <option value="3" > Ăn vặt</option>
-                      <option value="4" > Quán cà phê</option>
-                      <option value="5" > Di tích lịch sử</option>
-                      <option value="6" > Địa điểm check-in</option>
-                      <option value="7" > Homestay - Khách sạn</option>
-                    
-                </select>
-                <input type="text" name="phone_number" ><br>
-                <input id="link" type="text" name="link"><br>
-                <input type="text" name="time"><br>
-                <textarea id="title" name="title"></textarea>
-                <textarea id="content" name="content"></textarea>
-            </div>
+            </select>
             
-       
-
             
-            <div id="imagesUp"></div>
-
-                <div>
-                    <input type="file" accept="image/*" name="image" id="choose-file"  multiple="multiple" >
-                    <label for="choose-file">Thêm ảnh bài post</label>
-                </div>
-
         </div>
-        <button class="submit" type="submit" > Tạo bài đăng </button>
-    </div>
-     </form>
-                        
-    @endif
-    <script>
-        const hamburgerBtn = document.querySelector(".toggle-btn");
-const mainHeader = document.querySelector(".row2");
 
-hamburgerBtn.addEventListener("click", function () {
-  hamburgerBtn.classList.toggle("open");
-  mainHeader.classList.toggle("open");
-});
+          <div class="form__group">
+            <label for="phone_number">Điện thoại:</label>
+            <input type="text" name="phone_number" id="phone_number" class="form-control"  aria-describedby="helpId" >
+          </div>
+          <div class="form__group">
+            <label for="time">Thời gian:</label>
+            <input type="text" name="time" id="time" class="form-control"  aria-describedby="helpId" >
+          </div>
+          <div class="form__group">
+            <label for="link">Link:</label>
+            <input type="text" name="link" id="link" class="form-control"  aria-describedby="helpId" >
+          </div>
+          <div class="form__group">
+          <textarea id="title" name="title"></textarea>
+                
+          </div>
+          <div class="form__group">
+          <textarea id="content" name="content"></textarea>
+                
+          </div>
+<form action="{{url("/posts/upload_image")}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <img id="img"  src="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="file" style="width:100px;height:100px" name="thumb">
+                        </div>
+                        <div class="col-md-6">
+                            <button id="avt" type="submit" class="btn btn-primary">Lưu Ảnh Bài đăng</button>
+                        </div>
+                    </div>
+                </form>
+                <button type="submit" class="btn btn-primary">Lưu thông tin</button>
 
+                </form>
+      </div>
+        </div>
+</div>
 
-const chooseFile = document.getElementById("choose-file");
-const lists = document.getElementById("imagesUp");
-chooseFile.addEventListener("change", function () {
-    getImgData();
-  });
-
-  function getImgData() {
-    const files = chooseFile.files[0];
-    
-    var reader  = new FileReader();
-    reader.onload = function(e)  {
-        var image = document.createElement("img");
-        image.src = e.target.result;
-        lists.appendChild(image);
-        image.classList.add('imgUp');
-     }
-     
-     reader.readAsDataURL(files);
-  }
-
-  const input = document.querySelector('input[type="file"]')
+  <script>
+    const input = document.querySelector('input[type="file"]')
 
 function handleFiles (files) {
   console.log(files)
@@ -121,6 +133,7 @@ function handleFiles (files) {
 input.addEventListener('change', function (e) {
   handleFiles(input.files)
 })
-    </script>
-@endsection
+</script>
 
+@endif
+@endsection

@@ -23,8 +23,7 @@ class PostController extends Controller
             $posts = DB::table('posts')
             ->join('districts', 'districts.id', '=', 'posts.district_id')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
-            ->join('posts_thumb', 'posts_thumb.post_id', '=', 'posts.id')
-            ->select('posts.*','posts_thumb.thumb','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
+            ->select('posts.*','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
             ->get();
 
         $countPost = DB::table('posts')
@@ -50,19 +49,14 @@ class PostController extends Controller
         ->count();
 
         $items = DB::table('posts')
-        ->join('posts_image', 'posts_image.post_id', '=', 'posts.id')
         ->get();
 
         $post = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.user_id')
         ->join('districts', 'districts.id', '=', 'posts.district_id')
         ->join('categories', 'categories.id', '=', 'posts.category_id')       
-        ->join('posts_image', 'posts_image.post_id', '=', 'posts.id')
         ->where('posts.id', '=', "$post")
         ->select('posts.*', 'users.*','districts.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
-        ->get();
-
-        $posts_image = DB::table('posts_image')
         ->get();
 
 
@@ -72,8 +66,7 @@ class PostController extends Controller
             'comments' => $comments,
             'post' => $post,
             'countComment' => $countComment,
-            'items' => $items,
-            'posts_image' => $posts_image
+            'items' => $items
             
         ]);
     }
@@ -97,30 +90,12 @@ class PostController extends Controller
         'category_id' => $postRequest->category_id,
         'time' => $postRequest->time,
         'content' => $postRequest->content,
-        'title' => $postRequest->title
+        'title' => $postRequest->title,
+        'thumbnail' => $postRequest->thumbnail,
+        'image' => $postRequest->image
         ]);
 
-        if($request->hasFile('post_thumb'))
-        {
-            $file = $request->file('post_thumb');
-            $name = time().".".$file->getClientOriginalExtension();
-            Image::make($file)->resize(300,300)->save( public_path("/uploads/images/".$name));
-            Post_thumb::create([
-                'post_id' => $postRequest->id,
-                'thumb' => $name
-            ]);
-        }
-
-        if($request->hasFile('post_image'))
-        {
-            $file = $request->file('post_image');
-            $name = time().".".$file->getClientOriginalExtension();
-            Image::make($file)->resize(300,300)->save( public_path("/uploads/images/".$name));
-            Post_image::create([
-                'post_id' => $postRequest->id,
-                'image' => $name
-            ]);
-        }
+        
         
         return redirect("/posts");
     }
@@ -137,7 +112,9 @@ class PostController extends Controller
         'category_id' => $postRequest->category_id,
         'time' => $postRequest->time,
         'content' => $postRequest->content,
-        'title' => $postRequest->title
+        'title' => $postRequest->title,
+        'thumbnail' => $postRequest->thumbnail,
+        'image' => $postRequest->image
         ]);
         return redirect("/posts/{$post->id}");
     }
@@ -155,6 +132,8 @@ class PostController extends Controller
         {
             return view('post.edit', [
                 'post' => $post,
+                
+                
             ]);
         }
         else 
@@ -162,11 +141,21 @@ class PostController extends Controller
             abort (401);
         }
     }
-    public function upload_image(Request $request, Post_image $postImage)
-    {
 
+    public function update_image(Request $request, Post_image $post_image, Post $post)
+    {   
         
-        return redirect('/posts/create');
-    
-}
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $name = time().".".$file->getClientOriginalExtension();
+            Image::make($file)->resize(300,300)->save( public_path("/uploads/post/".$name));
+            $post_image->update([
+                'post_id' => $post->id, 
+                'image' => $name
+            ]);
+        }
+        return redirect("/posts/{$post->id}/edit");
+    }
+
 }

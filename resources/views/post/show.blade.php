@@ -10,11 +10,9 @@
   <div class="b1">
       <h4 class="tieude">{!! $post->title !!}</h4>
       <span>{!! $post->content !!}</span>
-      @foreach($posts_image as $item)
-      @if(( $item->post_id == $post->post_id))
-      <img src="{{ asset("assets/img/post/$item->image") }}" alt="1">
-      @endif
-      @endforeach
+
+      <img src="{{ asset("assets/img/post/$post->image") }}" alt="1">
+
       <div>
       @if (Auth::check())
       @if ($post->role_id == 1)
@@ -125,7 +123,7 @@
       @if(( $item->category_id == $post->cat_id))
   <div class="slide">
   <a  href="{{ url("/posts/$post->post_id") }}"  class="art">
-          <img src="{{ asset("assets/img/post/$item->image") }}" alt="quan-an">
+          <img src="{{ asset("assets/img/thumb/$item->thumbnail") }}" alt="quan-an">
           <span></span>
           <div class="text">{!! $item->name !!}</div>
   </a>
