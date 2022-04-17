@@ -65,11 +65,7 @@ Route::get('/posts/{post}',[PostController::class, 'show']);
 
 Route::group(['middleware'=>'admin'], function(){  
 Route::post('/posts', [PostController::class, 'store']);
-Route::put('/posts/upload_image', [PostController::class, 'upload_image']);
-Route::put('/posts/upload_thumbnail', [PostController::class, 'upload_thumbnail']);
 Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
-Route::put('/posts/update_image/{post}', [PostController::class, 'update_image']);
-Route::put('/posts/update_thumbnail/{post}', [PostController::class, 'update_thumbnail']);
 Route::put('/posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 });

@@ -11,7 +11,7 @@
       <h4 class="tieude">{!! $post->title !!}</h4>
       <span>{!! $post->content !!}</span>
 
-      <img src="{{ asset("assets/img/post/$post->image") }}" alt="1">
+      <img src="{{ asset("uploads/post/$post->image") }}" alt="1">
 
       <div>
       @if (Auth::check())
@@ -123,7 +123,7 @@
       @if(( $item->category_id == $post->cat_id))
   <div class="slide">
   <a  href="{{ url("/posts/$post->post_id") }}"  class="art">
-          <img src="{{ asset("assets/img/thumb/$item->thumbnail") }}" alt="quan-an">
+          <img src="{{ asset("uploads/thumb/$item->thumbnail") }}" alt="quan-an">
           <span></span>
           <div class="text">{!! $item->name !!}</div>
   </a>

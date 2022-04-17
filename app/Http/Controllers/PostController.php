@@ -71,15 +71,30 @@ class PostController extends Controller
         ]);
     }
 
-    public function create(Post_image $postImage)
+    public function create()
     {   
         return view('post.create', [
-            'postImage' => $postImage
+
         ]);
     }
 
-    public function store(PostRequest $postRequest, Request $request)
+    public function store(PostRequest $postRequest)
     {
+        $validate = $postRequest->validate([
+            'image' => 'required'
+        ]);
+        if($postRequest->hasFile('thumbnail'))
+        {
+            $file1 = $postRequest->file('thumbnail');
+            $name1 = time().".".$file1->getClientOriginalExtension();
+            Image::make($file1)->save( public_path("/uploads/thumb/".$name1));
+        }
+        if($postRequest->hasFile('image'))
+        {
+            $file = $postRequest->file('image');
+            $name = time().".".$file->getClientOriginalExtension();
+            Image::make($file)->save( public_path("/uploads/post/".$name));
+        }
         $data = Post::create([
         'user_id' => Auth::user()->id,
         'district_id' => $postRequest->district_id,
@@ -91,19 +106,27 @@ class PostController extends Controller
         'time' => $postRequest->time,
         'content' => $postRequest->content,
         'title' => $postRequest->title,
-        'thumbnail' => $postRequest->thumbnail,
-        'image' => $postRequest->image
+        'thumbnail' => $name1,
+        'image' => $name
         ]);
-
-        
-        
         return redirect("/posts");
     }
 
     public function update(PostRequest $postRequest, Post $post )
     {
+        $validate = $postRequest->validate([
+            'image' => 'required'
+        ]);
+        if(($postRequest->hasFile('thumbnail')) && ($postRequest->hasFile('image')))
+        {
+            $file1 = $postRequest->file('thumbnail');
+            $name1 = time().".".$file1->getClientOriginalExtension();
+            Image::make($file1)->save( public_path("/uploads/thumb/".$name1));
+            $file = $postRequest->file('image');
+            $name = time().".".$file->getClientOriginalExtension();
+            Image::make($file)->save( public_path("/uploads/post/".$name));
         $post->update([
-            'user_id' => Auth::user()->id,
+        'user_id' => Auth::user()->id,
         'district_id' => $postRequest->district_id,
         'name' => $postRequest->name,
         'address' => $postRequest->address,
@@ -113,11 +136,14 @@ class PostController extends Controller
         'time' => $postRequest->time,
         'content' => $postRequest->content,
         'title' => $postRequest->title,
-        'thumbnail' => $postRequest->thumbnail,
-        'image' => $postRequest->image
+        'thumbnail' => $name1,
+        'image' => $name
         ]);
-        return redirect("/posts/{$post->id}");
     }
+        else $post->update($postRequest->input());
+        return redirect("/posts/{$post->id}");
+    
+}
 
     public function destroy(Post $post)
     {
@@ -140,22 +166,6 @@ class PostController extends Controller
         {
             abort (401);
         }
-    }
-
-    public function update_image(Request $request, Post_image $post_image, Post $post)
-    {   
-        
-        if($request->hasFile('image'))
-        {
-            $file = $request->file('image');
-            $name = time().".".$file->getClientOriginalExtension();
-            Image::make($file)->resize(300,300)->save( public_path("/uploads/post/".$name));
-            $post_image->update([
-                'post_id' => $post->id, 
-                'image' => $name
-            ]);
-        }
-        return redirect("/posts/{$post->id}/edit");
     }
 
 }

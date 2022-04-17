@@ -9,31 +9,21 @@
     <!-- Form -->
 
 
-<div id="form">
+<form action="{{ url("/posts") }}" method="POST" enctype="multipart/form-data" id="form">
+@csrf
         <div class="title">
           <h3>Tạo bài đăng</h3>
         </div>
         <div id="form--info">
-      <div id="avatar">
-      <form action="{{url("/posts/upload_thumbnail")}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <img id="img"  src="">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="file" style="width:100px;height:100px" name="thumb">
-                        </div>
-                        <div class="col-md-6">
-                            <button id="avt" type="submit" class="btn btn-primary">Lưu Ảnh Thumbnail</button>
-                        </div>
-                    </div>
-                </form>
-      
-      </div>
+ 
       <div class="form--details">
-                <form action="{{ url("/posts") }}" method="POST">
-                @method('PUT')
-                @csrf
+      
+      <div class="form__group">
+              <label for="thumbnail">Ảnh thumbnail:</label>
+              <input type="file" name="thumbnail" id="thumbnail">
+              <div><img width=30% src="" id='img'></div>
+            </div>
+
             <div class="form__group">
               <label for="name">Tên địa điểm:</label>
               <input type="text" name="name" id="name">
@@ -90,50 +80,45 @@
             <input type="text" name="link" id="link" class="form-control"  aria-describedby="helpId" >
           </div>
           <div class="form__group">
+            Đề mục:
           <textarea id="title" name="title"></textarea>
                 
           </div>
           <div class="form__group">
+            Nội dung:
           <textarea id="content" name="content"></textarea>
                 
           </div>
-<form action="{{url("/posts/upload_image")}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <img id="img"  src="">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="file" style="width:100px;height:100px" name="thumb">
-                        </div>
-                        <div class="col-md-6">
-                            <button id="avt" type="submit" class="btn btn-primary">Lưu Ảnh Bài đăng</button>
-                        </div>
-                    </div>
-                </form>
-                <button type="submit" class="btn btn-primary">Lưu thông tin</button>
 
-                </form>
+          <div class="form__group">
+              <label for="image">Ảnh bài đăng:</label>
+              <input type="file" name="image" id="image">
+              <div><img width=30% src="" id='img'></div>
+            </div>
+
+                <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+@endif
       </div>
         </div>
-</div>
-
+</form>
   <script>
-    const input = document.querySelector('input[type="file"]')
+     const input = document.querySelector('input[type="file"]')
 
-function handleFiles (files) {
-  console.log(files)
-  const reader = new FileReader()
-  reader.onload = function () {
-    const img = document.querySelector('#img')
-    img.src = reader.result
-  }
-  reader.readAsDataURL(files[0])
+function handleFiles(files) {
+    console.log(files)
+    const reader = new FileReader()
+    reader.onload = function() {
+        const img = document.querySelector('#img')
+        img.src = reader.result
+    }
+    reader.readAsDataURL(files[0])
 }
 
-input.addEventListener('change', function (e) {
-  handleFiles(input.files)
+input.addEventListener('change', function(e) {
+    handleFiles(input.files);
+    $("#img").css("max-height", "200px");
+    $("#img").css("object-fit", "contain");
 })
 </script>
 
-@endif
 @endsection
