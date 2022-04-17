@@ -3,10 +3,10 @@
 @import url(../CSS/menu.css);
 
 #form{
-  width:300px;
+  width:500px;
 
   margin:0px auto;
-  margin-top:100px;
+  margin-top:50px;
 
   background-color:rgb(216, 235, 235);
   padding:50px;
@@ -20,30 +20,36 @@
   align-items: center;
 }
 #avatar{
-
-  width:128px;
-  height: 128px;
-  margin-right:10px;
+  margin:0px auto;
+  width:200px;
+  height: 200px;
   border-radius: 50%;
-
+  border:1px solid grey;
+  position: relative;
 }
+
 #avatar input[type="file"]{
-  width: 50%;
-  height: 50%;
-  border-radius: 50%;
+  position: absolute;
+    max-width: 100%;
+    bottom:-33px;
+    right:0;
 }
 .form--details{
   width: 100%;
   display: flex;
+  margin-top: 60px;
   flex-direction: column;
   align-items: center;
+}
+.form--details form{
+  width: 100%;
 }
 .title{
   max-width: 100%;
   margin:0px auto;
 }
 .title h3{
-  font-size: 14px;
+  font-size: 20px;
   font-family: var(--FontSecondary),sans-serif;
   color:red;
   text-align: center;
@@ -86,11 +92,20 @@ label i{
 .form__message{
   font-size: 12px;
 }
+.form--details form{
+  width: 100%;
+}
 .form__message.correct{
   display: block;
   width:12px;
   height: 12px;
   background: url(../Image/correct.png) no-repeat;
+}
+button#avt{
+  position: absolute;
+  bottom:-67px;
+  right:33%;
+  
 }
 button{
   width:50%;
@@ -100,6 +115,7 @@ button{
   background-color:coral;
   border-radius:5px;
   border:none;
+  margin:0px auto;
 }
 button:hover{
   background-color:rgba(255,127,180);
@@ -107,43 +123,29 @@ button:hover{
 }
 
 @media (min-width:1140px) {
+
   #form{
     width:800px;
-  
-    margin:0px auto;
     margin-top:100px;
-  
-    background-color:rgb(216, 235, 235);
-    padding:50px;
-    
   }
-  #form--info{
-    display: flex;
-    margin:0px auto;
-    flex:1;
-    
-    align-items: center;
-  }
-  #avatar{
 
-    width:200px;
-    height: 200px;
-    margin-right:10px;
+  #avatar{
+    /* margin-right:10px; */
     border-radius: 50%;
     border:1px solid grey;
+    position: relative;
   }
-  #avatar input[type="file"]{
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-  }
-  .form--details{
-    flex:3;
 
+  .form--details{
+
+    margin-top: 60px;
     padding-left:40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .form--details form{
+    width: 100%;
   }
   .title{
     max-width: 500px;
@@ -188,7 +190,12 @@ button:hover{
   label span{
     color:red;
   }
-  
+  button#avt{
+    position: absolute;
+    bottom:-67px;
+    right:33%;
+    
+  }
   button{
     width:50%;
     height: 30px;
