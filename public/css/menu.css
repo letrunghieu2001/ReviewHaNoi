@@ -219,8 +219,9 @@ body.dark{
   text-align: left !important;
 }
 .admin img{
-  width:25px;
-  height:25px;
+  margin-top:8px !important;
+  width:30px !important;
+  height:30px;
   border-radius: 50%;
   background-color: antiquewhite;
 }
