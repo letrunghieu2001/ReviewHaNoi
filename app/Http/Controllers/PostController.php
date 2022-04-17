@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PlaceRequest;
+use App\Http\Requests\PostImageRequest;
 use App\Http\Requests\PostRequest;
 use App\Models\Place;
 use App\Models\Post;
+use App\Models\Post_image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,15 +21,20 @@ class PostController extends Controller
             $posts = DB::table('posts')
             ->join('districts', 'districts.id', '=', 'posts.district_id')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
-            ->select('posts.*','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
+            ->join('posts_image', 'posts_image.post_id', '=', 'posts.id')
+            ->select('posts.*','posts_image.image','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
             ->get();
+
+
+
+            
             
         $countPost = DB::table('posts')
         ->count();
 
         return view('post.index', [
             'posts' => $posts,
-            'countPost' => $countPost,
+            'countPost' => $countPost
         ]);
     }
 
@@ -45,22 +52,29 @@ class PostController extends Controller
         ->count();
 
         $items = DB::table('posts')
+        ->join('posts_image', 'posts_image.post_id', '=', 'posts.id')
         ->get();
 
         $post = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.user_id')
         ->join('districts', 'districts.id', '=', 'posts.district_id')
-        ->join('categories', 'categories.id', '=', 'posts.category_id')
+        ->join('categories', 'categories.id', '=', 'posts.category_id')       
+        ->join('posts_image', 'posts_image.post_id', '=', 'posts.id')
         ->where('posts.id', '=', "$post")
         ->select('posts.*', 'users.*','districts.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
         ->get();
+
+        $posts_image = DB::table('posts_image')
+        ->get();
+
 
         $post = $post[0];
         return view('post.show',[
             'comments' => $comments,
             'post' => $post,
             'countComment' => $countComment,
-            'items' => $items
+            'items' => $items,
+            'posts_image' => $posts_image
             
         ]);
     }
@@ -71,15 +85,15 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(PostRequest $request)
+    public function store(PostRequest $postRequest, PostImageRequest $postImageRequest)
     {
         $data = Post::create([
-            'user_id' => Auth::user()->id,
-            'category_id' => 1,
-            'district_id' => 1,
-            'content' => $request->content,
-            'title' => $request->title
+        $postRequest->input()
         ]);
+
+        $data_image = Post_image::create([
+            $postImageRequest->input()
+        ]) ;
         
         return redirect("/posts");
     }

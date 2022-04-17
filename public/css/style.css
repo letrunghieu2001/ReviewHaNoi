@@ -9,7 +9,8 @@ html, body { width: 100%; height: 100%; }
 .title{width: 25%; margin: auto;  font-family: tahoma;margin-bottom: 30px; text-align: center; font-size: 3rem; font-weight: bold;}
 .box{width: 70%; left: 20%;position: relative;}
 .content{display: flex; justify-content: space-between;font-family: tahoma;font-size: 1rem;}
-input{font-size: large;margin: 5px;width: 300px;}
+select,input{font-size: large;margin: 5px;width: 300px;}
+select{width: 303px;}
 p{margin-bottom: 17px;}
 textarea{margin-left: 5px;width: 300px;height: 100px;}
 /* //phan them anh */
@@ -54,4 +55,16 @@ textarea{margin-left: 5px;width: 300px;height: 100px;}
 @media only screen and (max-width: 690px){
     * { margin: 0px; padding: 0px; }
     [type="file"] + label {padding: 5px 15px;}
+}
+#image-saving{
+    font-family: sans-serif;
+    background: #f44336;
+    padding: 10px 30px;
+    border: 2px solid #f44336;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: absolute;
+    bottom: 0;right: 50px;
 }

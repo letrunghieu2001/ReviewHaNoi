@@ -20,16 +20,20 @@ Full Post
     
     <div class="articles">
         @foreach ($posts as $post)
-        <a  href="{{ url("/posts/$post->post_id") }}"  class="art">
-            <img src="../Image/Images/baipost.png" alt="">
+       
+        <a  href="{{ url("/posts/$post->post_id") }}"  class="art"> 
+
+            <img src="{{ asset("assets/img/post/$post->image") }}" alt="">
+
             <div class="content">
                 <h4 class="title">{{ $post->post_name}}</h4>
                 <div>{{ $post->address }}</div>
                 <div>{{ $post->category_name }}</div>
                 <div>{{ $post->time }}</div>
             </div>
-        
         </a>
+
+
    @endforeach
         </div>
 

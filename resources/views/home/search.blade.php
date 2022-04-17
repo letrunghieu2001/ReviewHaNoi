@@ -21,7 +21,7 @@ Search
     <div class="articles">
         @foreach ($posts as $post)
         <a  href="{{ url("/posts/$post->post_id") }}"  class="art">
-            <img src="../Image/Images/baipost.png" alt="">
+            <img src="{{ asset("assets/img/post/$post->image") }}" alt="">
             <div class="content">
                 <h4 class="title">{{ $post->post_name}}</h4>
                 <div>{{ $post->address }}</div>

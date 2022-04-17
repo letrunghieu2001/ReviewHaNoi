@@ -11,7 +11,7 @@ ReviewHaNoi
 <!-- Form -->
 
 
-<div id="form">
+<form id="form">
         <div class="title">
           <h3>Cập nhật thông tin cá nhân</h3>
         </div>
@@ -21,21 +21,14 @@ ReviewHaNoi
                     @csrf
                     @method('PUT')
                     <img class="mw-200px mb-3" id="img" style="width:100px;height:100px;"  src="{{ asset("/uploads/avatars/$user->avatar") }}">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="file" name="avatar">
-                        </div>
-                        <div class="col-md-6">
-                            <button id="avt" type="submit" class="btn btn-primary">Lưu Avatar</button>
-                        </div>
-                    </div>
+                    <input type="file" name="avatar">
+                    <button id="avt" type="submit" class="btn btn-primary">Lưu Avatar</button>
                 </form>
       </div>
       <div class="form--details">
                 <form action="{{url("/user/self_edit/$user->id")}}" method="POST">
-                    @method('PUT')
-                    @csrf
-                    <input type="hidden" name="id" value="{{ $user->id }}">
+                @method('PUT')
+                @csrf
             <div class="form__group">
               <label for="name">Họ tên</label>
               <input type="text" name="name" id="name"  value="{{ $user->name }}">
@@ -51,9 +44,9 @@ ReviewHaNoi
           <div class="form__group">
             <label for="gender">Giới tính</label>
             <select name="gender" id="gender">
-              <option value="male">Nam</option>
-              <option value="female">Nữ</option>
-              <option value="else">Khác</option>
+              <option value="Nam" <?php echo $user->gender == 'Nam' ? 'selected' :'' ?>>Nam</option>
+              <option value="Nữ" <?php echo $user->gender == 'Nữ' ? 'selected' :'' ?>>Nữ</option>
+              <option value="Khác" <?php echo $user->gender == 'Khác' ? 'selected' :'' ?>>Khác</option>
             </select>
             </option>
             
@@ -71,7 +64,8 @@ ReviewHaNoi
                 </form>
       </div>
         </div>
-  </div>
+</form>
+
 
   <script>
     const input = document.querySelector('input[type="file"]')

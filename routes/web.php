@@ -53,6 +53,7 @@ Route::group(['middleware'=>'auth'], function(){
 });
 Route::group(['middleware'=>'admin'], function(){
     Route::get('/user/show',[UserController::class, 'show']);
+    Route::get('/user/show/{user}',[UserController::class, 'show_user']);
     Route::put('/user/{user}', [UserController::class, 'update']);
     Route::delete('/user/{user}', [UserController::class, 'destroy']);
 });
@@ -65,6 +66,7 @@ Route::get('/posts/create',[PostController::class, 'create'])->middleware('admin
 Route::group(['middleware'=>'admin'], function(){  
 Route::post('/posts', [PostController::class, 'store']);
 Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+Route::put('/user/update_image/{user}', [UserController::class, 'update_image']);
 Route::put('/posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 });
