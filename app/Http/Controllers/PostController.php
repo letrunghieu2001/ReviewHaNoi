@@ -85,7 +85,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(PostRequest $postRequest, PostImageRequest $postImageRequest)
+    public function store(PostRequest $postRequest, Request $request)
     {
         $data = Post::create([
         'user_id' => Auth::user()->id,
@@ -100,9 +100,15 @@ class PostController extends Controller
         'title' => $postRequest->title
         ]);
 
-        $data_image = Post_image::create([
-            $postImageRequest->input()
-        ]) ;
+        if($request->hasFile('postImage'))
+        {
+            $file = $request->file('postImage');
+            $name = time().".".$file->getClientOriginalExtension();
+            Image::make($file)->resize(300,300)->save( public_path("/uploads/images/".$name));
+            Post_image::create([
+                'image' => $name
+            ]);
+        }
         
         return redirect("/posts");
     }
@@ -147,15 +153,7 @@ class PostController extends Controller
     public function upload_image(Request $request, Post_image $postImage)
     {
 
-        if($request->hasFile('postImage'))
-        {
-            $file = $request->file('postImage');
-            $name = time().".".$file->getClientOriginalExtension();
-            Image::make($file)->resize(300,300)->save( public_path("/uploads/images/".$name));
-            $postImage->update([
-                'image' => $name
-            ]);
-        }
+        
         return redirect('/posts/create');
     
 }
