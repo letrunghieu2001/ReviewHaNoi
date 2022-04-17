@@ -52,6 +52,17 @@ public function self_edit()
         ]);
     }
 
+    public function show_user ($user) {
+        $user = DB::table('users')
+        ->where('users.id','=',$user)
+        ->get();
+
+        $user = $user[0];
+        return view ('users.show_user', [
+            'user' => $user
+        ]);
+    }
+
     public function destroy(User $user)
     {
         $user->delete();

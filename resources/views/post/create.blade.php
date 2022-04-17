@@ -9,62 +9,69 @@
     <!-- create new post -->
         <form method="POST" action="{{ url("/posts") }}">
             @csrf
-            <main id="tt-pageContent" class="bg-main">
-                <div class="container">
-                    <div class="title-block">
-                        <h3 class="title"> 
-                            Create New Post <span class="sparkline bar" data-type="bar"></span>
-                        </h3>
-                    </div>
-                    <form name="item">
-                        {{-- @csrf --}}
-                        <div class="card card-block">
-                            <!-- Avatar -->
-                            <div class="form-group row mb-5">
-                                <div class="col-sm-2 text-xs-right">
-                                    <img class="rounded-circle img" width="50" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                                </div>
-                                <div class="col-sm-10 mt-3">
-                                    <h4> {{ Auth::user()->name}} </h4>
-                                </div>
-                            </div>
-
-                            <!-- Title -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
-                                <div class="col-sm-10">
-                                    <textarea class="summernoteTitle" name="title">
-                                        {{ old('title') }}
-                                    </textarea>
-                                    @error('title')
-                                    <div class="form-text text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <!-- Content -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
-                                <div class="col-sm-10">
-                                    <textarea class="summernoteContent" name="content">
-                                        {{ old('content') }}
-                                    </textarea>
-                                    @error('content')
-                                    <div class="form-text text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <!-- Button -->
-                            <div class="row form-group">
-                                <div class="col-auto ml-md-auto">
-                                    <button class="btn btn-primary btn-sm" type="submit">Create Post</button>
-                                    <a class="btn btn-danger btn-sm ml-2" href="{{ url("/posts") }}">Cancel</a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                <div class="title">Tạo bài đăng</div>
+                <div class="box">
+        <div class="content">
+            <div class="label">
+                <p>Tên</p>
+                <p>Địa chỉ</p>
+                <p>Quận</p>
+                <p>Phân loại</p>
+                <p>Điện thoại</p>
+                <p>Link</p>
+                <p>Thời gian</p>
+                <p>Đề mục</p>
+                <p>Nội dung</p>
+            </div>
+            <div class="input">
+                <input id="name" type="text"><br>
+                <input id="address" type="text"><br>
+                <select name="district" id="district">
+                      <option value="1"> Quận Ba Đình</option>
+                      <option value="3"> Quận Cầu Giấy</option>
+                      <option value="4"> Quận Đống Đa</option>
+                      <option value="11"> Quận Tây Hồ</option>
+                      <option value="2"> Quận Bắc Từ Liêm</option>
+                      <option value="10"> Quận Nam Từ Liêm</option>
+                      <option value="7"> Quận Hoàn Kiếm</option>
+                      <option value="8"> Quận Hoàng Mai</option>
+                      <option value="9"> Quận Long Biên</option>
+                      <option value="12"> Quận Thanh Xuân</option>
+                      <option value="5"> Quận Hà Đông</option>
+                      <option value="6"> Quận Hai Bà Trưng</option>
+                </select>
+                <br>
+                <select name="category" id="category">
+                      <option value="1" > Nhà hàng</option>
+                      <option value="2" > Quán ăn</option>
+                      <option value="3" > Ăn vặt</option>
+                      <option value="4" > Quán cà phê</option>
+                      <option value="5" > Di tích lịch sử</option>
+                      <option value="6" > Địa điểm check-in</option>
+                      <option value="7" > Homestay - Khách sạn</option>
+                    
+                </select>
+                <input type="tel" name="phone" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"><br>
+                <input id="link" type="text"><br>
+                <input type="text" name="bdaytime"><br>
+                <input id="text" type="text"><br>
+                <textarea id="contents"></textarea>
+            </div>
+            
+            <div id="imagesUp"></div>
+            <form method="POST" action="{{ url("/posts") }} >
+                <div>
+                    <input type="file" accept="image/*" id="choose-file" name="choose-file"  multiple="multiple"/>
+                    <button id="" type="submit">Thêm ảnh</button>
+                    <button id="image-saving" type="submit">Lưu ảnh</button>
                 </div>
-            </main>
+            </form>
+        </div>
+        
+    </div>
+    <input class="submit" type="submit" value="Submit">
         </form>
+                        
     @endif
 @endsection
+

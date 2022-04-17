@@ -56,13 +56,13 @@
                   <span> Danh mục </span>
                   </a>
                   <ul class="menu2" >
-                    <li><a href="{{ url('search?type=1&browser=&search=') }}">Nhà Hàng</a></li>
-                    <li><a href="{{ url('search?type=2&browser=&search=') }}">Quán Ăn</a></li>
-                    <li><a href="{{ url('search?type=3&browser=&search=') }}">Quán Ăn Vặt</a></li>
-                    <li><a href="{{ url('search?type=4&browser=&search=') }}">Quán Cà Phê</a></li>
-                    <li><a href="{{ url('search?type=5&browser=&search=') }}">Di tích Lịch Sử</a></li>
-                    <li><a href="{{ url('search?type=6&browser=&search=') }}">Địa điểm Check-in</a></li>
-                    <li><a href="{{ url('search?type=7&browser=&search=') }}">Homestay - Khách sạn</a></li>
+                    <li><a href="{{ url('search?type=Nhà+hàng&browser=&search=') }}">Nhà Hàng</a></li>
+                    <li><a href="{{ url('search?type=Quán+ăn&browser=&search=') }}">Quán Ăn</a></li>
+                    <li><a href="{{ url('search?type=Ăn+vặt&browser=&search=') }}">Ăn Vặt</a></li>
+                    <li><a href="{{ url('search?type=Quán+cà+phê&browser=&search=') }}">Quán Cà Phê</a></li>
+                    <li><a href="{{ url('search?type=Di+tích+lịch+sử&browser=&search=') }}">Di tích Lịch Sử</a></li>
+                    <li><a href="{{ url('search?type=Địa+điểm+check-in&browser=&search=') }}">Địa điểm Check-in</a></li>
+                    <li><a href="{{ url('search?type=Homestay+-+Khách+sạn&browser=&search=') }}">Homestay - Khách sạn</a></li>
                   </ul>
               </li>
               <li class="search__container">

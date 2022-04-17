@@ -21,7 +21,10 @@ ReviewHaNoi
         <div>{{ $user->name }}</div>
         <div class="three__dots">
           <img src="{{ asset('assets/img/meatball.png') }}" alt="">
-          <ul class="subMenu">
+          <ul class="subMenu">            
+            <li><a href="{{ url("/user/show/{$user->id}") }}">
+            <span>Xem thông tin người dùng</span>
+            </a></li>
           @if ( $user->role_id == 1)
           <li><a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa quyền làm admin không?')) document.getElementById('delete-admin').submit()">
             <span>Xóa quyền quản trị viên</span>
@@ -39,8 +42,10 @@ ReviewHaNoi
                                             @csrf
                                         </form>
         </a></li>
-            @endif
+            @endif          
+
             <li>
+ 
             <a class="dropdown-item mt-3 mb-3" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('user-delete-{{ $user->id }}').submit()">
                                         <span>Xóa người dùng</span>
                                         <form action='{{ url("/user/{$user->id}") }}' method="POST" id="user-delete-{{ $user->id }}">

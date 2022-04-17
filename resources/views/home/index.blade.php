@@ -17,13 +17,13 @@ ReviewHaNoi
              <div class="search">
              <select class="danhmuc" id="type" name="type">
                       <option value="">Tất cả</option>
-                      <option value="1"> Nhà hàng</option>
-                      <option value="2"> Quán ăn</option>
-                      <option value="3"> Quán ăn vặt</option>
-                      <option value="4"> Quán cà phê</option>
-                      <option value="5"> Di tích lịch sử</option>
-                      <option value="6"> Địa điểm check-in</option>
-                      <option value="7"> Homestay - Khách sạn</option>
+                      <option > Nhà hàng</option>
+                      <option > Quán ăn</option>
+                      <option > Ăn vặt</option>
+                      <option > Quán cà phê</option>
+                      <option > Di tích lịch sử</option>
+                      <option > Địa điểm check-in</option>
+                      <option > Homestay - Khách sạn</option>
                 </select>
                 <select class="danhmuc" id="browsers" name="browser">
                       <option value="">Tất cả</option>
