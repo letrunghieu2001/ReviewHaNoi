@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,7 @@ public function self_edit()
         ]);
     }
 
-    public function self_update(Request $request, User $user)
+    public function self_update(UserRequest $request, User $user)
     {   
         $user->update($request->input());
         return redirect('/user/self_show');

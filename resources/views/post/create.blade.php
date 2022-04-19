@@ -17,7 +17,6 @@
         <div id="form--info">
         <div id="image-post">
           <h3>Ảnh thumbnail</h3>
-          
         <div class="ip">
           <input type="file" name="thumbnail" id="thumbnail">
           <div><img width=30% src="" id='img' ></div>
@@ -33,7 +32,9 @@
               <label for="name">Tên địa điểm:</label>
               <input type="text" name="name" id="name">
             </div>
-
+            @error('name')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
             <div class="form__group">
             <label for="category">Phân loại:</label>
             <select name="category_id" id="gender">
@@ -50,7 +51,9 @@
           <label for="address">Địa chỉ:</label>
               <input type="text" name="address" id="address">
           </div>
-
+          @error('address')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
         
             <div class="form__group">
             <label for="district">Quận:</label>
@@ -76,23 +79,36 @@
             <label for="phone_number">Điện thoại:</label>
             <input type="text" name="phone_number" id="phone_number" class="form-control"  aria-describedby="helpId" >
           </div>
+          @error('phone_number')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
           <div class="form__group">
             <label for="time">Thời gian:</label>
             <input type="text" name="time" id="time" class="form-control"  aria-describedby="helpId" >
           </div>
+          @error('time')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
           <div class="form__group">
             <label for="link">Link:</label>
             <input type="text" name="link" id="link" class="form-control"  aria-describedby="helpId" >
           </div>
+          @error('link')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
           <div class="form__group">
             Đề mục:
           <textarea id="email" name="title"></textarea>
-                
+          @error('title')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
           </div>
           <div class="form__group">
             Nội dung:
           <textarea id="email" name="content"></textarea>
-                
+          @error('content')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
           </div>
 
 

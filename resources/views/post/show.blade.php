@@ -124,6 +124,9 @@
       @csrf
           <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
           <input type="submit" value="Gửi Bình Luận">
+          @error('content')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
       </form>
       @else
       <a href="{{ url("login") }}">Vui lòng  Đăng nhập để bình luận </a>
@@ -175,6 +178,7 @@
                             <div class="word-break reponsive">
                                 {!! $comment->content !!}
                             </div>
+
                         </div>
                     </div>
                 </div>

@@ -39,6 +39,10 @@ ReviewHaNoi
               <input type="text" name="name" id="name"  value="{{ $user->name }}">
             </div>
 
+            @error('name')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
+
                
         <div class="form__split">
           <div class="form__group">
@@ -46,6 +50,7 @@ ReviewHaNoi
             <input type="date" name="dob" id="dob" value="{{ $user->dob }}">
             <span class="form__message"></span>
           </div>
+          
           <div class="form__group">
             <label for="gender">Giới tính</label>
             <select name="gender" id="gender">
@@ -64,6 +69,9 @@ ReviewHaNoi
             <input type="text" name="address" id="address" class="form-control" placeholder="address" aria-describedby="helpId" value="{{ $user->address }}">
           </div>
 
+          @error('address')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
                 <button type="submit" class="btn btn-primary">Lưu thông tin</button>
 
                 </form>

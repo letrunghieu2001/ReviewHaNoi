@@ -38,7 +38,9 @@
               <label for="name" >Tên địa điểm:</label>
               <input type="text" name="name" id="name" value="{{ $post->name }}">
             </div>
-
+            @error('name')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
             <div class="form__group">
             <label for="category">Phân loại:</label>
             <select name="category_id" id="gender">
@@ -55,7 +57,9 @@
           <label for="address">Địa chỉ:</label>
               <input type="text" name="address" id="address" value="{{ $post->address }}">
           </div>
-
+          @error('address')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
         
             <div class="form__group">
             <label for="district">Quận:</label>
@@ -81,24 +85,38 @@
             <label for="phone_number">Điện thoại:</label>
             <input type="text" name="phone_number" id="phone_number" value="{{ $post->phone_number }}" class="form-control"  aria-describedby="helpId" >
           </div>
+
+          @error('phone_number')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
           <div class="form__group">
             <label for="time">Thời gian:</label>
             <input type="text" name="time" id="time" value="{{ $post->time }}" class="form-control"  aria-describedby="helpId" >
           </div>
+          @error('time')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
           <div class="form__group">
             <label for="link">Link:</label>
             <input type="text" name="link" id="link" value="{{ $post->link }}" class="form-control"  aria-describedby="helpId" >
           </div>
+          @error('link')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
           <div class="form__group">
           <label for="title">Đề mục:</label>
           <textarea id="title" name="title" id="title">{{ $post->title }}</textarea> 
-          
+          @error('title')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
           </div>
           
           <div class="form__group">
           <label for="content">Nội dung:</label>
           <textarea id="content" name="content" id="content">{{ $post->content }}</textarea> 
-          
+          @error('content')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
           </div>
 </div>
       
