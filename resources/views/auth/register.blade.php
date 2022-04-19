@@ -20,12 +20,12 @@
       </div>
 
     <div class="form__group">
-    <label for="gender">Giới tính</label>
-            <select name="gender" id="gender">
-              <option value="Nam" >Nam</option>
-              <option value="Nữ" >Nữ</option>
-              <option value="Khác" >Khác</option>
-            </select>
+        <label for="gender">Giới tính</label>
+          <select name="gender" id="gender">
+            <option value="Nam" >Nam</option>
+            <option value="Nữ" >Nữ</option>
+            <option value="Khác" >Khác</option>
+          </select>
 </label>
       </div>
       
