@@ -16,6 +16,10 @@ class HomeController extends Controller
     {
         return view('home.info');
     }
+    public function map ()
+    {
+        return view('home.map');
+    }
 
     public function search() 
     {

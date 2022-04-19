@@ -6,6 +6,7 @@ Full Post
 
 @section('content')
 
+<div class="body">
 <div class="box">
 
 <form method="GET" action="{{ url('/search') }}">
@@ -67,6 +68,6 @@ Full Post
 
 </div>
 
+</div>
 
-<div class="bg"></div>
 @endsection 
