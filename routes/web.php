@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
@@ -30,6 +31,11 @@ Route::group(['middleware'=>'auth'], function(){
     return view('welcome');
     });
 });
+
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 //-----------------------------------------------------------------------------------
 //Route này đóng vai trò hiển thị form login ra cho người dùng điền thông tin vào
 Route::get('/login', [LoginController::class, 'index']);

@@ -18,7 +18,7 @@
       <div class="form--details">
           <div class="form__group">
           <label for="content">Nội dung:</label>
-          <textarea id="content" name="content" id="content">{{ $comment->content }}</textarea> 
+          <textarea id="content" name="content" id="content" value="{{ old('content') }}">{{ $comment->content }}</textarea> 
           @error('content')
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror

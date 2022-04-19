@@ -30,7 +30,7 @@
       <div class="form--details">
             <div class="form__group">
               <label for="name">Tên địa điểm:</label>
-              <input type="text" name="name" id="name">
+              <input type="text" name="name" id="name" value="{{ old('name') }}">
             </div>
             @error('name')
                     <div class="form-text text-danger">{{ $message }}</div>
@@ -49,7 +49,7 @@
             </div>
                       <div class="form__group">
           <label for="address">Địa chỉ:</label>
-              <input type="text" name="address" id="address">
+              <input type="text" name="address" id="address" value="{{ old('address') }}">
           </div>
           @error('address')
                     <div class="form-text text-danger">{{ $message }}</div>
@@ -77,35 +77,35 @@
 
           <div class="form__group">
             <label for="phone_number">Điện thoại:</label>
-            <input type="text" name="phone_number" id="phone_number" class="form-control"  aria-describedby="helpId" >
+            <input type="text" name="phone_number" id="phone_number" value="{{ old('phone_number') }}" class="form-control"  aria-describedby="helpId" >
           </div>
           @error('phone_number')
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
           <div class="form__group">
             <label for="time">Thời gian:</label>
-            <input type="text" name="time" id="time" class="form-control"  aria-describedby="helpId" >
+            <input type="text" name="time" id="time" class="form-control" value="{{ old('time') }}"  aria-describedby="helpId" >
           </div>
           @error('time')
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
           <div class="form__group">
             <label for="link">Link:</label>
-            <input type="text" name="link" id="link" class="form-control"  aria-describedby="helpId" >
+            <input type="text" name="link" id="link" class="form-control" value="{{ old('link') }}"  aria-describedby="helpId" >
           </div>
           @error('link')
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
           <div class="form__group">
             Đề mục:
-          <textarea id="email" name="title"></textarea>
+          <textarea id="email" name="title" value="{{ old('title') }}"></textarea>
           @error('title')
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
           </div>
           <div class="form__group">
             Nội dung:
-          <textarea id="email" name="content"></textarea>
+          <textarea id="email" name="content" value="{{ old('content') }}"></textarea>
           @error('content')
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror

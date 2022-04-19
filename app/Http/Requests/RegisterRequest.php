@@ -24,8 +24,9 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
-            'password' => 'required'
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required'
         ];
     }
 
@@ -34,7 +35,10 @@ class RegisterRequest extends FormRequest
         return [
             'email.required' => 'Không được bỏ trống email',
             'email.email' => 'Bắt buộc phải là email',
-            'password.required' => "Không được bỏ trống mật khẩu"
+            'email.unique' => 'Email đã tồn tại',
+            'password.required' => "Không được bỏ trống mật khẩu",
+            'password.confirmed' => "Mật khẩu không trùng khớp",
+            'password_confirmation.required' => "Không được bỏ trống xác nhận mật khẩu",
         ];
     }
 }

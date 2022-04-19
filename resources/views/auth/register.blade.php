@@ -15,7 +15,7 @@
     <div class="form__input">
     <div class="form__group">
         <label for="name" class="form__label">Tên của bạn:</label>
-        <input type="name" name="name" id="name" placeholder="Nhập tên của bạn" required>
+        <input type="name" name="name" id="name" placeholder="Nhập tên của bạn" value="{{ old('name') }}" required>
         <span class="form--message"></span>
       </div>
 
@@ -30,8 +30,8 @@
       </div>
       
             <div class="form__group">
-        <label for="email" class="form__label">Email:</label>
-        <input type="email" name="email" id="email" placeholder="Nhập email của bạn" required>
+        <label for="email" class="form__label">Email:</label> 
+        <input type="email" name="email" id="email" placeholder="Nhập email của bạn" value="{{ old('email') }}" required>
         <span class="form--message"></span>
       </div>
       @error('email')
@@ -46,11 +46,16 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
 
-      <!-- <div class="form__group">
-        <label for="password-confirmation" class="form__label">Re-enter password</label>
-        <input type="password" name="" id="password-confirmation" placeholder="Confirm password" required>
+      <div class="form__group">
+        <label for="password-confirmation" class="form__label">Nhập lại password</label>
+        <input type="password" name="password_confirmation" id="password-confirmation" placeholder="Confirm password" required>
         <span class="form--message"></span>
-      </div> -->
+      </div>
+
+      @error('password_confirmation')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+
 
       <button type="submit" id="form__button" value="Register">Đăng ký</button>
       <div class="form__footer">

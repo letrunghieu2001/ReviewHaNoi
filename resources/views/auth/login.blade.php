@@ -44,7 +44,7 @@
     </div>    
 
       <button id="form__button" value="Login">Đăng nhập</button>
-      <a href="#" class="form__link">Quên mật khẩu</a>
+      <a href="{{ route('forget.password.get') }}" class="form__link">Quên mật khẩu</a>
     <div class="form__footer">
       <p>Không có tài khoản ?</p>
       <a href="{{ url('register') }}" class="form__link">Đăng ký</a>

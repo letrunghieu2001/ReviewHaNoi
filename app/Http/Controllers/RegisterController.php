@@ -8,6 +8,7 @@ use App\Models\Auth;
 use App\Models\User;
 use App\Models\UserInformation;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -34,6 +35,7 @@ $user = User::create([
     'avatar' => $avatar,
     'gender' => $request->input('gender')
 ]);
+
 //nếu như thêm mới thành công thì xem trang home
 if ($user !== null) {
     //đặt người dùng authenticated là người dùng hiện tại
