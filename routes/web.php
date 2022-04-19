@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/search', [HomeController::class, 'search']);
 Route::get('/info', [HomeController::class, 'info']);
+Route::get('/map', [HomeController::class, 'map']);
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/adminstration', function () {
     return view('welcome');
