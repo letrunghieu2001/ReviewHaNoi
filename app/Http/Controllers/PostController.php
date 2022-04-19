@@ -114,10 +114,7 @@ class PostController extends Controller
 
     public function update(PostRequest $postRequest, Post $post )
     {
-        $validate = $postRequest->validate([
-            'image' => 'required'
-        ]);
-        if(($postRequest->hasFile('thumbnail')) && ($postRequest->hasFile('image')))
+        if(($postRequest->hasFile('thumbnail')) || ($postRequest->hasFile('image')))
         {
             $file1 = $postRequest->file('thumbnail');
             $name1 = time().".".$file1->getClientOriginalExtension();

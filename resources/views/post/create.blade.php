@@ -15,23 +15,28 @@
           <h3>Tạo bài đăng</h3>
         </div>
         <div id="form--info">
- 
+        <div id="image-post">
+          <h3>Ảnh thumbnail</h3>
+          
+        <div class="ip">
+          <input type="file" name="thumbnail" id="thumbnail">
+          <div><img width=30% src="" id='img' ></div>
+        </div>
+        <h3>Ảnh bài đăng</h3>
+        <div class="ip">          
+          <input type="file" name="image" id="image">
+          <div><img width=30% src="" id='img'></div>
+        </div>
+      </div>
       <div class="form--details">
-      
-      <div class="form__group">
-              <label for="thumbnail">Ảnh thumbnail:</label>
-              <input type="file" name="thumbnail" id="thumbnail">
-              <div><img width=30% src="" id='img'></div>
-            </div>
-
             <div class="form__group">
               <label for="name">Tên địa điểm:</label>
               <input type="text" name="name" id="name">
             </div>
 
             <div class="form__group">
-            <label for="category">Quận:</label>
-            <select name="category_id" id="category">
+            <label for="category">Phân loại:</label>
+            <select name="category_id" id="gender">
             <option value="1" > Nhà hàng</option>
                       <option value="2" > Quán ăn</option>
                       <option value="3" > Ăn vặt</option>
@@ -40,16 +45,16 @@
                       <option value="6" > Địa điểm check-in</option>
                       <option value="7" > Homestay - Khách sạn</option>
             </select>
-            
+            </div>
                       <div class="form__group">
           <label for="address">Địa chỉ:</label>
               <input type="text" name="address" id="address">
           </div>
 
-        </div>
+        
             <div class="form__group">
-            <label for="district">Phân loại:</label>
-            <select name="district_id" id="district">
+            <label for="district">Quận:</label>
+            <select name="district_id" id="gender">
                       <option value="1"> Quận Ba Đình</option>
                       <option value="3"> Quận Cầu Giấy</option>
                       <option value="4"> Quận Đống Đa</option>
@@ -81,20 +86,16 @@
           </div>
           <div class="form__group">
             Đề mục:
-          <textarea id="title" name="title"></textarea>
+          <textarea id="email" name="title"></textarea>
                 
           </div>
           <div class="form__group">
             Nội dung:
-          <textarea id="content" name="content"></textarea>
+          <textarea id="email" name="content"></textarea>
                 
           </div>
 
-          <div class="form__group">
-              <label for="image">Ảnh bài đăng:</label>
-              <input type="file" name="image" id="image">
-              <div><img width=30% src="" id='img'></div>
-            </div>
+
 
                 <button type="submit" class="btn btn-primary">Lưu thông tin</button>
 @endif
@@ -119,6 +120,8 @@ input.addEventListener('change', function(e) {
     $("#img").css("max-height", "200px");
     $("#img").css("object-fit", "contain");
 })
+
+
 </script>
 
 @endsection

@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-- CSS -->
-   <link rel="stylesheet" href="{{ asset('css/setups.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/createPost.css') }}">
    <!-- <link rel="stylesheet" href="../CSS/home.css"> -->
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/123967a163.js" crossorigin="anonymous"></script>

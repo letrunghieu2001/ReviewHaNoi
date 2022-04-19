@@ -17,14 +17,22 @@
           <h3>Chỉnh sửa bài đăng</h3>
         </div>
         <div id="form--info">
- 
+        <div id="image-post">
+          <h3>Ảnh thumbnail</h3>
+          
+        <div class="ip">
+          <input type="file" name="thumbnail" id="thumbnail">
+          <div><img width=30% src="{{ asset("uploads/thumb/$post->thumbnail") }}" id='img' ></div>
+        </div>
+        <h3>Ảnh bài đăng</h3>
+        <div class="ip">          
+          <input type="file" name="image" id="image">
+          <div><img width=30% src="{{ asset("uploads/post/$post->image") }}" id='img'></div>
+        </div>
+      </div>
       <div class="form--details">
       
-      <div class="form__group">
-              <label for="thumbnail">Ảnh thumbnail:</label>
-              <input type="file" name="thumbnail" id="thumbnail" >
-              <div><img width=30% src="{{ asset("/uploads/thumb/$post->thumbnail") }}" id='img'></div>
-            </div>
+      
 
             <div class="form__group">
               <label for="name" >Tên địa điểm:</label>
@@ -32,8 +40,8 @@
             </div>
 
             <div class="form__group">
-            <label for="category">Quận:</label>
-            <select name="category_id" id="category">
+            <label for="category">Phân loại:</label>
+            <select name="category_id" id="gender">
             <option value="1" <?php echo $post->category_id == '1' ? 'selected' :'' ?> > Nhà hàng</option>
                       <option value="2" <?php echo $post->category_id == '2' ? 'selected' :'' ?>> Quán ăn</option>
                       <option value="3" <?php echo $post->category_id == '3' ? 'selected' :'' ?>> Ăn vặt</option>
@@ -42,16 +50,16 @@
                       <option value="6" <?php echo $post->category_id == '6' ? 'selected' :'' ?>> Địa điểm check-in</option>
                       <option value="7" <?php echo $post->category_id == '7' ? 'selected' :'' ?>> Homestay - Khách sạn</option>
             </select>
-            
+            </div>
                       <div class="form__group">
           <label for="address">Địa chỉ:</label>
               <input type="text" name="address" id="address" value="{{ $post->address }}">
           </div>
 
-        </div>
+        
             <div class="form__group">
-            <label for="district">Phân loại:</label>
-            <select name="district_id" id="district">
+            <label for="district">Quận:</label>
+            <select name="district_id" id="gender">
             <option value="1" <?php echo $post->distict_id == '1' ? 'selected' :'' ?> > Quận Ba Đình</option>
                       <option value="3" <?php echo $post->distict_id == '3' ? 'selected' :'' ?>> Quận Cầu Giấy</option>
                       <option value="4" <?php echo $post->distict_id == '4' ? 'selected' :'' ?>> Quận Đống Đa</option>
@@ -82,27 +90,24 @@
             <input type="text" name="link" id="link" value="{{ $post->link }}" class="form-control"  aria-describedby="helpId" >
           </div>
           <div class="form__group">
-            Đề mục:
-          <textarea id="title" name="title">{{ $post->title }}</textarea>
+          <label for="title">Đề mục:</label>
+          <textarea id="title" name="title" id="title">{{ $post->title }}</textarea> 
           
           </div>
-          <div class="form__group">
           
-          <textarea id="content" name="content">{{ $post->content }}</textarea>
-                
-          </div>
-
           <div class="form__group">
-              <label for="image">Ảnh bài đăng:</label>
-              <input type="file" name="image" id="image">
-              <div><img width=30% src="{{ asset("/uploads/post/$post->image") }}" id='img'></div>
-            </div>
-
+          <label for="content">Nội dung:</label>
+          <textarea id="content" name="content" id="content">{{ $post->content }}</textarea> 
+          
+          </div>
+</div>
+      
                 <button type="submit" class="btn btn-primary">Lưu thông tin</button>
-@endif
+
       </div>
-        </div>
+        
 </form>
+@endif
     <script>
         const input = document.querySelector('input[type="file"]')
 
