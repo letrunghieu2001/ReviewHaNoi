@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-- CSS -->
    <link rel="stylesheet" href="{{ asset('css/posts.css') }}">
-   <link rel="stylesheet" href="{{ asset('css/createPost.css') }}">
+   
    <!-- <link rel="stylesheet" href="../CSS/home.css"> -->
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/123967a163.js" crossorigin="anonymous"></script>
    <!-- Box Icon -->
    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+   <!-- Swipper Slider -->
+   <link rel="stylesheet" href="{{ asset('css/swiper.min.css')}}">
   <title>@yield('title')</title>
 </head>
 <body>

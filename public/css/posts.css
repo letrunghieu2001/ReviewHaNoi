@@ -1,0 +1,224 @@
+@import url(../CSS/footer.css);
+@import url(../CSS/menu.css);
+@import url(../CSS/main.css);
+
+
+/* Google font cho paragraph */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+/*  */
+.panel{
+
+  display: flex;
+  margin-top: 100px;
+  margin-left: 10%;
+}
+
+#posts{
+  width:50%; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+#heading{
+  width: 100%;
+  align-items: flex-start;
+}
+#headings .title{
+  margin:0px auto;
+  margin-bottom: 20px;
+}
+.flex{
+  display: flex;
+}
+#heading .link{
+  width: 150px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: orange;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+#heading .link:hover{
+  background-color:white;
+  color:orange;
+  border:1px solid orange;
+}
+#heading .link a{
+  width: 100%;
+  height:30%;
+  text-decoration: none;
+  margin:0px auto;
+  font-size: 16px;
+  line-height: 16px;
+}
+.title{
+  text-align: center;
+}
+.title h3{
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-family: var(--FontSecondary);
+  color: rgb(131, 62, 62);
+}
+.contact h4{
+  font-style: italic;
+  font-size: 16px;
+  line-height: 20px;
+  color:rgb(131, 62, 62);
+  font-family: 'Inconsolata',monospace,sans-serif;
+}
+
+#heading .author{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  font-family: 'Inconsolata',monospace,sans-serif;
+
+}
+
+
+.author h3{
+  height: 16px;
+  font-size: 16px;
+  line-height: 16px;
+  align-self: center;
+}
+.author img{
+  width: 25px;
+  height: 25px;
+  border:1px solid transparent;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.break{
+  width: 70%;
+  margin:0px auto;
+}
+.break img{
+  width:100%;
+}
+.main-content{
+  width:100%;
+  margin-top: 20px;
+  position: relative;
+}
+.main-content p{
+  margin-top:5px;
+  margin-bottom: 10px;
+  text-indent: 30px;
+  font-size: 16px;
+  text-align: justify;
+  line-height: 20px;
+  font-family: 'Inconsolata',monospace,sans-serif;
+}
+.main-content p:last-child{
+  position: absolute;
+  right:0;
+  font-style: italic;
+}
+.main-content p span{
+  font-size: 40px;
+}
+.content{
+  width:100%;
+  flex:2;
+}
+.picture{
+  padding-top:20px;
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.picture img{
+  width: 7  0%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* //start slide */
+.carousel {visibility: hidden;}
+.slide-container {width: 100%;height: 100%;position: relative;}
+.slide-container .slide img {width: 100%;}
+.slide-container .slide {width: 100%;height: 30%;padding: 5px 0px;transition: all 0.5s ease-in-out;overflow: hidden;cursor: pointer;position: relative;}
+.slide-container .slide span{background: #0000007e;width: 100%;height: 100%;position: absolute;left: 0;transition: 1s;}
+.slide-container .slide .text{width: 40%;top: 50%;left: 50%;color: white;position: absolute;transition: 0.5s ease-in-out;transform: translate(-50%, -50%);}
+.slide-container .slide:hover span {opacity: 0;}
+.slide-container .slide:hover .text{margin-top: -100%; opacity: 0; transform-origin: center!important;}
+.btn-prev, .btn-next{font-size: 2rem;top: -4%;padding: 5px;position: absolute;left: 43%;color: white;cursor: pointer;transition: all 0.5s ease-in-out;z-index: 10;}
+.btn-next{bottom: -4%;top: auto;}
+.btn-prev:hover,.btn-next:hover{background-color:rgba(0, 0, 0, 0.753);}
+.slide:first-child {margin-top: 0px;}
+/* //end slide */
+
+
+
+.related-post{
+  margin-top: 30px;
+}
+
+.related-content{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.related-post .title h3{
+  text-align: start;
+  margin-left: 10%;
+  text-decoration: underline;
+}
+.related-content .el{
+  width: 300px;
+  transition: transform 0.5ms ease-in;
+}
+.related-content .el:hover{
+  transform: translateX(-10px);
+  transform: translateY(-5px);
+}
+.related-content .el  h3{
+  font-size: 20px;
+  line-height: 20px;
+  width: 80%;
+}
+.related-content a img{
+  max-width: 256px;
+}
+@media (min-width:800px){
+  .carousel {width: 25%;height: 55%;overflow: hidden;position: absolute;top: 50%;right: 5%;font-family: tahoma;border: 1px solid gray;cursor: pointer;visibility: visible;}
+}
+
+@media (max-width:800px){
+  .carousel{display: none;}
+  #posts{
+    width: 80%;
+    margin:0px auto;
+    margin-top:30px;
+    margin-left:5%;
+  }
+  .related-post{
+    margin-left: 5%;
+  }
+  .related-content{
+    justify-content: flex-start;
+  }
+}
+@media (max-width:600px){
+  .carousel{display: none;}
+  #posts{
+    width: 80%;
+    margin:0px auto;
+    margin-top:30px;
+    margin-left:5%;
+  }
+  .related-post{
+    margin-left: 5%;
+  }
+  .related-content{
+    justify-content: flex-start;
+  }
+}

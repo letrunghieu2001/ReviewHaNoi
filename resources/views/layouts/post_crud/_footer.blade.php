@@ -26,7 +26,7 @@
     </div>
 </footer>
 
-<script src="{{ asset('js/post.js') }}"></script>
+<script src="{{ asset('js/slider.js') }}"></script>
 
 
 

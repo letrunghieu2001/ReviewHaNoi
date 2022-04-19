@@ -1,4 +1,4 @@
-@extends('layouts.post.app')
+@extends('layouts.post_show.app')
 
 @section('title')
 {{ $post->title }}
@@ -6,15 +6,95 @@
 
 @section('content')
 
-<div class="noidung">
-  <div class="b1">
-      <h4 class="tieude">{!! $post->title !!}</h4>
-      <span>{!! $post->content !!}</span>
+<!-- start post -->
+<div class="panel">
 
-      <img src="{{ asset("uploads/post/$post->image") }}" alt="1">
+<div id="posts">
+  <div id="heading">
+    <div class="title">
+      <h3>{!! $post->title !!}</h3>
+    </div>
+    <div class="contact">
+      <h4>Địa chỉ:{{ $post->address}}</h4>
+      <h4>Số điện thoại:{{ $post->phone_number}}</h4>
+      <h4>Giờ mở cửa: {{ $post->time}}</h4>
+      <div class="flex">
+        <div class="link">
+          <a href='{{ $post->link}}'>Xem trang web</a>
+        </div>
+        <div class="link">
+          <a href="#">Bản đồ</a>
+        </div>
+      </div>
+     
+    </div>
+    <div class="author">
+      <img src="{{ asset("assets/img/id.png") }}" alt="">
+      <h3 class="name"> Written by {{$post->arthur_name}}</h3>      
+    </div>
+  </div>
+  <div class="break">
+    <img src="{{ asset("assets/img/line.png") }}" alt="line">
+  </div>
+  <div class="main-content">
+    <div class="picture">
+      <img src="{{ asset("uploads/post/$post->image") }}" alt="">
+      <!-- <img src="../Image/food/banhmi.jpg" alt="">
+      <img src="../Image/food/comrang.jpg" alt=""> -->
+    </div>
+    <div class="content">
+      <p>{!! $post->content !!}
+      </p>
+      <p>{{$post->arthur_name}} {{$post->created_at}}</p>
+    </div>
+  </div>
+</div>
+</div>
 
-      <div>
-      @if (Auth::check())
+<!-- end post -->
+
+<!-- star slide -->
+<div class="carousel">
+  <h3>Các địa điểm gần đó</h3>
+  <div class="slide-container">
+    @foreach($items as $item)
+      @if(( $item->district_id == $post->district_id))
+  <div class="slide">
+  <a  href="{{ url("/posts/$item->id") }}"  class="art">
+          <img src="{{ asset("uploads/thumb/$item->thumbnail") }}" alt="quan-an">
+          <span></span>
+          <div class="text">{!! $item->name !!}</div>
+  </a>
+      </div>
+@endif
+@endforeach
+</div>
+  <div class="btn-prev"><i class="fa-solid fa-angle-up"></i></div>
+  <div class="btn-next"><i class="fa-solid fa-angle-down"></i></div>
+</div>
+
+<!-- end slide -->
+
+
+<div class="related-post">
+<div class="title">
+  <h3>Những địa điểm liên quan</h3>
+</div>
+
+@foreach($items as $item)
+      @if(( $item->category_id == $post->cat_id))
+<div class="related-content">
+  <a href="{{ url("/posts/$item->id") }}"" class="el">
+    <img src="{{ asset("uploads/thumb/$item->thumbnail") }}" alt="">
+    <h3>{!! $item->name !!}</h3>
+  </a>
+
+</div>  
+@endif
+@endforeach
+</div>
+
+@if (Auth::check())
       @if ($post->role_id == 1)
       <div class="flex">
           <div class="button">
@@ -108,32 +188,6 @@
         @else
         <p>Không có comment</p>
         @endif
-
-        
-
-        
-  </div>
-
-
-
-</div>
-<div class="carousel">
-  <div class="slide-container">
-    @foreach($items as $item)
-      @if(( $item->category_id == $post->cat_id))
-  <div class="slide">
-  <a  href="{{ url("/posts/$post->post_id") }}"  class="art">
-          <img src="{{ asset("uploads/thumb/$item->thumbnail") }}" alt="quan-an">
-          <span></span>
-          <div class="text">{!! $item->name !!}</div>
-  </a>
-      </div>
-@endif
-@endforeach
-</div>
-  <div class="btn-prev"><i class="fa-solid fa-angle-up"></i></div>
-  <div class="btn-next"><i class="fa-solid fa-angle-down"></i></div>
-</div>
 
 
 @endsection
