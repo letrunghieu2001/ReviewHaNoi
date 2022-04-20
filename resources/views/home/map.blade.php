@@ -20,11 +20,13 @@ ReviewHaNoi
             <div class="note">
                 <h3>Một vài chú thích trong bản đồ:</h3>
                 <p>
-                    Màu xanh:   Nhà hàng <br>
-                    Màu hồng:   Quán ăn đường phố <br>
+                    Màu cam:   Nhà hàng <br>
+                    Màu xanh lá cây đậm:   Quán ăn <br>
                     Màu nâu:    Quán cà phê <br>
-                    Màu tím:    Khách sạn - Hotel <br>
-                    Màu xám:    Danh lam thắng cảnh <br>
+                    Màu tím:    Ăn vặt <br>
+                    Màu xanh lá cây nhạt:   Di tích lịch sử <br>
+                    Màu xám:    Khách sạn - Homestay <br>
+                    Màu đen:    Địa điểm check-in <br>
                 </p>
             </div>    
         </div>
