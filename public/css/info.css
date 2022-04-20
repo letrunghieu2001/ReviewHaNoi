@@ -2,6 +2,9 @@
 @import url(./menu.css);
 @import url(./footer.css);
 
+/* Google font cho paragraph */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+/*  */
 
 .info{
   max-width: 100%;
@@ -38,6 +41,42 @@
   background-size: cover;
   position: relative;
   margin-bottom: -50px;
+}
+.map__content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0px auto;
+}
+.map__content h1{
+  font-size: 40px;
+  margin-top: 10px;
+  text-align: center;
+  font-family: var(--FontSecondary);
+  color:red;
+}
+.map__content p{
+  font-family: 'Inconsolata',monospace,sans-serif;
+  align-self: flex-start;
+  line-height: 24px;
+  font-size: 16px;
+  text-justify: distribute;
+  text-indent: 20px;
+  margin-bottom: 10px;
+}
+.note{
+  width: inherit;
+  border-left:1px solid grey;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+.note h3{
+  text-transform: uppercase;
+}
+.note p{
+  text-indent: 0;
 }
 @media (min-width:600px) {
   .split{
