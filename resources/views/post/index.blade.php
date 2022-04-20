@@ -62,7 +62,11 @@ Full Post
 
 @endforeach
 
-
+<div class="mb-2 mt-5">
+                    <div class="d-flex justify-content-center row">
+                            
+                    </div>
+ </div>
    
         </div>
 
