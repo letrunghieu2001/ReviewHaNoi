@@ -5,7 +5,6 @@ Full Post
 @endsection
 
 @section('content')
-<div class="body1">
     <form method="GET" action="{{ url('/search') }}">
         <div class="wrap">
              <div class="search">
@@ -40,8 +39,8 @@ Full Post
               </button>
             </div>
          </div>
-        </form>
-</div>
+    </form>
+
 <div class="body">      
 
 <div class="box">

@@ -10,7 +10,7 @@ html, body { width: 100%; height: 100%; }
 ::-webkit-scrollbar-thumb:hover { background: rgb(241, 75, 143); }
 
 .body { position: relative; z-index: 2; width: 100%; height: 100%; }
-.box {width: 100%;margin: auto;height: 100%;font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif}
+.box {width: 100%;margin: auto;height:100%;font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif}
 .wrapper {width: 80%;position: absolute;top: 10%;left: 50%;transform: translate(-50%, 50%); border: 1px solid black; border-radius: 10px;}
 .catelogy { width: 100%; position: relative; display: flex; justify-content: space-around;  padding: 12px; height: 50px; outline: none; cursor: pointer; text-align: center; opacity: 1;}
 .box ul li {list-style: none;} 
@@ -29,7 +29,29 @@ html, body { width: 100%; height: 100%; }
     visibility: hidden;
 }
 /* //search */
-.body1 {position: relative;z-index: 2;width: 100%;height: 100%; }
+.body1 {
+    margin-top:50px;
+    width: 100%; 
+    height:100px;
+
+}
+.body1 form{
+    width: 100%;
+    height: 100%;
+}
+.wrap{
+    width: 100%;
+    height: 100%;
+  }
+  .wrap .search{
+      width:60%;
+      margin:0px auto;
+      margin-top: 100px;
+  }
+  .wrap .searchButton{
+    border:none;
+
+  }
 .search {
     width: 100%;
     position: relative;
@@ -46,7 +68,7 @@ html, body { width: 100%; height: 100%; }
     cursor: pointer;
     text-align: center;
     opacity: 100%;
-    border-right: 1px solid gray;
+    /* border-right: 1px solid gray; */
     border-radius: 5px 0px 0px 5px;
     background-color: rgb(215, 201, 201);
 }
@@ -87,11 +109,4 @@ html, body { width: 100%; height: 100%; }
   }
   
 
-  .wrap{
-    width: 56%;
-    position: absolute;
-    
-    top: 350px;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
+  
