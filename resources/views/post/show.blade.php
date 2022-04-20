@@ -96,23 +96,22 @@
 
 @if (Auth::check())
       @if ($post->role_id == 1)
-      <div class="flex">
-          <div class="button">
-          
-      <a href="{{ url("/posts/$post->post_id/edit") }}"  >
-          <span>Sửa bài viết</span>
-  </a>
-      </div>
-      <div class="button">
-  <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa bài viêt không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" class="tt-icon-btn">
-  <span>Xóa bài viết</span>
-                        <form action="{{ url("/posts/$post->post_id") }}" method="POST" id="post-delete-{{$post->id }}">
-                            @method('DELETE')
-                            @csrf
-                        </form>
-                    </a>
-      </div>  
-      </div>
+<div class="button-section">
+  <div class="button">     
+    <a href="{{ url("/posts/$post->post_id/edit") }}"  >
+      <span>Sửa bài viết</span>
+    </a>
+  </div>
+  <div class="button">
+    <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa bài viêt không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" class="tt-icon-btn">
+      <span>Xóa bài viết</span>
+      <form action="{{ url("/posts/$post->post_id") }}" method="POST" id="post-delete-{{$post->id }}">
+          @method('DELETE')
+          @csrf
+      </form>
+    </a>
+  </div>  
+</div>
     
   @endif
   @endif
@@ -120,7 +119,7 @@
 
       <!-- create comment -->
         @if (Auth::check())
-      <form class="cmt" action="{{ url("/comments/$post->post_id") }}" method="POST">
+      <form class="cmt comment-section" action="{{ url("/comments/$post->post_id") }}" method="POST">
       @csrf
           <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
           <input type="submit" value="Gửi Bình Luận">
@@ -134,12 +133,10 @@
       
       @if ($countComment > 0)
             <!-- Show comment -->
-            <div class="tt-item card card-block">
+            <div class="tt-item card card-block comment-section">
                 @foreach ($comments as $comment)
                 <div class="media mt-3 ml-lg-4">
-                    <span class="round pt-2 ml-lg-5">
-                        <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
-                    </span>
+                      <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
                     <div class="media-body ml_30px">
                         <div class="row mr-4">
                             <h6 class="pt-2">{{ $comment->name}}</h6>
