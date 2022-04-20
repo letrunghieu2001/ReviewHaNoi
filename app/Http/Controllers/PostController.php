@@ -24,7 +24,7 @@ class PostController extends Controller
             ->join('districts', 'districts.id', '=', 'posts.district_id')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
             ->select('posts.*','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
-           ->Paginate(10);
+           ->get();
 
         $countPost = DB::table('posts')
         ->count();
@@ -42,7 +42,7 @@ class PostController extends Controller
         ->where('comments.post_id', '=', "$post")
         ->select('comments.*', 'users.name',  'users.avatar')
         ->latest()
-        ->paginate(10);  
+        ->get();  
         
         $countComment = DB::table('comments')
         ->where('comments.post_id', '=', "$post")
@@ -57,7 +57,7 @@ class PostController extends Controller
         ->join('categories', 'categories.id', '=', 'posts.category_id')       
         ->where('posts.id', '=', "$post")
         ->select('posts.*', 'users.*','users.name AS arthur_name','districts.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
-        ->paginate(10);
+        ->get();
 
 
         $post = $post[0];

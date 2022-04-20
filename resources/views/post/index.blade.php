@@ -10,9 +10,7 @@ Full Post
 <div class="box">
     
     <div class="articles">
-         <div class="d-flex justify-content-center row">
-                      {{ $posts->links() }}      
-                    </div>
+
         @foreach ($posts as $post)
         <a  href="{{ url("/posts/$post->post_id") }}"  class="art"> 
 
