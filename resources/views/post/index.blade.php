@@ -61,14 +61,9 @@ Full Post
         </a>
 
 @endforeach
-
-<div class="mb-2 mt-5">
-                    <div class="d-flex justify-content-center row">
-                            
-                    </div>
- </div>
-   
-        </div>
+  
+        </div> 
+        {{ $posts->links() }}
 
 </div>
 
