@@ -57,7 +57,7 @@ class PostController extends Controller
         ->join('categories', 'categories.id', '=', 'posts.category_id')       
         ->where('posts.id', '=', "$post")
         ->select('posts.*', 'users.*','users.name AS arthur_name','districts.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
-        ->get();
+        ->paginate(10);
 
 
         $post = $post[0];
