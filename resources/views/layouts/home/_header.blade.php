@@ -68,7 +68,7 @@
                   </ul>
               </li>
               <li id="map">
-                <a href="{{ url('/maps') }}">
+                <a href="{{ url('/map') }}">
                   <img src="{{ asset('assets/img/map.png') }}" alt="">
                   <span>Bản đồ Review</span>
                 </a>
