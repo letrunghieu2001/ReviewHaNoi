@@ -170,6 +170,9 @@ body.dark{
   left:145px;
 } */
 
+#map a img{
+  filter: invert(1);
+}
 
 .row2 li:hover .menu2,.row2 li:focus .menu2,.row2 li:active .menu2{
   display: block;

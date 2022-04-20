@@ -65,8 +65,11 @@
                     <li><a href="{{ url('search?type=Homestay+-+Khách+sạn&browser=&search=') }}">Homestay - Khách sạn</a></li>
                   </ul>
               </li>
-              <li class="search__container">
-               
+              <li id="{{ url('/maps') }}">
+                <a href="#">
+                  <img src="{{ asset('assets/img/map.png') }}" alt="">
+                  <span>Bản đồ Review</span>
+                </a>
               </li>
             </div>
             @if (Auth::check())
