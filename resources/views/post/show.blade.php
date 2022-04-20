@@ -23,7 +23,7 @@
           <a href='{{ $post->link}}'>Xem trang web</a>
         </div>
         <div class="link">
-          <a href="#">Bản đồ</a>
+          <a href='{{ $post->link}}'>Bản đồ</a>
         </div>
       </div>
      

@@ -97,6 +97,13 @@
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
           <div class="form__group">
+            <label for="map">Thời gian:</label>
+            <input type="text" name="map" id="map" value="{{ $post->map }}" class="form-control"  aria-describedby="helpId" >
+          </div>
+          @error('map')
+                    <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
+          <div class="form__group">
             <label for="link">Link:</label>
             <input type="text" name="link" id="link" value="{{ $post->link }}" class="form-control"  aria-describedby="helpId" >
           </div>

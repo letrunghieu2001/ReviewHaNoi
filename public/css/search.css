@@ -28,97 +28,70 @@ html, body { width: 100%; height: 100%; }
 .art .content div + div,.art .content div + div{
     visibility: hidden;
 }
-.popuptk{
+/* //search */
+.body1 {position: relative;z-index: 2;width: 100%;height: 100%; }
+.search {
     width: 100%;
-    height: 100%;
-    display: none;
-}
-.tk{
-    position: absolute;
-    width:80%;
-    height: 80%;
+    position: relative;
     display: flex;
-    justify-content: space-between;
-    left: 50%;
-    top: 10%;
-    transform: translateX(-50%);
-    background-color: white;
-    z-index: 20;
-    padding-bottom: 30px;
-    filter: drop-shadow(5px 5px 10px #3838388a);
-
-}
-.tk li{
-    list-style: none;
-}
-.tk>li{
-    color:red;
-    font-size: 30px;
-    padding: 10px 20px;
-
-   
-}
-.tk>li>a{
-   text-decoration: none;
-   color: red;
-}
-.subtk{
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-    border-right: 1px solid red;
-    height: 80%;
-    overflow: scroll;
-}
-.subtk li{
-padding: 5px 20px;
-
-}
-.subtk li a{
-    text-decoration: none;
-    color: gray;
-    font-size: 16px;
-    transition: 0.5s;
-}
-
-.subtk li:hover a{
-    color:red;
-}
-.column:nth-child(4) .subtk{
-   border: none;
-}
-.nenden{
-    width: 100%;
+  }
+.danhmuc{
+    max-height: 40px;
+    max-width: 21%;
+    border: none;
+    padding: 12px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.644);
-    position: absolute;
-    top: 0;
-    left: 0;
+    outline: none;
+    color: black;
     cursor: pointer;
+    text-align: center;
+    opacity: 100%;
+    border-right: 1px solid gray;
+    border-radius: 5px 0px 0px 5px;
+    background-color: rgb(215, 201, 201);
 }
-.butontk{
-    text-decoration: none;
-    font-size: 20px;
-    padding: 10px 20px;
-    border: 1px solid red;
-   position: absolute;
-   bottom: 10px;
-   right: 10px;
-   color: red;
-   transition: 0.5s;
+#type.danhmuc{
+  border-right:transparent;
 }
-.butontk:hover{
-    background-color: red;
-    color: white;
-}
-.popuptk.active1{
-    display: block;
-}
-#tk:hover{
-    color: red;
-}
-.subtk li.active a{
-    color:red;
+#browsers.danhmuc{
+  border-left:transparent;
+  border-radius: 0px;;
 }
 
- 
+  .danhmuc::placeholder{text-align: center;color:black}
+  .searchTerm {
+    width: 85%;
+    border: none;
+    padding: 12px;
+    height: 100%;
+    outline: none;
+    color: #f25e84;
+    background-color: rgb(215, 201, 201);
+  }
+  
+  .searchTerm:focus{
+    color: #f25e84;
+  }
+  
+  .searchButton {
+    width: 64px;
+    height: 40px;
+    border: 1px solid #ffffff;
+    background: rgb(251,191,77);
+    background: linear-gradient(150deg, rgba(251,191,77,1) 35%, rgba(241,78,141,1) 100%);
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+
+  .wrap{
+    width: 56%;
+    position: absolute;
+    
+    top: 350px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
