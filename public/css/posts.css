@@ -189,6 +189,54 @@
   max-width: 256px;
 }
 
+/* button section */
+.button-section{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.button{
+  margin-right: 20px;
+  width:100px;
+  height: 40px;
+  background-color: orange;
+  border-radius: 5px;
+}
+.button a{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.button a span{
+  display: block;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+}
+/* end of button section */
+
+/* comment section */
+.comment-section{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+textarea.cmt1{
+  max-width: 50%;
+  max-height: 100%;
+ 
+  
+}
+
+
+/* nút thêm ảnh trang chỉnh sửa bài dăng */
 .file_custom::-webkit-file-upload-button{
   visibility: hidden;
 }
@@ -209,6 +257,7 @@
   font-size: 10pt;
 }
 
+
 .file_custom:hover::before {
   border-color: black;
 }
@@ -218,6 +267,7 @@
 #image-post input[type="file"]{
   max-width: 80% !important;
 }
+/* hết phần nút thêm ảnh trang chỉnh sửa bài dăng */
 
 
 @media (min-width:800px){
