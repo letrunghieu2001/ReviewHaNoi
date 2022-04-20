@@ -74,26 +74,27 @@
 </div>
 
 <!-- end slide -->
-
-<div class="image-slider">
+<div class="related-post">
   <div class="title">
-  <h3>Những địa điểm liên quan</h3>
-</div>
-@foreach($items as $item)
-      @if(( $item->category_id == $post->cat_id))
-    <a href="{{ url("/posts/$item->id") }}" class="image-item">
-      <div class="image">
-        <img src="{{ asset("uploads/thumb/$item->thumbnail") }}" alt="">
-      </div>
-      <div class="image-title">
-        <h3>{!! $item->name !!}</h3>
-      </div>
+    <h3>Những địa điểm liên quan</h3>
+  </div>
+  <div class="image-slider">
+  @foreach($items as $item)
+        @if(( $item->category_id == $post->cat_id))
+      <a href="{{ url("/posts/$item->id") }}" class="image-item">
+        <div class="image">
+          <img src="{{ asset("uploads/thumb/$item->thumbnail") }}" alt="">
+        </div>
+        <div class="image-title">
+          <h3>{!! $item->name !!}</h3>
+        </div>
 
-    </a>
-      @endif
-@endforeach
-</div>
+      </a>
+        @endif
+  @endforeach
+  </div>
 
+</div>
 
 
 @if (Auth::check())

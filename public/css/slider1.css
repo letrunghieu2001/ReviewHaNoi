@@ -1,32 +1,14 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-* {
-  margin: 0;
-}
+@import url(../CSS/footer.css);
+@import url(../CSS/main.css);
+@import url(../CSS/menu.css);
 
-html, body {
-  height: 100%;
-}
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
 
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-input, button, textarea, select {
-  font: inherit;
-  outline: none;
-  border: none;
-}
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
+/* Google font cho paragraph */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+/*  */
+
 .image-slider{
+  margin:0 10%;
   padding-bottom: 20px;
 }
 .image-item{
@@ -34,7 +16,7 @@ p, h1, h2, h3, h4, h5, h6 {
   margin:0 10px;
 }
 .image{
-  height: 300px;
+  height: 256px;
   margin-bottom: 20px;
 }
 .image img{
@@ -44,16 +26,21 @@ p, h1, h2, h3, h4, h5, h6 {
   border-radius: 12px;
 }
 .image-title{
-  font-size: 20px;
-  color:aqua
+  font-size: 16px;
+  color:black;
+  font-family: 'Inconsolata',monospace,sans-serif;
+  
+}
+.image-title:hover{
+  color:rgb(246,183,78);
 }
 .slick-arrow{
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   border: none;
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +50,7 @@ p, h1, h2, h3, h4, h5, h6 {
   transition: all 0.2s linear;
 }
 .slick-arrow:hover{
-  background-color: #2cccff;
+  background-color: rgb(246,183,78);
   color:white;
 }
 .slick-prev{
