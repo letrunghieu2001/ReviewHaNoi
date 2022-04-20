@@ -97,15 +97,15 @@
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
           <div class="form__group">
-            Đề mục:
-          <textarea id="email" name="title" value="{{ old('title') }}"></textarea>
+            <label for="headings">Đề mục:</label>
+          <input id="headings" name="title" value="{{ old('title') }}"></input>
           @error('title')
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
           </div>
           <div class="form__group">
-            Nội dung:
-          <textarea id="email" name="content" value="{{ old('content') }}"></textarea>
+            <label for="content">Nội dung:</label>
+          <textarea id="content" name="content" value="{{ old('content') }}"></textarea>
           @error('content')
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
