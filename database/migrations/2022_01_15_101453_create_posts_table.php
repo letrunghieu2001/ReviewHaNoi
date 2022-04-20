@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('link')->nullable();
             $table->bigInteger('category_id')->unsigned();
             $table->string('time')->nullable();
+            $table->string('map')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->text('title')->nullable();
             $table->text('thumbnail')->nullable();
