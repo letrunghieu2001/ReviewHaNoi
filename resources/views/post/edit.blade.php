@@ -21,12 +21,12 @@
           <h3>Ảnh thumbnail</h3>
           
         <div class="ip">
-          <input type="file" name="thumbnail" id="thumbnail">
+          <input type="file" name="thumbnail" id="thumbnail" class="file_custom">
           <div><img width=30% src="{{ asset("uploads/thumb/$post->thumbnail") }}" id='img' ></div>
         </div>
         <h3>Ảnh bài đăng</h3>
         <div class="ip">          
-          <input type="file" name="image" id="image">
+          <input type="file" name="image" id="image" class="file_custom">
           <div><img width=30% src="{{ asset("uploads/post/$post->image") }}" id='img'></div>
         </div>
       </div>
@@ -104,13 +104,13 @@
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
           <div class="form__group">
-          <label for="title">Đề mục:</label>
-          <textarea id="title" name="title" id="title">{{ $post->title }}</textarea> 
+          <label for="headings">Đề mục:</label>
+          <input type="text" name="headings" id="headings" value="{{ $post->title }}" class="form-control"  aria-describedby="helpId" >
           @error('title')
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
           </div>
-          
+
           <div class="form__group">
           <label for="content">Nội dung:</label>
           <textarea id="content" name="content" id="content">{{ $post->content }}</textarea> 
