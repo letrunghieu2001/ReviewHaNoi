@@ -12,7 +12,9 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "nesbot/carbon": "^2.57"
+        "nagy/laravel-rating": "^2.2",
+        "nesbot/carbon": "^2.57",
+        "willvincent/laravel-rateable": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

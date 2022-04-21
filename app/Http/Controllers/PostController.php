@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use AppRating;
 
 class PostController extends Controller
 {
@@ -164,5 +165,6 @@ class PostController extends Controller
             abort (401);
         }
     }
+
 
 }

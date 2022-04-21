@@ -148,9 +148,19 @@ footer{
   align-items: center;
 }
 .pagination .page-item{
-  width: 25px;
-  height: 25px;
+  color:black;
+  padding: 8px 16px;
+  transition: background-color .3s;
   border:1px solid grey;  
-  margin:0 10px;
+  margin: 0 4px;
 }
+
+.pagination .active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+
+
 /* end of pagination */
