@@ -77,7 +77,7 @@
                 </a>
               </li>
               <li id="shop">
-                <a href="https://hlxdesign.com">
+                <a href="https://shopeefood.vn/ha-noi/food">
                   <img src="{{ asset('assets/img/shopping-cart.png') }}" alt="">
                   <span>Shop</span>
                 </a>
