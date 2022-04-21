@@ -25,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/search', [HomeController::class, 'search']);
 Route::get('/info', [HomeController::class, 'info']);
+Route::get('/support', [HomeController::class, 'support']);
+Route::get('/privacy', [HomeController::class, 'privacy']);
+Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/map', [HomeController::class, 'map']);
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/adminstration', function () {

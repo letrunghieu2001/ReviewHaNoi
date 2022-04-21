@@ -1,0 +1,21 @@
+@import url(./main.css);
+
+
+#contact {width: 50%; margin: 100px auto; font-family: tahoma;}
+.ctLogo{margin: 10px; justify-content: center; display: flex;}
+.ctLogo img{max-width: 255px;}
+.text p, span{font-size: 0.9rem;}
+.text h3{color: red; font-size: 2rem; margin-bottom: 10px;}
+.text{margin: 20px 0px;}
+.text b{color: rgb(107, 99, 99);}
+.form__group{margin: 15px 0px;}
+.form__group label{display: inline-block;max-width: 100%;margin-bottom: 5px;font-weight: bold;}
+.form__group i{color: red;}
+.form__group input, textarea{border-bottom: 2px solid #c2336a; font-size: large; border-right: none;border-left: none;border-top: none;width: 700px;outline: none;max-width: 100%;}
+.btn-submit button{right: 10%; width: 70px; height: 37px; background-color: rgb(117, 156, 228); color: white;border: none;cursor: pointer;  border-radius: 7px; font-size: large;}
+.btn-submit button:hover {border: 1px solid rgb(117, 156, 228); color: rgb(117, 156, 228); background-color: whitesmoke; border-radius: 7px;}
+
+@media only screen and (max-width: 1200px) {
+    *{margin: 0; padding: 0;}
+    #contact {width: 60%;}
+}

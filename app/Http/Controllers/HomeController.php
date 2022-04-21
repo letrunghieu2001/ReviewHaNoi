@@ -16,6 +16,18 @@ class HomeController extends Controller
     {
         return view('home.info');
     }
+    public function contact ()
+    {
+        return view('home.contact');
+    }
+    public function privacy ()
+    {
+        return view('home.privacy');
+    }
+    public function support ()
+    {
+        return view('home.support');
+    }
     public function map ()
     {
         return view('home.map');
