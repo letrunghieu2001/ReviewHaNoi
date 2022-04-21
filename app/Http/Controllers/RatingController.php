@@ -11,13 +11,14 @@ class RatingController extends Controller
     public function add(Request $request, $post)
     {   
         $star_rated = $request->input('product_rating');
+        
 
         Rating::create([
             'post_id' => $post,
             'user_id' => Auth::user()->id,
-            'rating' => $star_rated
+            'stars_rated' => $star_rated
         ]);
 
-        return redirect()->back()->with('status','Cảm ơn bạn đã đánh giá địa điểm này');
+        return redirect("/posts/{$post}");
     }
 }

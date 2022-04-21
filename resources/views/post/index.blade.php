@@ -55,9 +55,9 @@ Full Post
 
             <div class="content">
                 <h4 class="title">{{ $post->post_name }}</h4>
-                <div>{{ $post->address }}</div>
-                <div>{{ $post->category_name }}</div>
-                <div>{{ $post->time }}</div>
+                <div>
+                    {{ $post->address }}
+                </div>
             </div>
         </a>
 

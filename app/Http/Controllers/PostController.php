@@ -6,6 +6,7 @@ use App\Http\Requests\PlaceRequest;
 use App\Http\Requests\PostImageRequest;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use App\Models\Rating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +16,13 @@ class PostController extends Controller
 {
     public function index()
     {
-        
+        $ratings = DB::table('ratings')
+        ->select('ratings.post_id AS postid')
+        ->get();
+
+        $countRating = DB::table('ratings')
+        ->count();
+
             //full posts
             $posts = DB::table('posts')
             ->join('districts', 'districts.id', '=', 'posts.district_id')
@@ -28,12 +35,30 @@ class PostController extends Controller
 
         return view('post.index', [
             'posts' => $posts,
-            'countPost' => $countPost
+            'countPost' => $countPost,
+            'ratings' => $ratings,
+            'countRating' => $countRating,
+
         ]);
     }
 
     public function show($post)
-    {              
+    {            
+        $rating = DB::table('ratings')
+        ->where('ratings.post_id', '=', "$post")
+        ->get();
+
+        $rating_sum = DB::table('ratings')->where('ratings.post_id', '=', "$post")->sum('stars_rated');
+        
+        if($rating_sum > 0)
+        {
+            $rating_count = $rating_sum/$rating->count();
+        }
+        else
+        { 
+        $rating_count = 0;
+        }
+
         $comments = DB::table('comments')
         ->join('users', 'users.id', '=', 'comments.user_id')
         ->where('comments.post_id', '=', "$post")
@@ -65,7 +90,10 @@ class PostController extends Controller
             'comments' => $comments,
             'post' => $post,
             'countComment' => $countComment,
-            'items' => $items
+            'items' => $items,
+            'rating_count' => $rating_count,
+            'rating' => $rating
+            
             
         ]);
     }

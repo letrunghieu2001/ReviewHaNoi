@@ -339,6 +339,10 @@ input#sent:hover,input#discard:hover{
   transition: 0.3s ease;
 }
 
+.checked {
+  color: #ffd900;
+}
+
 /* End of Star Rating */
 
 
