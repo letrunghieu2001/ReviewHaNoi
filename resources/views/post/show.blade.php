@@ -15,6 +15,7 @@
         <h3>{!! $post->title !!}</h3>
       </div>
       <div class="contact">
+
         <h4>Địa chỉ:{{ $post->address}}</h4>
         <h4>Số điện thoại:{{ $post->phone_number}}</h4>
         <h4>Giờ mở cửa: {{ $post->time}}</h4>
@@ -119,9 +120,26 @@
   @endif
   @endif
       </div>
-
+<form action="{{ url("/add-rating") }}" method="POST">
+      <div class="rating-css">
+    <div class="star-icon">
+        <input type="radio" value="1" name="product_rating" checked id="rating1">
+        <label for="rating1" class="fa fa-star"></label>
+        <input type="radio" value="2" name="product_rating" id="rating2">
+        <label for="rating2" class="fa fa-star"></label>
+        <input type="radio" value="3" name="product_rating" id="rating3">
+        <label for="rating3" class="fa fa-star"></label>
+        <input type="radio" value="4" name="product_rating" id="rating4">
+        <label for="rating4" class="fa fa-star"></label>
+        <input type="radio" value="5" name="product_rating" id="rating5">
+        <label for="rating5" class="fa fa-star"></label>
+    </div>
+</div>
+<input id="sent" class="button" type="submit" value="Đánh giá">
+</form>
       <!-- create comment -->
         @if (Auth::check())
+
       <form class="cmt comment-section" action="{{ url("/comments/$post->post_id") }}" method="POST">
       @csrf
           <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
@@ -197,8 +215,7 @@
         </div>
 
 
-
+        
         @endif
-
 
 @endsection

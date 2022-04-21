@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PlaceRequest;
 use App\Http\Requests\PostImageRequest;
 use App\Http\Requests\PostRequest;
-use App\Models\Place;
 use App\Models\Post;
-use App\Models\Post_image;
-use App\Models\Post_thumb;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use AppRating;
+use willvincent\Rateable\Rating;
 
 class PostController extends Controller
 {
@@ -44,6 +42,8 @@ class PostController extends Controller
         ->select('comments.*', 'users.name',  'users.avatar')
         ->latest()
         ->get();  
+
+        
         
         $countComment = DB::table('comments')
         ->where('comments.post_id', '=', "$post")
