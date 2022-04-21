@@ -76,6 +76,12 @@
                   <span>Bản đồ Review</span>
                 </a>
               </li>
+              <li id="shop">
+                <a href="https://hlxdesign.com">
+                  <img src="{{ asset('assets/img/shopping-cart.png') }}" alt="">
+                  <span>Shop</span>
+                </a>
+              </li>
             </div>
             @if (Auth::check())
             <li class="admin">

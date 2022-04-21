@@ -83,3 +83,39 @@
   background-color: #2cccff;
 
 }
+
+/* slider dọc */
+.panel .related-post{
+  width: 30%;
+  margin:0px 10%;
+  margin-left: 40px;
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.panel .related-post .image-slider-2{
+  width: 0%;
+  align-self: center;
+}
+.panel .related-post .title h3{
+  font-size: 26px;
+}
+.panel .related-post .slick-prev{
+  top:0;
+  left: 40%;
+}
+.panel .related-post .slick-next{
+  left: 40%;
+  top:100%;
+}
+.panel .related-post .image-item .image{
+  width: 256px;
+  margin-bottom: 10px;
+}
+
+@media (max-width:600px) {
+  .panel{
+    flex-direction: column;
+  }
+  
+}

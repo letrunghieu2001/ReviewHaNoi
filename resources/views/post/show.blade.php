@@ -9,87 +9,70 @@
 <!-- start post -->
 <div class="panel">
 
-<div id="posts">
-  <div id="heading">
+  <div id="posts">
+    <div id="heading">
+      <div class="title">
+        <h3>{!! $post->title !!}</h3>
+      </div>
+      <div class="contact">
+        <h4>Địa chỉ:{{ $post->address}}</h4>
+        <h4>Số điện thoại:{{ $post->phone_number}}</h4>
+        <h4>Giờ mở cửa: {{ $post->time}}</h4>
+        <div class="flex">
+          <div class="link">
+            <a href='{{ $post->link}}'>Xem trang web</a>
+          </div>
+          <div class="link">
+            <a href='{{ $post->map}}'>Bản đồ</a>
+          </div>
+        </div>
+      
+      </div>
+      <div class="author">
+        <img src="{{ asset("assets/img/id.png") }}" alt="">
+        <h3 class="name"> Written by {{$post->arthur_name}}</h3>      
+      </div>
+    </div>
+    <div class="break">
+      <img src="{{ asset("assets/img/line.png") }}" alt="line">
+    </div>
+    <div class="main-content">
+      <div class="picture">
+        <img src="{{ asset("uploads/post/$post->image") }}" alt="">
+        <!-- <img src="../Image/food/banhmi.jpg" alt="">
+        <img src="../Image/food/comrang.jpg" alt=""> -->
+      </div>
+      <div class="content">
+        <p>{!! $post->content !!}
+        </p>
+        <p>{{$post->arthur_name}} {{$post->created_at}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="related-post">
     <div class="title">
-      <h3>{!! $post->title !!}</h3>
+      <h3>Những địa điểm gần đó</h3>
     </div>
-    <div class="contact">
-      <h4>Địa chỉ:{{ $post->address}}</h4>
-      <h4>Số điện thoại:{{ $post->phone_number}}</h4>
-      <h4>Giờ mở cửa: {{ $post->time}}</h4>
-      <div class="flex">
-        <div class="link">
-          <a href='{{ $post->link}}'>Xem trang web</a>
-        </div>
-        <div class="link">
-          <a href='{{ $post->map}}'>Bản đồ</a>
-        </div>
-      </div>
-     
-    </div>
-    <div class="author">
-      <img src="{{ asset("assets/img/id.png") }}" alt="">
-      <h3 class="name"> Written by {{$post->arthur_name}}</h3>      
-    </div>
-  </div>
-  <div class="break">
-    <img src="{{ asset("assets/img/line.png") }}" alt="line">
-  </div>
-  <div class="main-content">
-    <div class="picture">
-      <img src="{{ asset("uploads/post/$post->image") }}" alt="">
-      <!-- <img src="../Image/food/banhmi.jpg" alt="">
-      <img src="../Image/food/comrang.jpg" alt=""> -->
-    </div>
-    <div class="content">
-      <p>{!! $post->content !!}
-      </p>
-      <p>{{$post->arthur_name}} {{$post->created_at}}</p>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- end post -->
-
-<!-- star slide -->
-<!-- <div class="carousel">
-  <h3>Các địa điểm gần đó</h3>
-  <div class="slide-container">
+    <div class="image-slider-2">
     @foreach($items as $item)
-      @if(( $item->district_id == $post->district_id))
-  <div class="slide">
-  <a  href="{{ url("/posts/$item->id") }}"  class="art">
-          <img src="{{ asset("uploads/thumb/$item->thumbnail") }}" alt="quan-an">
-          <span></span>
-          <div class="text">{!! $item->name !!}</div>
-  </a>
-      </div>
-@endif
-@endforeach -->
-
-<div class="related-post">
-  <div class="title">
-    <h3>Những địa điểm gần đó</h3>
+          @if(( $item->district_id == $post->district_id))
+        <a href="{{ url("/posts/$item->id") }}" class="image-item">
+          <div class="image">
+            <img src="{{ asset("uploads/thumb/$item->thumbnail") }}" alt="">
+          </div>
+          <div class="image-title">
+            <h3>{!! $item->name !!}</h3>
+          </div>
+        </a>
+        @endif
+    @endforeach
+    </div>
   </div>
-<div class="image-slider-2">
-@foreach($items as $item)
-      @if(( $item->district_id == $post->district_id))
-    <a href="{{ url("/posts/$item->id") }}" class="image-item">
-      <div class="image">
-        <img src="{{ asset("uploads/thumb/$item->thumbnail") }}" alt="">
-      </div>
-      <div class="image-title">
-        <h3>{!! $item->name !!}</h3>
-      </div>
-    </a>
-    @endif
-@endforeach
-</div>
 </div>
 
-<!-- end slide -->
+
+
 <div class="related-post">
   <div class="title">
     <h3>Những địa điểm liên quan</h3>
