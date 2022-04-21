@@ -43,9 +43,9 @@ Full Post
     </form>
 
 <div class="body">      
-
+   
 <div class="box">
-    
+    <h3>Có 5 kết quả tìm kiếm</h3> 
     <div class="articles">
 
         @foreach ($posts as $post)
