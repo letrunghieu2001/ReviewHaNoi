@@ -12,6 +12,7 @@
   <!-- CSS -->
    <link rel="stylesheet" href="{{ asset('css/posts.css') }}">
    <link rel="stylesheet" href="{{ asset('css/slider1.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/slider2.css') }}">
    
    
    <!-- <link rel="stylesheet" href="../CSS/home.css"> -->

@@ -41,6 +41,7 @@
   ></script>
 <!-- Swipper Slider JS -->
 <script src="{{ asset('js/slider1.js') }}"></script>
+<script src="{{ asset('js/slider2.js') }}"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 3,

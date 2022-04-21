@@ -54,7 +54,7 @@
 <!-- end post -->
 
 <!-- star slide -->
-<div class="carousel">
+<!-- <div class="carousel">
   <h3>Các địa điểm gần đó</h3>
   <div class="slide-container">
     @foreach($items as $item)
@@ -67,10 +67,26 @@
   </a>
       </div>
 @endif
+@endforeach -->
+
+<div class="related-post">
+  <div class="title">
+    <h3>Những địa điểm gần đó</h3>
+  </div>
+<div class="image-slider-2">
+@foreach($items as $item)
+      @if(( $item->district_id == $post->district_id))
+    <a href="{{ url("/posts/$item->id") }}" class="image-item">
+      <div class="image">
+        <img src="{{ asset("uploads/thumb/$item->thumbnail") }}" alt="">
+      </div>
+      <div class="image-title">
+        <h3>{!! $item->name !!}</h3>
+      </div>
+    </a>
+    @endif
 @endforeach
 </div>
-  <div class="btn-prev"><i class="fa-solid fa-angle-up"></i></div>
-  <div class="btn-next"><i class="fa-solid fa-angle-down"></i></div>
 </div>
 
 <!-- end slide -->
@@ -95,6 +111,7 @@
   </div>
 
 </div>
+
 
 
 @if (Auth::check())
@@ -198,8 +215,6 @@
 
 
 
-        @else
-        <p>Không có comment</p>
         @endif
 
 
