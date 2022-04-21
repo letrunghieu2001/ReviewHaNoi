@@ -72,7 +72,7 @@ Route::group(['middleware'=>'admin'], function(){
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/create',[PostController::class, 'create'])->middleware('admin');
 Route::get('/posts/{post}',[PostController::class, 'show']);
-Route::post('posts/{post}', [PostController::class, 'postPost'])->middleware('auth');
+// Route::get('/add-rating')->middleware('auth');
 
 Route::group(['middleware'=>'admin'], function(){  
 Route::post('/posts', [PostController::class, 'store']);
