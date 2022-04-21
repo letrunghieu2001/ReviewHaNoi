@@ -51,7 +51,7 @@ public function self_edit()
 
     public function show () {
         $users = DB::table('users')
-        ->get();
+        ->paginate(4);
         return view ('users.show', [
             'users' => $users
         ]);

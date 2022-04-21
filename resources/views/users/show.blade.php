@@ -60,5 +60,8 @@ ReviewHaNoi
       </div>
 @endforeach
   </div>
-
+  <div style="text-align:center ">
+  {{ $users->links() }}
+  </div>
+</div>
 @endsection
