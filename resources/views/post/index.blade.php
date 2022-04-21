@@ -5,6 +5,7 @@ Full Post
 @endsection
 
 @section('content')
+<div class="container">
     <form method="GET" action="{{ url('/search') }}">
         <div class="wrap">
              <div class="search">
@@ -67,8 +68,15 @@ Full Post
                 
         </div> 
 
+        
+
+</div>
+<div style="text-align:center ">
+                    {{ $posts->links() }}
+</div>
 </div>
 
+</div>
 </div>
 
 @endsection 

@@ -24,7 +24,7 @@ class PostController extends Controller
             ->join('districts', 'districts.id', '=', 'posts.district_id')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
             ->select('posts.*','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
-           ->get();
+           ->paginate(10);
 
         $countPost = DB::table('posts')
         ->count();
