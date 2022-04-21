@@ -9,8 +9,8 @@
 .panel{
 
   display: flex;
+  margin:0 10%;
   margin-top: 100px;
-  margin-left: 10%;
 }
 
 #posts{
