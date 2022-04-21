@@ -31,9 +31,9 @@
     <div class="nav">
         <ul class="row1">
             <li><a href="{{ url('info') }}">Giới thiệu</a></li>
-            <li><a href="#">Liên Hệ</a></li>
-            <li class="widtht"><a href="#">Chính sách bảo mật</a></li>
-            <li><a href="#">Hỗ trợ</a></li>
+            <li><a href="{{ url('contact') }}">Liên Hệ</a></li>
+            <li class="widtht"><a href="{{ url('privacy') }}">Chính sách bảo mật</a></li>
+            <li><a href="{{ url('support') }}">Hỗ trợ</a></li>
             <li><img src="{{ asset('assets/img/menu/vn.png') }}" alt="Viet_Nam"></li>
         </ul>
         <ul class="row2">
@@ -75,6 +75,12 @@
                   <span>Bản đồ Review</span>
                 </a>
               </li>
+              <li id="shop">
+                <a href="https://hlxdesign.com">
+                  <img src="{{ asset('assets/img/shopping-cart.png') }}" alt="">
+                  <span>Shop</span>
+                </a>
+              </li>
             </div>
             @if (Auth::check())
             <li class="admin">
@@ -111,7 +117,5 @@
             </li>
         </ul>
     </div>
-
-</div>
-
+  </div>
     <!-- // end menu -->
