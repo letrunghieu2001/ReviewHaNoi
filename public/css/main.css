@@ -1,5 +1,5 @@
 :root{
-  --BackgroundColor: white;
+  --BackgroundColor: rgb(225,230,226);
   --FontPrimary: 'SVN-Elle';
   --FontSecondary: 'SlimTony';
   --TextColor: black;
@@ -16,7 +16,7 @@
 }
 body{
   width: 100%;
-
+  background-color: var(--BackgroundColor);
 }
 *{
   margin: 0;

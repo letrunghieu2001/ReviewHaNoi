@@ -230,6 +230,17 @@ body.dark{
   border-radius: 50%;
   background-color: antiquewhite;
 }
+@media (min-width:1200px) {
+  ul.row2 .menu{
+    height: 100%;
+  }
+  ul.row2 .menu li{
+    width: 100%;
+  }
+  ul.row2 .menu li a{
+    width: 100%;
+  }
+}
 @media only screen and (max-width: 1200px) {
     
     .nav{position: fixed;}
