@@ -121,6 +121,11 @@ input[type="checkbox"]{
   color:orange;
   text-decoration: underline;
 }
+/* Form message */
+
+.text-danger{
+  color:red;
+}
 
 @media (min-width:600px){
   .form{

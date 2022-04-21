@@ -170,7 +170,7 @@ body.dark{
   left:145px;
 } */
 
-#map a img{
+.row2 .menu li#map a img{
   filter: invert(1);
 }
 

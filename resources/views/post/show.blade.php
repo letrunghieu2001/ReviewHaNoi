@@ -125,24 +125,27 @@
       <form class="cmt comment-section" action="{{ url("/comments/$post->post_id") }}" method="POST">
       @csrf
           <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
-          <input type="submit" value="Gửi Bình Luận">
+          <div class="flex">
+            <input id="discard" class="button" type="submit" value="Hủy">
+            <input id="sent" class="button" type="submit" value="Gửi Bình Luận">
+          </div>
           @error('content')
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
       </form>
       @else
-      <a href="{{ url("login") }}">Vui lòng  Đăng nhập để bình luận </a>
+      <a class="comment-section" href="{{ url("login") }}">Vui lòng  Đăng nhập để bình luận </a>
         @endif
       
       @if ($countComment > 0)
             <!-- Show comment -->
             <div class="tt-item card card-block comment-section">
                 @foreach ($comments as $comment)
-                <div class="media mt-3 ml-lg-4">
-                      <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
-                    <div class="media-body ml_30px">
+                <div class="comment-block">
+                    <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
+                    <div class="comment-content">
                         <div class="row mr-4">
-                            <h6 class="pt-2">{{ $comment->name}}</h6>
+                            <h4 class="pt-2">{{ $comment->name}}</h4>
 
                             @if (Auth::check())
                             @if(($comment->user_id == Auth::user()->id))
