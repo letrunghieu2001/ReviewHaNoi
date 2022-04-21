@@ -159,6 +159,7 @@
         @endif
       
       @if ($countComment > 0)
+      <h3>Có {{ $countComment }} bình luận</h3>
             <!-- Show comment -->
             <div class="tt-item card card-block comments comment-section">
                 @foreach ($comments as $comment)
