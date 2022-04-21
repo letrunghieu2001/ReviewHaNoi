@@ -120,7 +120,9 @@
   @endif
   @endif
       </div>
+      @if (Auth::check())
 <form action="{{ url("/add-rating") }}" method="POST">
+@csrf
       <div class="rating-css">
     <div class="star-icon">
         <input type="radio" value="1" name="product_rating" checked id="rating1">
@@ -137,6 +139,7 @@
 </div>
 <input id="sent" class="button" type="submit" value="Đánh giá">
 </form>
+@endif
       <!-- create comment -->
         @if (Auth::check())
 

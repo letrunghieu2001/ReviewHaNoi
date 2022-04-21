@@ -47,9 +47,14 @@ class HomeController extends Controller
             ->join('categories', 'categories.id', '=', 'posts.category_id')
             ->select('posts.*','districts.*','categories.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
             ->paginate(12);
+                $countPost = DB::table('posts')
+                ->count();
                 return view('post.index', [      
                     'posts' => $posts,
+                    'countPost' => $countPost,
                 ]);
+
+
             }
             $posts = DB::table('posts')
             ->join('districts', 'districts.id', '=', 'posts.district_id')
@@ -60,8 +65,18 @@ class HomeController extends Controller
             ->where('categories.name', 'LIKE', "%".$type."%")
             ->distinct()
             ->paginate(12);
+
+            $countPost = DB::table('posts')
+            ->join('districts', 'districts.id', '=', 'posts.district_id')
+            ->join('categories', 'categories.id', '=', 'posts.category_id')
+            ->select('posts.*','districts.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
+            ->where('posts.name', 'LIKE', "%".$search."%")
+            ->where('districts.name', 'LIKE', "%".$browser."%")
+            ->where('categories.name', 'LIKE', "%".$type."%")
+            ->count();
             return view('home.search', [
                 'posts' => $posts,
+                'countPost' => $countPost,
             ]);
     }
 
@@ -70,8 +85,12 @@ class HomeController extends Controller
     ->latest()
     ->get();
 
+    $countPost = DB::table('posts')
+    ->count();
+
     return view('home.search', [
         'posts' => $posts,
+        'countPost' => $countPost,
     ]);
 }
 

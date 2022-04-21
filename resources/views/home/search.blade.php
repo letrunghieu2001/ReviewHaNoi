@@ -44,7 +44,7 @@ Search
 </div>
 <div class="box">
 
-    
+<h3>Có {{ $countPost }} bài đăng được tìm thấy </h3> 
     <div class="articles">
         @foreach ($posts as $post)
         <a  href="{{ url("/posts/$post->post_id") }}"  class="art">
