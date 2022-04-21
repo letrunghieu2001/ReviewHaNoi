@@ -14,14 +14,14 @@
         <div class="footer__socials">
           <h3>Follow us</h3>
           <div class="socials">
-            <a href="#"><img src="{{ asset('assets/img/facebook.png') }}" alt="facebook"></a>
-            <a href="#"><img src="{{ asset('assets/img/instagram.png') }}" alt="instagram"></a>
-            <a href="#"><img src="{{ asset('assets/img/tik-tok.png') }}" alt="tiktok"></a>
+            <a href="https://www.facebook.com/Vi-Vu-H%C3%A0-N%E1%BB%99i-113783374410439"><img src="{{ asset('assets/img/facebook.png') }}" alt="facebook"></a>
+            <a href="https://www.instagram.com/_vivuhanoi_/"><img src="{{ asset('assets/img/instagram.png') }}" alt="instagram"></a>
+            <a href="https://www.tiktok.com/_vivuhanoi_/"><img src="{{ asset('assets/img/tik-tok.png') }}" alt="tiktok"></a>
           </div>
         </div>
     </div>
     <div class="footer__info">
-      <h3>Copyright &copy; 2020-2021. All right reserved by <span>ReviewHanoi</span></h3>
+      <h3>Copyright &copy; 2021-2022. All right reserved by <span>ReviewHanoi</span></h3>
       <a href="#"><i class="fa-solid fa-circle-arrow-up"></i></i></a>
     </div>
 </footer>
