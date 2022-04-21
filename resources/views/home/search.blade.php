@@ -59,6 +59,7 @@ Search
    @endforeach
         </div>
 
+        {{ $posts->links() }}
 </div>
 
 

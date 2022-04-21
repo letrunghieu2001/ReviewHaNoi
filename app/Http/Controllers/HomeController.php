@@ -46,7 +46,7 @@ class HomeController extends Controller
             ->join('districts', 'districts.id', '=', 'posts.district_id')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
             ->select('posts.*','districts.*','categories.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
-            ->get();
+            ->paginate(12);
                 return view('post.index', [      
                     'posts' => $posts,
                 ]);
@@ -59,7 +59,7 @@ class HomeController extends Controller
             ->where('districts.name', 'LIKE', "%".$browser."%")
             ->where('categories.name', 'LIKE', "%".$type."%")
             ->distinct()
-            ->paginate(10);
+            ->paginate(12);
             return view('home.search', [
                 'posts' => $posts,
             ]);
