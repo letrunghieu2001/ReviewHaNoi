@@ -139,3 +139,18 @@ footer{
   margin-top:50px;
 }
   
+
+/* pagination */
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination .page-item{
+  width: 25px;
+  height: 25px;
+  border:1px solid grey;  
+  margin:0 10px;
+}
+/* end of pagination */

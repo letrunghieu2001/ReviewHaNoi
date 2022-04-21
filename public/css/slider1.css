@@ -94,7 +94,7 @@
   flex-direction: column;
 }
 .panel .related-post .image-slider-2{
-  width: 0%;
+  width: 80%;
   align-self: center;
 }
 .panel .related-post .title h3{
@@ -102,10 +102,10 @@
 }
 .panel .related-post .slick-prev{
   top:0;
-  left: 40%;
+  left: 43%;
 }
 .panel .related-post .slick-next{
-  left: 40%;
+  left: 43%;
   top:100%;
 }
 .panel .related-post .image-item .image{
