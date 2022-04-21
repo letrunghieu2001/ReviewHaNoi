@@ -1,0 +1,25 @@
+@import url(./main.css);
+
+#privacy {width: 70%; margin: 100px auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+.ctLogo{margin: 10px; justify-content: center; display: flex;}
+.ctLogo img{max-width: 255px;}
+h1{font-weight: 800;font-size: 40px; line-height: 1.2;}
+.inside-article{margin: 30px 0px;}
+.inside-article .entry-content{margin: 30px 0px;}
+.entry-content h2{font-size: 30px;word-wrap: break-word; line-height: 1.3;margin-bottom: 15px;}
+.entry-content p{font-size: 20px;line-height: 1.3;margin-bottom: 15px;}
+
+@media only screen and (max-width: 1200px) {
+    *{margin: 0; padding: 0;}
+    #privacy {width: 80%;}
+}
+@media only screen and (max-width: 1000px) {
+    *{margin: 0; padding: 0;}
+    #privacy {width: 100%; margin: 100px 30px;}
+}
+@media only screen and (max-width: 800px) {
+    *{margin: 0; padding: 0;}
+    h2{font-size: 20px;}
+    p{font-size: 15px;}
+}
+
