@@ -139,50 +139,56 @@
       
       @if ($countComment > 0)
             <!-- Show comment -->
-            <div class="tt-item card card-block comment-section">
+            <div class="tt-item card card-block comments comment-section">
                 @foreach ($comments as $comment)
                 <div class="comment-block">
                     <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
                     <div class="comment-content">
-                        <div class="row mr-4">
-                            <h4 class="pt-2">{{ $comment->name}}</h4>
 
-                            @if (Auth::check())
-                            @if(($comment->user_id == Auth::user()->id))
-                            <div class="ml-auto btn-group dropleft" id="a_post">
-                                <a type="button" id="dropdownMenuComment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-v tt-icon-btn text-dark"></i>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuComment">
-                                    <!--Edit comment-->
-                                    <a class="dropdown-item mt-3 text-black" href="{{ url("/comments/$comment->id/self_edit") }}">
-                                        <img src="{{ asset('assets/img/forum/edit (1).png') }}" class="icon_post tt-icon-btn">
-                                        <span>Edit comment</span>
-                                    </a>
-
-                                    <!--Delete comment-->
-                                    <a class="dropdown-item mt-3 mb-3" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('comment-delete-{{ $comment->id }}').submit()">
-                                        <img src="{{ asset('assets/img/forum/delete (1).png') }}" class="icon_post tt-icon-btn">
-                                        <span>Delete comment</span>
-                                        <form action='{{ url("/comments/{$comment->id}") }}' method="POST" id="comment-delete-{{ $comment->id }}">
-                                            @method('DELETE')
-                                            @csrf
-                                        </form>
-                                    </a>
-                                </div>
-                            </div>
-                            @endif
-                            @endif
-                        </div>
-
+                      <div class="left">
+                        <h4 class="pt-2">{{ $comment->name}}</h4>
                         <div class="row size_10px">{{ $comment->created_at }}</div>
-
                         <div class="mt-2 mr-4 row">
                             <div class="word-break reponsive">
                                 {!! $comment->content !!}
                             </div>
-
                         </div>
+                      </div>
+
+                      <div class="right">
+                      <div class="three-dots">
+                        @if (Auth::check())
+                        @if(($comment->user_id == Auth::user()->id))
+                        <div class="ml-auto btn-group dropleft" id="a_post">
+                            <a type="button" id="dropdownMenuComment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-ellipsis-v tt-icon-btn text-dark"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuComment">
+                                <!--Edit comment-->
+                                <a class="dropdown-item mt-3 text-black" href="{{ url("/comments/$comment->id/self_edit") }}">
+                                    <img src="{{ asset('assets/img/forum/edit (1).png') }}" class="icon_post tt-icon-btn">
+                                    <span>Edit comment</span>
+                                </a>
+
+                                <!--Delete comment-->
+                                <a class="dropdown-item mt-3 mb-3" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('comment-delete-{{ $comment->id }}').submit()">
+                                    <img src="{{ asset('assets/img/forum/delete (1).png') }}" class="icon_post tt-icon-btn">
+                                    <span>Delete comment</span>
+                                    <form action='{{ url("/comments/{$comment->id}") }}' method="POST" id="comment-delete-{{ $comment->id }}">
+                                        @method('DELETE')
+                                        @csrf
+                                    </form>
+                                </a>
+                            </div>
+                        </div>
+                        @endif
+                        @endif
+                        </div>
+                      </div>
+                      
+
+
+
                     </div>
                 </div>
                 @endforeach

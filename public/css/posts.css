@@ -225,9 +225,10 @@
   margin-top:10px;
   margin-bottom: 10px;
 }
-form.comment-section{
+.comments ,form.comment-section{
   flex-direction: column;
 }
+
 .comment-block,textarea.cmt1{
   width: 60%;
   height: 100px;
@@ -263,7 +264,22 @@ input#sent:hover,input#discard:hover{
   height: 100%;
   object-fit: cover;
 }
-
+.comment-content{
+  width: 100%;
+  display: flex;
+}
+.comment-content .left{
+  flex:4;
+}
+.comment-content .right{
+  flex:1;
+}
+.comment-content h4{
+  margin-top: 10px;
+}
+.comment-content .three-dots{
+  align-self: flex-end;
+}
 
 /* nút thêm ảnh trang chỉnh sửa bài dăng */
 .file_custom::-webkit-file-upload-button{
