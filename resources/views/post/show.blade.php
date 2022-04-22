@@ -15,22 +15,7 @@
         <h3>{!! $post->title !!}</h3>
       </div>
       <div class="contact">
-        @php $ratenum = number_format($rating_count) @endphp
-      <div class="rating">
-        @for($i = 1 ; $i <= $ratenum ; $i++)
-        <i class="fa fa-star checked"></i>
-        @endfor
-        @for($j = $ratenum + 1 ; $j <= 5 ; $j++)
-        <i class="fa fa-star"></i>
-        @endfor
-<span>
-        @if($rating->count() > 0)  
-      {{$rating->count()}} Đánh giá
-      @else
-      0 đánh giá
-      @endif
-</span>
-     </div> 
+
         <h4>Địa chỉ:{{ $post->address}}</h4>
         <h4>Số điện thoại:{{ $post->phone_number}}</h4>
         <h4>Giờ mở cửa: {{ $post->time}}</h4>
@@ -136,7 +121,7 @@
   @endif
       </div>
       @if (Auth::check())
-<form action="{{ url("/add-rating/$post->post_id") }}" method="POST">
+<form action="{{ url("/add-rating") }}" method="POST">
 @csrf
       <div class="rating-css">
     <div class="star-icon">
@@ -155,9 +140,15 @@
 <input id="sent" class="button" type="submit" value="Đánh giá">
 </form>
 @endif
+
+      <!-- Tiêu đề phần bình luận -->
+      <div class="related-post">
+         <div class="title">
+          <h3>Phần bình luận</h3>
+        </div>    
+      </div>
       <!-- create comment -->
         @if (Auth::check())
-
       <form class="cmt comment-section" action="{{ url("/comments/$post->post_id") }}" method="POST">
       @csrf
           <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
@@ -174,7 +165,7 @@
         @endif
       
       @if ($countComment > 0)
-      <h3>Có {{ $countComment }} bình luận</h3>
+      <h3 style="margin-left:10%">Có {{ $countComment }} bình luận</h3>
             <!-- Show comment -->
             <div class="tt-item card card-block comments comment-section">
                 @foreach ($comments as $comment)
