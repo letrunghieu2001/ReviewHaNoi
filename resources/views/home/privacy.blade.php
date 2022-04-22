@@ -13,7 +13,7 @@ Chính sách bảo mật
         </div>
         <div class="inside-article">
             <div class="title">
-                <h1>Privacy Policy</h1>
+                <h1 style="text-align:center;">Privacy Policy</h1>
             </div>
             <div class="entry-content">
                 <h2>Chính sách bảo mật</h2>
