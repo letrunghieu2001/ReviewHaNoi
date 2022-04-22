@@ -135,7 +135,8 @@
   @endif
   @endif
       </div>
-      @if (Auth::check())
+      <!-- create comment -->
+        @if (Auth::check())
 <form action="{{ url("/add-rating/$post->post_id") }}" method="POST">
 @csrf
       <div class="rating-css">
@@ -152,12 +153,8 @@
         <label for="rating5" class="fa fa-star"></label>
     </div>
 </div>
-<input id="sent" class="button" type="submit" value="Đánh giá">
+<input id="sent" class="button" type="submit" value="Gửi đánh giá">
 </form>
-@endif
-      <!-- create comment -->
-        @if (Auth::check())
-
       <form class="cmt comment-section" action="{{ url("/comments/$post->post_id") }}" method="POST">
       @csrf
           <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>

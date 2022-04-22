@@ -57,13 +57,13 @@
                   <span> Danh mục </span>
                   </a>
                   <ul class="menu2" >
-                    <li><a href="{{ url('search?type=Nhà+hàng&browser=&search=') }}">Nhà Hàng</a></li>
-                    <li><a href="{{ url('search?type=Quán+ăn&browser=&search=') }}">Quán Ăn</a></li>
-                    <li><a href="{{ url('search?type=Ăn+vặt&browser=&search=') }}">Ăn Vặt</a></li>
-                    <li><a href="{{ url('search?type=Quán+cà+phê&browser=&search=') }}">Quán Cà Phê</a></li>
-                    <li><a href="{{ url('search?type=Di+tích+lịch+sử&browser=&search=') }}">Di tích Lịch Sử</a></li>
-                    <li><a href="{{ url('search?type=Địa+điểm+check-in&browser=&search=') }}">Địa điểm Check-in</a></li>
-                    <li><a href="{{ url('search?type=Homestay+-+Khách+sạn&browser=&search=') }}">Homestay - Khách sạn</a></li>
+                  <li><a href="{{ url('posts?type=Nhà+hàng&browser=&search=') }}">Nhà Hàng</a></li>
+                    <li><a href="{{ url('posts?type=Quán+ăn&browser=&search=') }}">Quán Ăn</a></li>
+                    <li><a href="{{ url('posts?type=Ăn+vặt&browser=&search=') }}">Ăn Vặt</a></li>
+                    <li><a href="{{ url('posts?type=Quán+cà+phê&browser=&search=') }}">Quán Cà Phê</a></li>
+                    <li><a href="{{ url('posts?type=Di+tích+lịch+sử&browser=&search=') }}">Di tích Lịch Sử</a></li>
+                    <li><a href="{{ url('posts?type=Địa+điểm+check-in&browser=&search=') }}">Địa điểm Check-in</a></li>
+                    <li><a href="{{ url('posts?type=Homestay+-+Khách+sạn&browser=&search=') }}">Homestay - Khách sạn</a></li>
                   </ul>
               </li>
               <li id="map">

@@ -6,12 +6,12 @@ Full Post
 
 @section('content')
 <div class="container">
-    <form method="GET" action="{{ url('/search') }}">
+    <form method="GET" action="{{ url('/posts') }}">
         <div class="wrap">
              <div class="search">
              <select class="danhmuc" id="type" name="type">
                       <option value="">Tất cả</option>
-                      <option > Nhà hàng</option>
+                      <option value="Nhà hàng"  > Nhà hàng</option>
                       <option > Quán ăn</option>
                       <option > Ăn vặt</option>
                       <option > Quán cà phê</option>
@@ -68,12 +68,12 @@ Full Post
                 
         </div> 
 
-        
-
-</div>
-<div style="text-align:center ">
+        <div style="text-align:center ">
                     {{ $posts->links() }}
 </div>
+
+</div>
+
 </div>
 
 </div>
