@@ -149,20 +149,24 @@
       </div>
       <!-- create comment -->
         @if (Auth::check())
-      <form class="cmt comment-section" action="{{ url("/comments/$post->post_id") }}" method="POST">
-      @csrf
-          <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
-          <div class="flex">
-            <input id="discard" class="button" type="submit" value="Hủy">
-            <input id="sent" class="button" type="submit" value="Gửi Bình Luận">
+        <form class="cmt comment-section" action="{{ url("/comments/$post->post_id") }}" method="POST">
+        @csrf
+          <div class="comment-input"> 
+            <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
           </div>
-          @error('content')
-                    <div class="form-text text-danger">{{ $message }}</div>
-            @enderror
-      </form>
-      @else
-      <a class="comment-section" href="{{ url("login") }}">Vui lòng  Đăng nhập để bình luận </a>
-        @endif
+            <div class="flex">
+              <input id="discard" class="button" type="submit" value="Hủy">
+              <input id="sent" class="button" type="submit" value="Gửi Bình Luận">
+            </div>
+              @error('content')
+              <div class="form-text text-danger">{{ $message }}</div>
+                @enderror
+          </form>
+          @else
+          <a class="comment-section" href="{{ url("login") }}">Vui lòng  Đăng nhập để bình luận </a>
+            @endif
+    
+     
       
       @if ($countComment > 0)
       <h3 style="margin-left:10%">Có {{ $countComment }} bình luận</h3>
