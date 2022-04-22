@@ -58,6 +58,8 @@ Full Post
                 <div>
                     {{ $post->address }}
                 </div>
+               
+
             </div>
         </a>
 

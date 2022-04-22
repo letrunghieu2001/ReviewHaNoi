@@ -137,6 +137,7 @@
       </div>
       <!-- create comment -->
         @if (Auth::check())
+       
 <form action="{{ url("/add-rating/$post->post_id") }}" method="POST">
 @csrf
       <div class="rating-css">
@@ -155,6 +156,9 @@
 </div>
 <input id="sent" class="button" type="submit" value="Gửi đánh giá">
 </form>
+
+
+
 @endif
 
       <!-- Tiêu đề phần bình luận -->
@@ -165,10 +169,18 @@
       </div>
       <!-- create comment -->
         @if (Auth::check())
+<<<<<<< HEAD
         <form class="cmt comment-section" action="{{ url("/comments/$post->post_id") }}" method="POST">
         @csrf
           <div class="comment-input"> 
             <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
+=======
+      <form class="cmt comment-section" action="{{ url("/comments/$post->post_id") }}" method="POST">
+      @csrf
+          <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
+          <div class="flex">
+            <input id="sent" class="button" type="submit" value="Gửi Bình Luận">
+>>>>>>> 5fbe88fa3f82b10b71adb2aeafd1782ba31977ab
           </div>
             <div class="flex">
               <input id="discard" class="button" type="submit" value="Hủy">

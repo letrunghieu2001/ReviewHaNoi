@@ -60,15 +60,15 @@ class PostController extends Controller
             ->join('categories', 'categories.id', '=', 'posts.category_id')
             ->select('posts.*','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
            ->paginate(12);
-
            
+
 
         $countPost = DB::table('posts')
         ->count();
 
         return view('post.index', [
             'posts' => $posts,
-            'countPost' => $countPost,
+            'countPost' => $countPost
 
 
         ]);
@@ -78,6 +78,7 @@ class PostController extends Controller
     {            
         $rating = DB::table('ratings')
         ->where('ratings.post_id', '=', "$post")
+        ->select('ratings.*','ratings.user_id as userid')
         ->get();
 
         $rating_sum = DB::table('ratings')->where('ratings.post_id', '=', "$post")->sum('stars_rated');
