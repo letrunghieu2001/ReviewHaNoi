@@ -16,12 +16,43 @@ class PostController extends Controller
 {
     public function index()
     {
-        $ratings = DB::table('ratings')
-        ->select('ratings.post_id AS postid')
-        ->get();
+        if((isset($_GET['search'])) && (isset($_GET['browser'])) && (isset($_GET['type'])))
+        {
+            $browser = $_GET['browser'];
+            $search = $_GET['search'];
+            $type = $_GET['type'];
+            if (($browser == "") && ($type == "") && ($search == "") )
+            {
+                return redirect("/posts");
+            }
+            else
+            {
+            $posts = DB::table('posts')
+            ->join('districts', 'districts.id', '=', 'posts.district_id')
+            ->join('categories', 'categories.id', '=', 'posts.category_id')
+            ->select('posts.*','districts.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
+            ->where('posts.name', 'LIKE', "%".$search."%")
+            ->where('districts.name', 'LIKE', "%".$browser."%")
+            ->where('categories.name', 'LIKE', "%".$type."%")
+            ->paginate(12);
 
-        $countRating = DB::table('ratings')
-        ->count();
+            $posts->appends(['type' => $type, 'browser' => $browser,'search' => $search]);
+
+
+            $countPost = DB::table('posts')
+            ->join('districts', 'districts.id', '=', 'posts.district_id')
+            ->join('categories', 'categories.id', '=', 'posts.category_id')
+            ->select('posts.*','districts.*','categories.*','categories.name AS category_name','posts.name as post_name','posts.category_id as cat_id','posts.id as post_id')
+            ->where('posts.name', 'LIKE', "%".$search."%")
+            ->where('districts.name', 'LIKE', "%".$browser."%")
+            ->where('categories.name', 'LIKE', "%".$type."%")
+            ->count();
+            return view('post.index', [
+                'posts' => $posts,
+                'countPost' => $countPost,
+            ]);
+        }
+    }
 
             //full posts
             $posts = DB::table('posts')
@@ -30,14 +61,15 @@ class PostController extends Controller
             ->select('posts.*','categories.name AS category_name','posts.name as post_name','posts.id as post_id')
            ->paginate(12);
 
+           
+
         $countPost = DB::table('posts')
         ->count();
 
         return view('post.index', [
             'posts' => $posts,
             'countPost' => $countPost,
-            'ratings' => $ratings,
-            'countRating' => $countRating,
+
 
         ]);
     }

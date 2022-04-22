@@ -12,7 +12,7 @@ ReviewHaNoi
             <img src="{{ asset('assets/img/home/menu/logo.png') }}" alt="">
             <h4>Mang cả Hà Nội đến với bạn</h4>
         </div>
-        <form method="GET" action="{{ url('/search') }}">
+        <form method="GET" action="{{ url('/posts') }}">
         <div class="wrap">
              <div class="search">
              <select class="danhmuc" id="type" name="type">
