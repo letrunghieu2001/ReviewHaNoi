@@ -15,8 +15,23 @@
         <h3>{!! $post->title !!}</h3>
       </div>
       <div class="contact">
-
-        <h4>Địa chỉ:{{ $post->address}}</h4>
+@php $ratenum = number_format($rating_count) @endphp
+<div class="rating">
+  @for($i = 1 ; $i <= $ratenum; $i++)
+  <i class="fa fa-star checked"></i>
+  @endfor
+  @for($j = $ratenum+1 ; $j <= 5; $j++)
+  <i class="fa fa-star"></i>
+  @endfor
+  <span>
+    @if($rating->count() > 0)
+    {{$rating->count()}} ratings
+    @else
+    No ratings
+    @endif
+  </span>
+</div>        
+<h4>Địa chỉ:{{ $post->address}}</h4>
         <h4>Số điện thoại:{{ $post->phone_number}}</h4>
         <h4>Giờ mở cửa: {{ $post->time}}</h4>
         <div class="flex">
@@ -120,14 +135,9 @@
   @endif
   @endif
       </div>
-<<<<<<< HEAD
       <!-- create comment -->
         @if (Auth::check())
 <form action="{{ url("/add-rating/$post->post_id") }}" method="POST">
-=======
-      @if (Auth::check())
-<form action="{{ url("/add-rating") }}" method="POST">
->>>>>>> eee7beaec7aaf6c6cb0c5ad77f9e3a67659245c6
 @csrf
       <div class="rating-css">
     <div class="star-icon">
