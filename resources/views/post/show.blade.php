@@ -137,6 +137,7 @@
       </div>
       <!-- create comment -->
         @if (Auth::check())
+       
 <form action="{{ url("/add-rating/$post->post_id") }}" method="POST">
 @csrf
       <div class="rating-css">
@@ -155,6 +156,9 @@
 </div>
 <input id="sent" class="button" type="submit" value="Gửi đánh giá">
 </form>
+
+
+
 @endif
 
       <!-- Tiêu đề phần bình luận -->
@@ -169,7 +173,6 @@
       @csrf
           <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
           <div class="flex">
-            <input id="discard" class="button" type="submit" value="Hủy">
             <input id="sent" class="button" type="submit" value="Gửi Bình Luận">
           </div>
           @error('content')
