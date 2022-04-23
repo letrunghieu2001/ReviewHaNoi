@@ -1,7 +1,7 @@
 :root{
   --BackgroundColor: rgb(225,230,226);
-  --FontPrimary: 'SVN-Elle';
-  --FontSecondary: 'SlimTony';
+  --FontPrimary: 'SlimTony';
+  --FontSecondary: 'Inconsolata';
   --TextColor: black;
   --FooterColor:linear-gradient(90deg,#7ea1ca,#ebad8a);
 }
@@ -18,7 +18,18 @@ body{
   width: 100%;
   background-color: var(--BackgroundColor);
 }
+@font-face {
+  font-family: Inconsolata;
+  src: url('../fonts/Inconsolata/Inconsolata-VariableFont_wdth\,wght.ttf');
+}
+
+p,h1,h2,h3,h4,h5,h6,a,textarea,li,ul,div{
+  font-family: var(--FontSecondary),sans-serif;
+}
+
+
 *{
+  font-family: var(--FontSecondary),sans-serif;
   margin: 0;
   padding: 0;
   outline: none;

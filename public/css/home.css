@@ -21,7 +21,7 @@
 .body .logo_title img{
     width: 37%;
 }
-.body .logo_title h4{font-family: var(--FontSecondary);color:white;font-size: 2rem;}
+.body .logo_title h4{font-family: var(--FontPrimary);color:white;font-size: 2rem;}
 .search {
     width: 100%;
     position: relative;
@@ -41,16 +41,17 @@
     border-right: 1px solid transparent;
     border-radius: 5px 0px 0px 5px;
     background-color: rgb(215, 201, 201);
+    font-family: var(--FontSecondary),sans-serif;
 }
 #type.danhmuc{
   border-right:transparent;
 }
 #browsers.danhmuc{
   border-left:transparent;
-  border-radius: 0px;;
+  border-radius: 0px;
 }
 
-  .danhmuc::placeholder{text-align: center;color:black}
+  .danhmuc::placeholder{text-align: center;color:black;    font-family: var(--FontSecondary),sans-serif;}
   .searchTerm {
     width: 85%;
     border: none;

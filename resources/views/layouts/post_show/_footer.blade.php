@@ -26,6 +26,7 @@
     </div>
 </footer>
 
+<script src="{{ asset('js/management.js') }}"></script>
 <script src="{{ asset('js/slider.js') }}"></script>
 <script
     type="text/javascript"
@@ -42,7 +43,7 @@
 <!-- Swipper Slider JS -->
 <script src="{{ asset('js/slider1.js') }}"></script>
 <script src="{{ asset('js/slider2.js') }}"></script>
-    <script>
+    <!-- <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 3,
             slidesPerGroup: 3,
@@ -76,7 +77,7 @@
             });
         }
     </script>
-   
+    -->
 
 
 

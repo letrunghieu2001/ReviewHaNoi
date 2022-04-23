@@ -24,10 +24,11 @@
   margin-top:20px;
 }
 .info__content .title{
-  font-family: var(--FontSecondary),sans-serif;
+  font-family: var(--FontPrimary),sans-serif;
   color:red
 }
 .info__content p {
+  font-family: var(--FontSecondary);
   color:var(--TextColor);
   line-height: 22px;
   word-spacing: 2px;
@@ -54,8 +55,9 @@
   font-size: 40px;
   margin-top: 10px;
   text-align: center;
-  font-family: var(--FontSecondary);
+  font-family: var(--FontPrimary),sans-serif;
   color:red;
+  margin-bottom: 10px;
 }
 .map__content p{
   font-family: 'Inconsolata',monospace,sans-serif;

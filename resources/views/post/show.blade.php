@@ -154,7 +154,7 @@
         <label for="rating5" class="fa fa-star"></label>
     </div>
 </div>
-<input id="sent" class="button" type="submit" value="Gửi đánh giá">
+<input id="sent" class="button button-section" type="submit" value="Gửi đánh giá">
 </form>
 
 
@@ -164,24 +164,14 @@
       <!-- Tiêu đề phần bình luận -->
       <div class="related-post">
          <div class="title">
-          <h3>Phần bình luận</h3>
+          <h3>Bình luận</h3>
         </div>    
       </div>
       <!-- create comment -->
         @if (Auth::check())
-<<<<<<< HEAD
-        <form class="cmt comment-section" action="{{ url("/comments/$post->post_id") }}" method="POST">
-        @csrf
-          <div class="comment-input"> 
-            <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
-=======
       <form class="cmt comment-section" action="{{ url("/comments/$post->post_id") }}" method="POST">
       @csrf
           <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
-          <div class="flex">
-            <input id="sent" class="button" type="submit" value="Gửi Bình Luận">
->>>>>>> 5fbe88fa3f82b10b71adb2aeafd1782ba31977ab
-          </div>
             <div class="flex">
               <input id="discard" class="button" type="submit" value="Hủy">
               <input id="sent" class="button" type="submit" value="Gửi Bình Luận">
@@ -216,30 +206,32 @@
                       </div>
 
                       <div class="right">
-                      <div class="three-dots">
+                      <div class="three__dots">
                         @if (Auth::check())
                         @if(($comment->user_id == Auth::user()->id))
                         <div class="ml-auto btn-group dropleft" id="a_post">
                             <a type="button" id="dropdownMenuComment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-ellipsis-v tt-icon-btn text-dark"></i>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuComment">
+                            <ul class="dropdown-menu subMenu" aria-labelledby="dropdownMenuComment">
                                 <!--Edit comment-->
-                                <a class="dropdown-item mt-3 text-black" href="{{ url("/comments/$comment->id/self_edit") }}">
-                                    <img src="{{ asset('assets/img/forum/edit (1).png') }}" class="icon_post tt-icon-btn">
-                                    <span>Edit comment</span>
-                                </a>
-
+                                <li>
+                                  <a class="dropdown-item mt-3 text-black" href="{{ url("/comments/$comment->id/self_edit") }}">
+                                    <span>Edit</span>
+                                  </a>
+                                </li>
+                                
                                 <!--Delete comment-->
-                                <a class="dropdown-item mt-3 mb-3" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('comment-delete-{{ $comment->id }}').submit()">
-                                    <img src="{{ asset('assets/img/forum/delete (1).png') }}" class="icon_post tt-icon-btn">
-                                    <span>Delete comment</span>
+                                <li>
+                                  <a class="dropdown-item mt-3 mb-3" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('comment-delete-{{ $comment->id }}').submit()">
+                                    <span>Delete</span>
                                     <form action='{{ url("/comments/{$comment->id}") }}' method="POST" id="comment-delete-{{ $comment->id }}">
                                         @method('DELETE')
                                         @csrf
                                     </form>
-                                </a>
-                            </div>
+                                  </a>
+                                </li>
+                            </ul>
                         </div>
                         @endif
                         @endif

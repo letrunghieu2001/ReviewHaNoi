@@ -3,9 +3,6 @@
 @import url(../CSS/main.css);
 
 
-/* Google font cho paragraph */
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
-/*  */
 .panel{
 
   display: flex;
@@ -30,6 +27,9 @@
 #headings .title{
   margin:0px auto;
   margin-bottom: 20px;
+}
+#heading .title h3, .related-post .title h3{
+  font-family: var(--FontPrimary),sans-serif;
 }
 .flex{
   display: flex;
@@ -162,10 +162,10 @@
 }
 .panel .related-post .slick-prev{
   top:0;
-  left: 43%;
+  left: 45%;
 }
 .panel .related-post .slick-next{
-  left: 43%;
+  left: 45%;
   top:100%;
 }
 .panel .related-post .image-item .image,.panel .related-post .image-item .image-title{
@@ -309,7 +309,7 @@ input#sent:hover,input#discard:hover{
   display: flex;
 }
 .comment-content .left{
-  flex:4;
+  flex:12;
 }
 .comment-content .right{
   flex:1;
@@ -354,6 +354,14 @@ input#sent:hover,input#discard:hover{
 }
 /* hết phần nút thêm ảnh trang chỉnh sửa bài dăng */
 /* rating */
+.star-icon{
+  width: 50%;
+  margin-left: 10%;
+  text-align: left !important;
+}
+.rating-css{
+  margin-top: 10px;
+}
 .rating-css div {
   color: #ffe400;
   font-size: 30px;
@@ -367,7 +375,7 @@ input#sent:hover,input#discard:hover{
   display: none;
 }
 .rating-css input + label {
-  font-size: 60px;
+  font-size: 30px;
   text-shadow: 1px 1px 0 #8f8420;
   cursor: pointer;
 }
@@ -385,6 +393,60 @@ input#sent:hover,input#discard:hover{
 
 /* End of Star Rating */
 
+/* three dots */
+.three__dots{
+  display: block;
+  width: 10px;
+  height: 20px;
+  border-radius: 3px;
+  cursor:pointer;
+  margin-left:5px;
+  position: relative;
+
+}
+
+.subMenu{
+  display: none;
+}
+/* .three__dots:hover .subMenu, */
+.three__dots .subMenu
+{
+  width: 180px;
+  height: 150px;
+  position: absolute;
+  top: 30px;
+  display: none;
+  transition: 0.25s ease-in-out;
+}
+
+.three__dots.active .subMenu{
+  display: block;
+}
+.three__dots .subMenu:before{
+  content: '';
+  position: absolute;
+  width:0;
+  height:0;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-bottom: 5px solid black;
+  left:5px;
+  top: -5px;
+  z-index: 999999;
+  opacity: 0.5;
+  
+}
+.subMenu li{
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid grey;
+  padding:5px 
+}
+.subMenu li a{
+  font-size: 14px;
+  line-height: 14px;
+}
+/* end of three dots */
 
 @media (min-width:800px){
   .carousel {width: 25%;height: 55%;overflow: hidden;position: absolute;top: 50%;right: 5%;font-family: tahoma;border: 1px solid gray;cursor: pointer;visibility: visible;}
@@ -430,3 +492,4 @@ input#sent:hover,input#discard:hover{
     max-width: 400px;
   }
 }
+

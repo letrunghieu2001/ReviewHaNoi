@@ -1,15 +1,14 @@
 @import url(../CSS/main.css);
 @import url(../CSS/menu.css);
 @import url(../CSS/footer.css);
-* { margin: 0px; padding: 0px; }
+
 html, body { width: 100%; height: 100%; }
-@font-face { font-family: fontvn; src: url("/font/UVF_SlimTony.ttf"); }
+
 ::-webkit-scrollbar { width: 12px; height: 12px; }
 ::-webkit-scrollbar-track { width: 2px; }
 ::-webkit-scrollbar-thumb { background: linear-gradient(150deg, rgb(251, 191, 77) 35%, rgb(241, 78, 141) 100%); }
 ::-webkit-scrollbar-thumb:hover { background: rgb(241, 75, 143); }
-/* 
-.body { position: relative; z-index: 2; width: 100%; height: 100%; } */
+
 .body{
   width:100%;
   margin-top: 50px;
@@ -18,7 +17,6 @@ html, body { width: 100%; height: 100%; }
   width: 100%;
   margin:0px auto;
   margin-top: 20px;
-
 }
 /* .box {width: 100%;margin: auto;;height:80%;font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif} */
 .wrapper {width: 80%;position: absolute;top: 10%;left: 50%;transform: translate(-50%, 50%); border: 1px solid black; border-radius: 10px;}
@@ -40,7 +38,15 @@ html, body { width: 100%; height: 100%; }
 /* .articles {padding-top:20px;width: 80%;position: absolute;top: 30%;border: 1px solid black;height: 80%;overflow: auto;display: flex;left: 10%;flex-wrap: wrap;justify-content: center;align-items: center;border-radius: 10px;} */
 .articles a {text-decoration: none; color: black;}
 .articles .art img {width: 256px;height: 70%; transition: 1s ease-in-out;}
-.art {margin: 0px 15px;margin-bottom: 20px;height: 220px;cursor: pointer;border: 1px solid black;border-radius: 9px;overflow: hidden;}
+.art {
+  margin: 0px 15px;
+  margin-bottom: 20px;
+  height: 220px;
+  cursor: pointer;
+  border: 1px solid  grey;
+  /* border-radius: 9px; */
+  overflow: hidden;
+}
 .art .content {width: 250px;font-size: 11px; margin-top: 5px;}
 .catelogy li:hover a{color:rgb(241, 75, 143)}
 .articles .art:hover img {transform: scale(1.1);}
@@ -95,7 +101,7 @@ html, body { width: 100%; height: 100%; }
     /* border-right: 1px solid gray; */
     border-radius: 5px 0px 0px 5px;
     /* background-color: rgb(215, 201, 201); */
-
+    font-family: var(--FontSecondary),sans-serif;
     border-right: none;
 }
 #type.danhmuc{
@@ -152,15 +158,15 @@ footer{
 .pagination .page-item{
   color:black;
   padding: 8px 16px;
-  transition: background-color 0.3s linear;
+  transition: all 0.3s linear;
   border:1px solid grey;  
   margin: 0 4px;
 }
 
-.pagination .active {
-  background-color: #4CAF50;
+.pagination .active, .pagination .page-item:hover {
+  background-color: rgb(246,183,78);
   color: white;
-  border: 1px solid #4CAF50;
+  border: 1px solid rgb(246,183,78);
 }
 
 .box h3{
