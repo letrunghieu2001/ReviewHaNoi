@@ -447,6 +447,34 @@ input#sent:hover,input#discard:hover{
   line-height: 14px;
 }
 /* end of three dots */
+/* pagination */
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination .page-item{
+  color:black;
+  padding: 8px 16px;
+  transition: all 0.3s linear;
+  border:1px solid grey;  
+  margin: 0 4px;
+}
+
+.pagination .active, .pagination .page-item:hover {
+  background-color: rgb(246,183,78);
+  color: white;
+  border: 1px solid rgb(246,183,78);
+}
+
+.box h3{
+  width: 60%;
+  margin: 0px auto;
+
+}
+
+/* end of pagination */
 
 @media (min-width:800px){
   .carousel {width: 25%;height: 55%;overflow: hidden;position: absolute;top: 50%;right: 5%;font-family: tahoma;border: 1px solid gray;cursor: pointer;visibility: visible;}

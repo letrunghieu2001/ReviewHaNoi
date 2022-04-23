@@ -102,7 +102,7 @@ class PostController extends Controller
         ->where('comments.post_id', '=', "$post")
         ->select('comments.*', 'users.name',  'users.avatar')
         ->latest()
-        ->get();  
+        ->paginate(10);  
 
         
         

@@ -248,8 +248,12 @@
 
 
                     </div>
+
                 </div>
-                @endforeach
+                @endforeach                   
+                 <div style="text-align:center ">
+                    {{ $comments->links() }}
+</div>
             </div>
 
         </div>
