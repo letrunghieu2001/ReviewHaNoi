@@ -113,11 +113,7 @@
             <a href="{{url('/login')}}">Đăng nhập</a>
             </li>
             @endif            
-            <li class="darkLight-searchBox">
-              <div class="dark-light">
-                <i class='bx bx-moon moon'></i>
-                <i class='bx bx-sun sun'></i>
-            </li>
+
         </ul>
     </div>
   </div>
