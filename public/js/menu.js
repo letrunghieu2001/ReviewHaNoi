@@ -7,8 +7,8 @@ const gift = document.getElementById("gift");
 const category = document.getElementById("category");
 
 
-const body = document.querySelector("body"),
-      modeToggle = document.querySelector(".dark-light");
+const body = document.querySelector("body");
+      // modeToggle = document.querySelector(".dark-light");
 
 
 
@@ -34,11 +34,11 @@ category.addEventListener('click',(e)=>{
 
 
 
-modeToggle.addEventListener("click",()=>{
-  modeToggle.classList.toggle("active");
-  body.classList.toggle("dark");
+// modeToggle.addEventListener("click",()=>{
+//   modeToggle.classList.toggle("active");
+//   body.classList.toggle("dark");
   
-})
+// })
 
 
 

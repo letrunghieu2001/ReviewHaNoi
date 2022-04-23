@@ -50,14 +50,14 @@
   transition: all 0.2s linear;
   background-color: rgb(178, 170, 170);
 }
-.slick-arrow:hover, .slick-arrow:active{
+.slick-arrow:hover, .slick-arrow{
   background-color: rgb(246,183,78);
   color:white;
 }
-.slick-prev{
+.image-slider .slick-prev{
   left:0;
 }
-.slick-next{
+.image-slider .slick-next{
   right: 0;
 }
 .slick-dots{

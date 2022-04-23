@@ -148,7 +148,7 @@
 /* slider dọc */
 .panel .related-post{
   width: 30%;
-  margin-left: 40px;
+  /* margin-left: 40px; */
   padding-top: 300px;
   display: flex;
   flex-direction: column;
@@ -161,12 +161,11 @@
   font-size: 26px;
 }
 .panel .related-post .slick-prev{
-  top:0;
-  left: 45%;
+  right: 0 !important;
 }
 .panel .related-post .slick-next{
-  left: 45%;
-  top:100%;
+  right:0 !important;
+  top: 50%;
 }
 .panel .related-post .image-item .image,.panel .related-post .image-item .image-title{
   margin: 0px auto;
@@ -194,24 +193,7 @@
   margin-top: 30px;
   text-decoration: underline;
 }
-/* .related-content .el{
-  width: 300px;
-  transition: transform 0.5ms ease-in;
-}
-.related-content .el:hover{
-  transform: translateX(-10px);
-  transform: translateY(-5px);
-}
-.related-content .el  h3{
-  font-size: 20px;
-  line-height: 20px;
-  width: 80%;
-}
-.related-content a img{
-  max-width: 256px;
-} */
 
-/* button section */
 .button-section{
   display: flex;
   margin-left: 10%;
@@ -275,10 +257,10 @@
 textarea.cmt1{
   background: #fff;
   border: none;
-  width: 90%;
+  width: 60%;
   margin:10px 0 10px 10px;
-  height: 30px;
-  overflow-y: hidden;
+  height: 50px;
+  overflow-y: scroll;
   resize: none;
   padding:5px 37px 0 15px;
 }
@@ -309,10 +291,11 @@ input#sent:hover,input#discard:hover{
   display: flex;
 }
 .comment-content .left{
-  flex:12;
+  width: 90%;
+  
 }
 .comment-content .right{
-  flex:1;
+  width: 10%;
 }
 .comment-content h4{
   margin-top: 10px;
@@ -396,7 +379,7 @@ input#sent:hover,input#discard:hover{
 /* three dots */
 .three__dots{
   display: block;
-  width: 10px;
+  max-width: 100%;
   height: 20px;
   border-radius: 3px;
   cursor:pointer;
@@ -519,5 +502,43 @@ input#sent:hover,input#discard:hover{
   textarea#content{
     max-width: 400px;
   }
+  .panel .related-post{
+    width: 100%;
+    padding-top: 30px;
+    margin-left: 5%;
+  }
+  #posts .related-content{
+    width: 100% !important;
+  
+    margin-left: 5% !important;
+  }
+  .panel .related-post .slick-prev{
+    top:50%;
+    left:0;
+  }
+  .panel .related-post .slick-next{
+    right: 0;
+    top:50%;
+  }
+  .related-post .title h3{
+    text-align: left;
+    font-size: 30px;
+  }
+  .image-slider-2{
+    width: auto;
+  }
+  .image-slider-2 .image-item{
+    width: 169px !important ;
+  }
 }
 
+/* show cmt responsive */
+#show-cmt{
+  width: 100%;
+}
+
+#show-cmt p{
+  width: 100%;
+  overflow:auto;
+  height: 40px;
+}

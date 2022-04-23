@@ -36,10 +36,10 @@
         <h4>Giờ mở cửa: {{ $post->time}}</h4>
         <div class="flex">
           <div class="link">
-            <a href='{{ $post->link}}'>Xem trang web</a>
+            <a href='{{ $post->link}}' target="_blank">Xem trang web</a>
           </div>
           <div class="link">
-            <a href='{{ $post->map}}'>Bản đồ</a>
+            <a href='{{ $post->map}}' target="_blank">Bản đồ</a>
           </div>
         </div>
       
@@ -205,8 +205,8 @@
                         <h4 class="pt-2">{{ $comment->name}}</h4>
                         <div class="row size_10px">{{ $comment->created_at }}</div>
                         <div class="mt-2 mr-4 row">
-                            <div class="word-break reponsive">
-                                {!! $comment->content !!}
+                            <div class="word-break reponsive" id="show-cmt" >
+                                <p>{!! $comment->content !!}</p>
                             </div>
                         </div>
                       </div>

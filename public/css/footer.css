@@ -32,7 +32,7 @@ footer .footer__content .footer__logo img{
   font-size: 16px;
   font-weight: normal;
   line-height: 2rem;
-  font-family: var(--FontSecondary),sans-serif;
+  font-family: var(--FontPrimary),sans-serif;
 }
 .socials{
   display: flex;
@@ -51,9 +51,8 @@ footer .footer__content .footer__logo img{
 }
 
 .footer__info{
- 
   width:100%;
-  padding-top:56px;
+  padding-top:30px;
   position: relative;
 }
 .footer__info h3,
@@ -64,6 +63,7 @@ footer .footer__content .footer__logo img{
   font-size: 1rem;
   font-weight: lighter;
   text-align: center;
+  color:white;
 }
 .footer__info h3{
   color:var(--TextColor);

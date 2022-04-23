@@ -24,11 +24,11 @@
   margin-top:20px;
 }
 .info__content .title{
-  font-family: var(--FontPrimary),sans-serif;
+  font-family: var(--FontPrimary),sans-serif !important;
   color:red
 }
 .info__content p {
-  font-family: var(--FontSecondary);
+  font-family: var(--FontSecondary),sans-serif !important;
   color:var(--TextColor);
   line-height: 22px;
   word-spacing: 2px;

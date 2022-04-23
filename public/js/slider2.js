@@ -24,7 +24,11 @@ $(document).ready(function(){
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2
+          slidesToScroll: 2,
+          vertical:false,
+          autoplay:false,
+          prevArrow:`<button type='button' class='slick-prev slick-arrow pull-left'><i class="fa fa-angle-left"></i></button>`,
+          nextArrow:`<button type='button' class='slick-next slick-arrow pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>`,
         }
       },
       {
@@ -32,7 +36,9 @@ $(document).ready(function(){
         settings: {
           slidesToShow: 1,
           arrows:false,
-          infinite:false
+          vertical:false,
+          infinite:false,
+          autoplay:false
         }
       }
     ]
