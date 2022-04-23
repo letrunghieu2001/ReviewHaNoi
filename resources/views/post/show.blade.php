@@ -137,7 +137,13 @@
       </div>
       <!-- create comment -->
         @if (Auth::check())
-       
+       @if ($user_rating)
+
+<div class="title" >
+  <h3>Bạn đã đánh giá địa điểm này</h3>
+</div>
+
+       @else
 <form action="{{ url("/add-rating/$post->post_id") }}" method="POST">
 @csrf
       <div class="rating-css">
@@ -157,7 +163,7 @@
 <input id="sent" class="button button-section" type="submit" value="Gửi đánh giá">
 </form>
 
-
+@endif
 
 @endif
 

@@ -81,6 +81,11 @@ class PostController extends Controller
         ->select('ratings.*','ratings.user_id as userid')
         ->get();
 
+        $user_rating = DB::table('ratings')
+        ->where('ratings.post_id', '=', "$post")
+        ->where('user_id','=',Auth::id())
+        ->first();
+
         $rating_sum = DB::table('ratings')->where('ratings.post_id', '=', "$post")->sum('stars_rated');
         
         if($rating_sum > 0)
@@ -125,8 +130,8 @@ class PostController extends Controller
             'countComment' => $countComment,
             'items' => $items,
             'rating_count' => $rating_count,
-            'rating' => $rating
-            
+            'rating' => $rating,
+            'user_rating' => $user_rating
             
         ]);
     }
