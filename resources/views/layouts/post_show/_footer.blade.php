@@ -26,6 +26,7 @@
     </div>
 </footer>
 
+<script src="{{ asset('js/menu.js') }}"></script>
 <script src="{{ asset('js/management.js') }}"></script>
 <script src="{{ asset('js/slider.js') }}"></script>
 <script
