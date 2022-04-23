@@ -10,6 +10,9 @@
    <!-- Box Icon -->
    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
    <!-- CSS -->
+   <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
    <link rel="stylesheet" href="{{ asset('css/search.css') }}">
    <!-- <link rel="stylesheet" href="../CSS/home.css"> -->
    

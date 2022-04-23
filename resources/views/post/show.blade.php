@@ -114,7 +114,7 @@
 
 
 @if (Auth::check())
-      @if ($post->role_id == 1)
+      @if (Auth::user()->role_id == 1)
 <div class="button-section">
   <div class="button">     
     <a href="{{ url("/posts/$post->post_id/edit") }}"  >

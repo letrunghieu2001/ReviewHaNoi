@@ -10,6 +10,9 @@
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
   <!-- CSS -->
+  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
    <link rel="stylesheet" href="{{ asset('css/posts.css') }}">
    <link rel="stylesheet" href="{{ asset('css/slider1.css') }}">
    <link rel="stylesheet" href="{{ asset('css/slider2.css') }}">
