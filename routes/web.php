@@ -79,13 +79,14 @@ Route::post('/posts', [PostController::class, 'store']);
 Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
 Route::put('/posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);
 });
 
 Route::group(['middleware'=>'auth'], function(){ 
     Route::post('/comments/{post}', [CommentController::class, 'store']);
     Route::get('/comments/{comment}/self_edit', [CommentController::class, 'self_edit']);
     Route::put('/comments/{comment}', [CommentController::class, 'update']);
-    Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);
+    
     });
 
 Route::group(['middleware'=>'auth'], function(){ 

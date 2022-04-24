@@ -47,15 +47,9 @@ public function update(CommentRequest $request, Comment $comment)
 
 public function destroy(Comment $comment)
 {
-    $user_id = FacadesAuth::user()->id;
-    if($comment->user_id == $user_id)
-    {
+
         $comment->delete();
         return redirect("/posts/{$comment->post_id}");
-    }
-    else 
-    {
-        abort (401);
-    }
+
 }
 }
