@@ -82,6 +82,7 @@
 }
 .form__group input,
 #gender{
+  width: 100%;
   height: 50px;
   border:1px solid rgba(0,0,0,0.2);
   border-radius: 5px;
@@ -156,10 +157,11 @@ button:hover{
   .title{
     max-width: 500px;
     margin:0px auto;
+    margin-bottom: 10px;
   }
   .title h3{
-    font-size: 40px;
-    font-family: var(--FontSecondary),sans-serif;
+    font-size: 36px;
+    font-family: var(--FontPrimary),sans-serif;
     color:red;
   }
   .form__split{

@@ -15,7 +15,7 @@ ReviewHaNoi
         <form method="GET" action="{{ url('/posts') }}">
         <div class="wrap">
              <div class="search">
-             <select class="danhmuc" id="type" name="type">
+             <select class="danhmuc" id="type" name="type" style="height:40px">
                       <option value="">Tất cả</option>
                       <option > Nhà hàng</option>
                       <option > Quán ăn</option>
@@ -25,7 +25,7 @@ ReviewHaNoi
                       <option > Địa điểm check-in</option>
                       <option > Homestay - Khách sạn</option>
                 </select>
-                <select class="danhmuc" id="browsers" name="browser">
+                <select class="danhmuc" id="browsers" name="browser" style="height:40px">
                       <option value="">Tất cả</option>
                       <option> Quận Ba Đình</option>
                       <option> Quận Cầu Giấy</option>

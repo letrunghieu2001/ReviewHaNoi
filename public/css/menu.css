@@ -30,54 +30,12 @@
 .toggle-btn.open div::after { transform: rotate(-405deg) translate(20px, -4px); }
 .open { margin-left: 0px !important; }
 .menu li:hover a span { color: rgb(242, 89, 136); }
-
-/* darkMode */
-/* body.dark{
-  --TextColor: white;
-  --BackgroundColor:black;
-  background-color: black;
+ul .row2 .admin ,ul.row2 .admin > a{
+  width: 100%;
+  height: 100%;
+  overflow:auto;
 }
 
-
-
-.darkLight-searchBox{
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right:-130px;
-  border:none;
-}
-.darkLight-searchBox .dark-light,
-.darkLight-searchBox .searchBox{
-  height: 40px;
-  width: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 5px;
-}
-.dark-light i{
-  position:absolute;
-  color:white;
-  font-size: 22px;
-  cursor: pointer;
-  transition:all 0.2s ease;
-}
-.dark-light i.sun{
-  opacity: 0;
-  pointer-events: none;
-}
-.dark-light.active i.moon{
-  opacity: 0;
-
-  pointer-events: none;
-}
-.dark-light.active i.sun{
-  opacity: 1;
-  color:yellow;
-  pointer-events:auto;
-} */
-/* end of darkMode */
 /* search button */
 .search__container{
   width: 200px !important;
@@ -147,14 +105,14 @@
 /* submenu */
 .menu2{
   width: inherit;
-
-  display: block;
+  display: none;
   transition:1s ease-in-out;
 
   background: rgb(37, 37, 61);
 }
-
-
+.admin .menu2{
+  margin-top: 50px;
+}
 .row2 .menu li#map a img,.row2 .menu li#shop a img{
   filter: invert(1);
 }
@@ -184,10 +142,10 @@
 .admin{
   height:50px;
 }
-.admin .menu2{
+/* .admin .menu2{
   z-index: 3;
   top:50px;
-}
+} */
 .admin .menu2 li{
   text-align: left !important;
 }
