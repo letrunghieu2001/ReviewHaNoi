@@ -179,7 +179,6 @@
       @csrf
           <textarea class="cmt1" name="content" id="comments" placeholder="Bình Luận..." ></textarea>
             <div class="flex">
-              <input id="discard" class="button" type="submit" value="Hủy">
               <input id="sent" class="button" type="submit" value="Gửi Bình Luận">
             </div>
               @error('content')
@@ -214,19 +213,21 @@
                       <div class="right">
                       <div class="three__dots">
                         @if (Auth::check())
-                        @if(($comment->user_id == Auth::user()->id))
+                        
                         <div class="ml-auto btn-group dropleft" id="a_post">
                             <a type="button" id="dropdownMenuComment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-ellipsis-v tt-icon-btn text-dark"></i>
-                            </a>
+                            </a>                     
                             <ul class="dropdown-menu subMenu" aria-labelledby="dropdownMenuComment">
-                                <!--Edit comment-->
+                                @if(($comment->user_id == Auth::user()->id) )
+                            <!--Edit comment-->
                                 <li>
                                   <a class="dropdown-item mt-3 text-black" href="{{ url("/comments/$comment->id/self_edit") }}">
                                     <span>Edit</span>
                                   </a>
                                 </li>
-                                
+                                @endif
+                                @if(($comment->user_id == Auth::user()->id) || (Auth::user()->role_id == 1))
                                 <!--Delete comment-->
                                 <li>
                                   <a class="dropdown-item mt-3 mb-3" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('comment-delete-{{ $comment->id }}').submit()">
@@ -237,9 +238,10 @@
                                     </form>
                                   </a>
                                 </li>
+                                            @endif                    
                             </ul>
                         </div>
-                        @endif
+         
                         @endif
                         </div>
                       </div>
