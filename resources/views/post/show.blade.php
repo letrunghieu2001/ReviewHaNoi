@@ -186,11 +186,11 @@
                 @enderror
           </form>
           @else
-          <a class="comment-section" href="{{ url("login") }}">Vui lòng  Đăng nhập để bình luận </a>
+          <a class="comment-section" href="{{ url("login") }}">Vui lòng đăng nhập để bình luận và xem bình luận </a>
             @endif
     
      
-      
+            @if (Auth::check())
       @if ($countComment > 0)
       <h3 style="margin-left:10%">Có {{ $countComment }} bình luận</h3>
             <!-- Show comment -->
@@ -256,6 +256,7 @@
                  <div style="text-align:center ">
                     {{ $comments->links() }}
 </div>
+@endif
             </div>
 
         </div>
