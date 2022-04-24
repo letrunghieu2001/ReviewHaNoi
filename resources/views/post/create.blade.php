@@ -90,8 +90,8 @@
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
           <div class="form__group">
-            <label for="time">Map:</label>
-            <input type="text" name="time" id="time" class="form-control" value="{{ old('map') }}"  aria-describedby="helpId" >
+            <label for="map">Map:</label>
+            <input type="text" name="map" id="map" class="form-control" value="{{ old('map') }}"  aria-describedby="helpId" >
           </div>
           @error('map')
                     <div class="form-text text-danger">{{ $message }}</div>
