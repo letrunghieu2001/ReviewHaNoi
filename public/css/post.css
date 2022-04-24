@@ -8,7 +8,7 @@ form.cmt { margin: 10px 0px; display: flex; }
 input[type="submit"] { padding: 10px; color: white; background: rgb(31, 120, 197); cursor: pointer; margin-left: 10px; }
 textarea#comments { width: 79%; padding: 10px 0px; outline: 0px; }
 html, body { width: 100%; height: 100%; }
-@font-face { font-family: fontvn; src: url("/font/UVF_SlimTony.ttf"); }
+
 ::-webkit-scrollbar { width: 12px; height: 12px; }
 ::-webkit-scrollbar-track { width: 2px; }
 ::-webkit-scrollbar-thumb { background: linear-gradient(150deg, rgb(251, 191, 77) 35%, rgb(241, 78, 141) 100%); border:4px solid transparent; border-radius: 8px;}

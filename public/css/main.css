@@ -5,6 +5,11 @@
   --TextColor: black;
   --FooterColor:linear-gradient(90deg,#7ea1ca,#ebad8a);
 }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { width: 2px; }
+::-webkit-scrollbar-thumb { background: linear-gradient(150deg, rgb(251, 191, 77) 35%, rgb(241, 78, 141) 100%); border:4px solid transparent; border-radius: 8px;}
+::-webkit-scrollbar-thumb:hover { background: rgb(241, 75, 143); }
+
 @font-face {
   font-family: SVN-Elle;
   src: url('../fonts/SVN-Elle\ NovaC\ Extra\ Light.ttf');

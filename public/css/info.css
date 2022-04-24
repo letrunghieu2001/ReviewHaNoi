@@ -89,3 +89,13 @@
     width: calc(100%/3);
   }
 }
+@media (max-width:700px){
+  iframe{
+    width: 500px;
+  }
+}
+@media (max-width:500px){
+  iframe{
+    width: 300px;
+  }
+}
