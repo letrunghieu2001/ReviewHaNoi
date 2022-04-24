@@ -148,7 +148,7 @@
 .menu2{
   width: inherit;
 
-  display: none;
+  display: block;
   transition:1s ease-in-out;
 
   background: rgb(37, 37, 61);

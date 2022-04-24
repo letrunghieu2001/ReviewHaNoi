@@ -28,7 +28,7 @@ footer .footer__content .footer__logo img{
 .footer__logo h1{
   margin-top:10px;
   max-width: inherit;
-  color:red;
+  color:white;
   font-size: 16px;
   font-weight: normal;
   line-height: 2rem;
@@ -52,7 +52,7 @@ footer .footer__content .footer__logo img{
 
 .footer__info{
   width:100%;
-  padding-top:30px;
+  /* padding-top:30px; */
   position: relative;
 }
 .footer__info h3,

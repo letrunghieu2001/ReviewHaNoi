@@ -160,7 +160,7 @@ button:hover{
   }
   .title h3{
     font-size: 40px;
-    font-family: var(--FontSecondary),sans-serif;
+    font-family: var(--FontPrimary),sans-serif;
     color:red;
   }
   .form__split{
