@@ -33,7 +33,7 @@
 ul .row2 .admin ,ul.row2 .admin > a{
   width: 100%;
   height: 100%;
-  overflow:auto;
+  overflow: hidden;
 }
 
 /* search button */

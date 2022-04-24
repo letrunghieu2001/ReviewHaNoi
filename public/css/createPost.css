@@ -35,7 +35,7 @@
   border-radius: 10px;
 }
 
-#img{
+#img,#img_post{
   width: 100% !important;
   max-height: 200px;
   object-fit: cover;

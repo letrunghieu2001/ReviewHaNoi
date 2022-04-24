@@ -4,7 +4,7 @@
 #contact {width: 50%; margin: 100px auto; font-family: tahoma;}
 .ctLogo{margin: 10px; justify-content: center; display: flex;}
 .ctLogo img{max-width: 255px;}
-.text p, span{font-size: 0.9rem;text-indent: 20px;}
+.text p{font-size: 20px;text-indent: 20px;}
 .text h3{color: red; font-size: 2rem; margin-bottom: 10px;text-align: center; font-family: var(--FontPrimary);}
 .text{margin: 20px 0px;}
 .text b{color: rgb(107, 99, 99);}
