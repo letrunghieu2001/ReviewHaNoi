@@ -160,7 +160,7 @@
         <label for="rating5" class="fa fa-star"></label>
     </div>
 </div>
-<input id="sent" class="button button-section" type="submit" value="Gửi đánh giá">
+<input id="sent" class="button button-section" type="submit" value="Gửi đánh giá" onclick="if (confirm('Cảm ơn bạn đã đánh giá')) document.getElementById('sent').submit()">
 </form>
 
 @endif
