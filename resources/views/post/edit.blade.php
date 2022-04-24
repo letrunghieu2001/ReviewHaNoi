@@ -27,7 +27,7 @@
         <h3>Ảnh bài đăng</h3>
         <div class="ip">          
           <input type="file" name="image" id="image" class="file_custom">
-          <div><img width=30% src="{{ asset("uploads/post/$post->image") }}" id='img'></div>
+          <div><img width=30% src="{{ asset("uploads/post/$post->image") }}" id='img_post'></div>
         </div>
       </div>
       <div class="form--details">
@@ -134,7 +134,9 @@
 </form>
 @endif
     <script>
-        const input = document.querySelector('input[type="file"]')
+ 
+const input = document.querySelector('#thumbnail');
+     const postInput = document.querySelector('#image');
 
 function handleFiles(files) {
     console.log(files)
@@ -149,8 +151,23 @@ function handleFiles(files) {
 input.addEventListener('change', function(e) {
     handleFiles(input.files);
     $("#img").css("max-height", "200px");
-    $("#img").css("object-fit", "contain");
+    $("#img").css("object-fit", "cover");
 })
-  
+
+function handleFilesPost(files) {
+    console.log(files)
+    const reader = new FileReader()
+    reader.onload = function() {
+        const img_post = document.querySelector('#img_post')
+        img_post.src = reader.result
+    }
+    reader.readAsDataURL(files[0])
+}
+postInput.addEventListener('change', function(e) {
+    handleFilesPost(postInput.files);
+    $("#img_post").css("max-height", "200px");
+    $("#img_post").css("object-fit", "cover");
+})
+ 
     </script>
 @endsection
