@@ -31,7 +31,7 @@
     @endif
   </span>
 </div>        
-<h4>Địa chỉ:{{ $post->address}}</h4>
+<h4>Địa chỉ:{{ $post->post_address}}</h4>
         <h4>Số điện thoại:{{ $post->phone_number}}</h4>
         <h4>Giờ mở cửa: {{ $post->time}}</h4>
         <div class="flex">
