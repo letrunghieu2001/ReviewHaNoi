@@ -61,7 +61,7 @@
       <div class="content">
         <p>{!! $post->content !!}
         </p>
-        <p>{{$post->arthur_name}} {{$post->created_at}}</p>
+        <p>{{$post->arthur_name}} {{$post->post_created_at}}</p>
       </div>
     </div>
   </div>
