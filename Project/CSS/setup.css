@@ -1,0 +1,105 @@
+@import url(./main.css);
+@import url(./menu.css);
+@import url(./footer.css);
+:root{
+  --colorPrimary: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+}
+
+.user__setup{
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border:1px solid var(--colorPrimary);
+}
+
+.user__setup .basic__info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-right:20px;
+  background-color:1px solid #fff;
+  border-right: 1px solid grey;
+  padding-right:20px;
+  flex:1;
+}
+.basic__info .logo img{
+  width: 256px;
+  height: 256px;
+  border-radius: 50%;
+}
+.form__group{
+  display: flex;
+  align-items: center;
+  width:300px;
+  height: 56px;
+  border-radius: 5px;
+  margin: 10px 10px 10px 10px;
+  position:relative;
+  background-clip: padding-box;
+  border:1px solid transparent;
+  background: white;
+}
+.basic__info .form__group::before{
+  content: '';
+  top:0;
+  right:0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  margin:-3px;
+  z-index:-1;
+  border-radius: inherit;
+  background: linear-gradient(to left, #743ad5, #d53a9d);
+}
+.form__group h3{
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: normal;
+  margin-left:10px;
+}
+.form__group img{
+  width:20px;
+  height: 20px;
+  margin-left:10px;
+}
+.container .details__info{
+  width: 550px;
+  height: 800px;
+  flex:3;
+  border-left:1px solid linear-gradient(to left, #743ad5, #d53a9d);
+}
+.details__info .title{
+  text-align: center;
+  font-size:40px;
+  margin-top:20px;
+  font-weight: bold;
+}
+.details__info .form__split{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.details__info .form__group{
+  flex-direction: column;
+  align-items: flex-start;
+}
+#btn--update{
+  width: 400px;
+  height: 40px;
+  background-image: linear-gradient(to right, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  font-size:24px;
+  line-height: 24px;
+  color:white;
+  text-align: center;
+  cursor: pointer;
+  outline:none;
+  border-radius:5px;
+  border:1px solid transparent;
+  box-shadow: #41dfff;
+}
+#btn--update:hover{
+  color:red;
+}
