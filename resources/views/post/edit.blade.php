@@ -112,7 +112,7 @@
             @enderror
           <div class="form__group">
           <label for="headings">Đề mục:</label>
-          <input type="text" name="headings" id="headings" value="{{ $post->title }}" class="form-control"  aria-describedby="helpId" >
+          <input type="text" name="title" id="headings" value="{{ $post->title }}" class="form-control"  aria-describedby="helpId" >
           @error('title')
                     <div class="form-text text-danger">{{ $message }}</div>
             @enderror
